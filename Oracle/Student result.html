@@ -4,5 +4,71 @@ CREATE TABLE studentResult(
 	birthDate DATE
 );
 
-2. INSERT QUERY
+SELECT * FROM studentResult;
+
+1.INSERT QUERY
+
 	INSERT INTO studentResult (rollNumber,name,birthDate) VALUES (101,'kalpesh bavaliya','13-may-2005');
+	
+	INSERT INTO studentResult (rollNumber,name,birthDate) VALUES (102,'kalpesh bavaliya','14-may-2005');
+	
+	INSERT INTO studentResult (rollNumber,name,birthDate) VALUES (103,'kalpesh bavaliya','15-may-2005');
+	
+	INSERT INTO studentResult (rollNumber,name,birthDate) VALUES (104,'kalpesh bavaliya','16-may-2005');
+	
+	INSERT INTO studentResult (rollNumber,name,birthDate) VALUES (105,'kalpesh bavaliya','17-may-2005');
+	
+	INSERT INTO studentResult (rollNumber,name,birthDate) VALUES (106,'kalpesh bavaliya','18-may-2005');
+	
+	INSERT INTO studentResult (rollNumber,name,birthDate) VALUES (107,'kalpesh bavaliya','19-may-2005');
+	
+	INSERT INTO studentResult (rollNumber,name,birthDate) VALUES (108,'kalpesh bavaliya','20-may-2005');
+	
+	INSERT INTO studentResult (rollNumber,name,birthDate) VALUES (109,'kalpesh bavaliya','21-may-2005');
+	
+	INSERT INTO studentResult (rollNumber,name,birthDate) VALUES (110,'kalpesh bavaliya','22-may-2005');
+	
+	
+2 Alter add column 
+
+	ALTER TABLE studentResult ADD (total NUMBER(5),percentage NUMBER(5,2),gread VARCHAR2(3));
+	
+3 UPDATE QUERY 
+
+	UPDATE studentResult SET total=&total WHERE rollNumber = &ROLLNUMBER;
+	UPDATE studentResult SET percentage=total/4;
+	
+	UPDATE studentResult SET gread='a+' WHERE percentage >90;
+	UPDATE studentResult SET gread='a' WHERE percentage BETWEEN 80 AND 90;
+	UPDATE studentResult SET gread='b+' WHERE percentage BETWEEN 70 AND 80;
+	UPDATE studentResult SET gread='b' WHERE percentage BETWEEN 60 AND 70;
+	UPDATE studentResult SET gread='c' WHERE percentage BETWEEN 50 AND 60;
+	UPDATE studentResult SET gread='d' WHERE percentage BETWEEN 33 AND 50;	
+	UPDATE studentResult SET gread='f' WHERE percentage <33;
+	
+	UPDATE studentResult SET total=&total, percentage=&percentage ,gread= '&grade'; WHERE rollNumber = &ROLLNUMBER;
+	
+4 DESENDNIG ORDER PERCENTAGE
+
+	SELECT * FROM studentResult ORDER BY percentage DESC;
+	
+5. 3 CHAR DISPLAY NAME
+
+	SELECT substr(name,1,3) FROM studentResult;
+	
+6. name and birthDate 
+
+		SELECT name,birthDate FROM studentResult;
+		
+7. 150 and 190 and the 60 up
+
+	SELECT * FROM studentResult WHERE total BETWEEN 150 AND 190 AND percentage<60;
+	
+8. ROLLNUMBER,NAME TOTAL GRADE OR B
+	SELECT rollNumber,name,total FROM studentResult WHERE gread='a' OR gread='b';
+	
+9. delete grade is a and b
+	DELETE FROM studentResult WHERE gread='a' OR gread='b';
+	
+11. delete  lesss than 40
+	DELETE FROM studentResult WHERE percentage<40;

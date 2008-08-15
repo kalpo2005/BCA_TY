@@ -1,12 +1,12 @@
 <?php
 $result = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $value = $_POST["value"];
-    $conversion = $_POST["conversion"];
-    if ($conversion == "mtokm") {
-        $result = "$value meters = " . ($value / 1000) . " kilometers";
+    $km = $_POST["km"];
+    if (is_numeric($km)) {
+        $meter = $km * 1000;
+        $result = "$km kilometer = $meter meters.";
     } else {
-        $result = "$value kilometers = " . ($value * 1000) . " meters";
+        $result = "Please enter a valid distance in kilometers.";
     }
 }
 ?>
@@ -14,23 +14,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 
 <head>
-    <title>Meter ↔ Kilometer</title>
-  <link rel="stylesheet" href="css/style.css">
+    <title>Assignment 6 - Kilometer to Meter</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <h2>Meter ↔ Kilometer Converter</h2>
+        <h2>Assignment 6: Kilometer to Meter</h2>
         <form method="post">
-            <input type="number" name="value" required placeholder="Enter value">
-            <select name="conversion">
-                <option value="mtokm">Meter to Kilometer</option>
-                <option value="kmtom">Kilometer to Meter</option>
-            </select>
+            <input type="number" name="km" step="any" required placeholder="Enter distance in kilometer">
             <button type="submit">Convert</button>
         </form>
-        <div class="result"><?= $result ?></div>
     </div>
+    <div class="result"><?php echo $result; ?></div>
 </body>
 
 </html>

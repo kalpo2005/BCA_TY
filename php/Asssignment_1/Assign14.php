@@ -1,30 +1,33 @@
 <?php
-$rangeOutput = "";
+$result = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $n = $_POST["n"];
-    $rangeOutput = "Numbers: ";
-    for ($i = 1; $i <= $n; $i++) {
-        $rangeOutput .= $i . " ";
-    }
+    $p = $_POST["principal"];
+    $r = $_POST["rate"];
+    $n = $_POST["time"];
+
+    $si = ($p * $r * $n) / 100;
+    $result = "Simple Interest: ₹" . $si;
 }
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Print 1 to N</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Simple Interest</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <h2>Print Numbers from 1 to N</h2>
+        <h2>Simple Interest Calculator</h2>
         <form method="post">
-            <input type="number" name="n" min="1" required placeholder="Enter N">
-            <button type="submit">Print</button>
+            <input type="number" name="principal" required placeholder="Principal (P)">
+            <input type="number" name="rate" required placeholder="Rate of Interest (R)">
+            <input type="number" name="time" required placeholder="Time (N)">
+            <button type="submit">Calculate</button>
         </form>
-        <div class="result"><?= $rangeOutput ?></div>
     </div>
+    <div class="result"><?php echo $result; ?></div>
 </body>
 
 </html>

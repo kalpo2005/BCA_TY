@@ -1,33 +1,33 @@
 <?php
-$status = "";
+$result = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $num = $_POST["num"];
-    if ($num > 0) {
-        $status = "$num is Positive";
-    } elseif ($num < 0) {
-        $status = "$num is Negative";
-    } else {
-        $status = "Number is Zero";
-    }
+    $book = $_POST["book"];
+    $qty = $_POST["qty"];
+    $price = $_POST["price"];
+
+    $total = $qty * $price;
+    $result = "Book: $book<br>Quantity: $qty<br>Unit Price: ₹$price<br><strong>Total Price: ₹$total</strong>";
 }
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Positive or Negative</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Book Stall Management</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <h2>Check Positive or Negative</h2>
+        <h2>Book Stall Management</h2>
         <form method="post">
-            <input type="number" name="num" required placeholder="Enter a Number">
-            <button type="submit">Check</button>
+            <input type="text" name="book" required placeholder="Book Name">
+            <input type="number" name="qty" required placeholder="Quantity">
+            <input type="number" name="price" required placeholder="Price per Book">
+            <button type="submit">Calculate</button>
         </form>
-        <div class="result"><?= $status ?></div>
     </div>
+    <div class="result"><?php echo $result; ?></div>
 </body>
 
 </html>

@@ -1,31 +1,40 @@
 <?php
 $result = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $num = $_POST["num"];
-    $fact = 1;
-    for ($i = 1; $i <= $num; $i++) {
-        $fact *= $i;
+    $start = $_POST["start"];
+    $end = $_POST["end"];
+    $result = "Palindrome numbers between $start and $end:<br>";
+    for ($i = $start; $i <= $end; $i++) {
+        $rev = 0;
+        $temp = $i;
+        while ($temp > 0) {
+            $rev = ($rev * 10) + ($temp % 10);
+            $temp = intval($temp / 10);
+        }
+        if ($i == $rev) {
+            $result .= $i . "<br> ";
+        }
     }
-    $result = "Factorial of $num is $fact";
 }
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Factorial</title>
+    <title>Dynamic Palindrome</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <h2>Factorial Calculator</h2>
+        <h2>Find Palindromes in Range</h2>
         <form method="post">
-            <input type="number" name="num" min="0" required placeholder="Enter a Number">
-            <button type="submit">Calculate</button>
+            <input type="number" name="start" required placeholder="Start number">
+            <input type="number" name="end" required placeholder="End number">
+            <button type="submit">Check</button>
         </form>
-        <div class="result"><?= $result ?></div>
     </div>
+    <div class="result"><?php echo $result; ?></div>
 </body>
 
 </html>

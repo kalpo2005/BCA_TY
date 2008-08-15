@@ -1,44 +1,51 @@
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    margin: 0;
+    background-color: #f1f1f1;
     padding: 20px;
+    display: flex;
+    gap: 2em;
 }
-.container {
-    max-width: 600px;
-    background-color: #fff;
-    padding: 30px;
-    margin: auto;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+.container, .result {
+    background: white;
+    width: 40%;
+    padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-h2 {
-    text-align: center;
-    color: #333;
+
+.container>form input{
+    border: 2px solid #dfdfdf;
 }
-input[type="text"], input[type="number"], select {
-    width: 100%;
+
+.container>form input,
+button {
+    width: 90%;
     padding: 10px;
     margin-top: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
 }
+
 button {
     background-color: #007BFF;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
 }
+
 button:hover {
     background-color: #0056b3;
 }
+
 .result {
-    background-color: #e9ecef;
-    padding: 15px;
-    border-radius: 5px;
-    margin-top: 20px;
+    width: 40%;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* Remove number field spinners */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

@@ -1,0 +1,33 @@
+// Oracle Assignment 4
+
+// Create a table 
+
+	CREATE TABLE EMP(
+		emp_id NUMBER(3),
+		name
+		city
+		job
+		salary
+		join_date
+		commission
+		dept_no
+		
+	);
+
+
+ Create the following Table. 
+Emp ( emp_id, name,city, job, salary, join_date, commission, dept_no ) 
+Dept (dept_no, dname, location ) 
+ Solve the following query 
+1) Display detailed of employee joined in the month of ‘MARCH’ 
+2) Display details of employee whose city is not ‘DELHI’ or ‘PUNE’ 
+3) Display details of employee joined after ‘1st January 1990’ 
+4) Display details of employee whose is ‘MANAGER’ or ‘OFFICER’ 
+5) Display details of employee in ascending order of name 
+6) Display second highest salary of employee 
+7) Display details of employee whose joining date is in month of ‘FEB’ 
+8) List details of employee not working in ‘ACCOUNT ‘department 
+9) Display the list of employee whose post is ‘PROGRAMMER’ or salary >= 15000 
+10) Count the number of employee in each department.
+11) Create Synonyms for above table.
+12) Create unique index on the emp_id

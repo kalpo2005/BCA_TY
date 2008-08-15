@@ -1,0 +1,53 @@
+//assignment 6 answer 
+
+// Create a table 
+
+	CREATE TABLE EMP(
+		emp_id NUMBER(6) PRIMARY KEY,
+		branch_id NUMBER(6),
+		fname VARCHAR2(15) NOT NULL,
+		lname VARCHAR2(15) NOT NULL,
+		dept VARCHAR2(15),
+		designantion VARCHAR2(15),
+		salary NUMBER(5),
+		commission NUMBER(4)
+	);
+	
+1. INSERT 10 RECORDS 
+	INSERT INTO EMP (emp_id,branch_id,fname,lname,dept,designantion ,salary,commission) VALUES (1,23,'KALPESH','BAVALIYA','DEVELOPMENT','APP DEV',80000,2500);
+	
+	INSERT INTO EMP (emp_id,branch_id,fname,lname,dept,designantion ,salary,commission) VALUES (2,89,'ANIL','BARAIYA','DEPLOYMENT','WEB DEV',90000,5000);
+	
+	INSERT INTO EMP (emp_id,branch_id,fname,lname,dept,designantion ,salary,commission) VALUES (3,3,'DARHSNA','MAKAWANA','DEVELOPMENT','SELLER',75000,2500);
+	
+	INSERT INTO EMP (emp_id,branch_id,fname,lname,dept,designantion ,salary,commission) VALUES (4,89,'YASH','DHOLA','DEVELOPMENT','NAVRA',75000,2500);
+	
+	INSERT INTO EMP (emp_id,branch_id,fname,lname,dept,designantion ,salary,commission) VALUES (5,25,'NAYAN','CHAUHAN','DEVELOPMENT','REACT DEV',75000,2500);
+	
+	INSERT INTO EMP (emp_id,branch_id,fname,lname,dept,designantion ,salary,commission) VALUES (6,25,'KRUPAL','PADANI','PRODUCTION','TRAINER',87870,2500);
+	
+	INSERT INTO EMP (emp_id,branch_id,fname,lname,dept,designantion ,salary,commission) VALUES (7,28,'UTSAV','BARIAYA','DEVELOPMENT','DATA SCIENCE',87500,2500);
+	
+	INSERT INTO EMP (emp_id,branch_id,fname,lname,dept,designantion ,salary,commission) VALUES (8,29,'KARIM','JADAV','DEVELOPMENT','SUPPOERTER',35400,2500);
+	
+	INSERT INTO EMP (emp_id,branch_id,fname,lname,dept,designantion ,salary,commission) VALUES (9,2,'MAHESH','MANKOLIYA','PRODUCTION','MANAGER',56555,2500);
+	
+	INSERT INTO EMP (emp_id,branch_id,fname,lname,dept,designantion ,salary,commission) VALUES (10,99,'DHRUV','DEGAMA','HELPER','DRIVER',50000,2500);
+	
+2. SHOW TABLE STRUCTUR 
+	DESC EMP;
+	
+3. COMBINE TWO LINE  FNAME AND L NAME AS A FULL NAME 
+	SELECT CONCAT(fname,lname) AS full_name FROM EMP;
+	
+4. rename table 
+	RENAME EMP to employee_master;
+	
+5. give the detaile of emp grater than 15000;
+	SELECT * FROM employee_master WHERE salary > 15000;
+	
+6. ORDER BY DESIGNATION 
+	SELECT * FROM employee_master ORDER BY designantion;
+	
+7. GIVE THE NUMBER OF THE GROUP BY  BRANCH ID 
+	SELECT branch_id AS branch,COUNT(branch_id)

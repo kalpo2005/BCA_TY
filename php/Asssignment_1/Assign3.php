@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["marks"])) {
             <?php endfor; ?>
             <button type="submit">Calculate</button>
         </form>
-        <div class="result"><?= $result ?></div>
+        <div class="result"><?php if(isset($result)) echo $result; ?></div>
     </div>
 </body>
 

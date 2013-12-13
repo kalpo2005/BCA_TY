@@ -22,3 +22,11 @@ class SimpleInterest{
 	}
 	
 }
+/*
+24. WAP to create menu driven program like addition subsraction multiplcation 		and division using switch case ;
+
+25.  WAP to to caclulate some array element using 1-d array.
+26.  WAP to to caclulate some array element using 2-d array.
+
+
+*/

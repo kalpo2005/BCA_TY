@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="number" name="num2" required>
             <button type="submit">Calculate</button>
         </form>
-        <div class="result"><?= $output ?></div>
+        <div class="result"><?php if(isset($output)) echo $output; ?></div>
     </div>
 </body>
 

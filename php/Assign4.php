@@ -1,12 +1,20 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	$Number1 = $_POST['number1'];	
-	$Number2 = $_POST['number2'];	
+	$number1 = $_POST['number1'];	
+	$number2 = $_POST['number2'];	
+	$number3 = $_POST['number3'];	
 
-	$Number1+= $Number2;
-	//echo $Number1;
-	$Number2=$Number1-$Number2;
-	$Number1=$Number1-$Number2;
+	if($number1 > $number2){
+		if($number1 > $number3)
+			$grater=$number1;
+		else
+			$grater=$number3;
+	}else{
+		if($number2 > $number3)
+			$grater=$number2;
+		else
+			$grater=$number3;
+	}
 }
 ?>
 
@@ -17,12 +25,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	<meta charset="UTF-8">
 	<title>swap</title>
 	<link rel="stylesheet" href="index.css">
+	
 </head>
 
 <body>
 
 	<div class="container">
-		<h2> swap</h2>
+		<h2>find big number</h2>
 
 		<form method="POST" id="form">
 
@@ -35,6 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				<p>Number 2</p>
 				<input type="number" name="number2" placeholder="Enter Number 2" required>
 			</div>
+			
+			<div class="field">
+				<p>Number 3</p>
+				<input type="number" name="number3" placeholder="Enter Number 3" required>
+			</div>
 
 			<div class="field">
 				<button type="submit" id="btn">Submit</button>
@@ -43,10 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		</form>
 	</div>
 
-	<?php if (isset($Number1)): ?>
+	<?php if (isset($grater)): ?>
 		<div class="result">
-			<h3> Number 1 is: <?php echo $Number1; ?></h3>
-			<h3> Number 2 is :<?php echo $Number2; ?></h3>
+			<h3> Number is  <?php echo $grater; ?></h3>
 			
 		</div>
 	<?php endif; ?>

@@ -1,0 +1,44 @@
+body{
+	height:100vh;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	font-family:arial;
+}
+
+.container{
+	box-shadow: 0px 0px 5px #444444;
+	padding:1.5em 1em;
+	border-radius:5px;
+	display:flex;
+	width:300px;
+	flex-direction:column;
+	justify-content:center;
+	
+	>h2{
+		text-align:center;
+	}
+	span{
+		font-size:0.8em;
+	}
+}
+
+#form{
+	display:flex;
+	flex-direction:column;
+	gap:0.5em;
+}
+
+.input-field{
+	width:100%;
+	
+	>input{
+		width:100%;
+		padding:4px 5px;
+		border-radius:5px;
+		outline:none;
+		border-color:#222222;
+	}
+
+	
+}

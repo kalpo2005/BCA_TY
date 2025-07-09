@@ -1,0 +1,11 @@
+CREATE TABLE emplyee(
+emp_id NUMBER,
+emp_name VARCHAR2(30),
+designation VARCHAR2(30),
+joining_data DATE,
+salary NUMBER(8)
+);
+
+INSERT INTO employee(emp_id,emp_name,designation,joininig_data,salary) VALUES (&emp_id,'&emp_name', '&designation','&joining_data',&salary);
+
+INSERT INTO employee VALUES (&emp_id,'&emp_name', '&designation','&joining_data',&salary);

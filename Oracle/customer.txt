@@ -1,0 +1,16 @@
+CREATE TABLE cutomer(
+	customer_id VARCHAR(5),
+	cutomer_name VARCHAR(30),
+	customer_city VARCHAR(10)
+);
+
+INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C101','ALI AKBAR','BHAVNAGAR');
+INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C102','MONIT VERMA','BHAVNAGAR');
+INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C103','REENA SHARMA','RAJKOT');
+INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C104','SAHOL PATHAN','AMERELI');
+INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C105','SAGAR MEHTA','RAJKOT');
+INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C106','SAGAR MEHTA','RAJKOT');
+INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C107','MAN SHEIKHA','BOTAD');
+INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C108','NEELAM PATEL','SIHOR');
+INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C109','KARTIK VERMA','JAMNAGAR');
+INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C110','NEELAM MEHTA','JAMNAGAR');

@@ -2,19 +2,41 @@ import java.util.*;
 
 class Assign16{
 	public static void main(String[] args){
-		Number kal = new Number();
-		kal.write();
+		Series kal = new Series();
+		kal.input();
+		kal.process();
 	}
 }
 
-class Number{
-	int Number = 1;
+class Series{
+	int Number,count=1;
 	
-	void write(){
-		System.out.println("A 50 Number is a :");
-		while(Number!=51){
-			System.out.print(Number+",");	
-			Number++;
+	void input(){
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a series lenght :");
+		Number = sc.nextInt();
+	
+	}
+	
+	void process(){
+		
+		int value =0,i=0;
+		System.out.println(count);
+		while(Number>=i){
+
+			int temp =0;
+			for(int j=1;j<=value;j++){
+				if(value % j ==0)
+					temp++;
+			}
+			if(temp ==2){
+				count+=value;
+				i++;
+				System.out.println(count);
+			}
+			value++;
 		}
 	}
+	
 }
+

@@ -20,9 +20,9 @@ class Series{
 	
 	void process(){
 		
-		int value =0,i=0;
+		int value =2,i=1;
 		System.out.println(count);
-		while(Number>=i){
+		while(Number>i){
 
 			int temp =0;
 			for(int j=1;j<=value;j++){

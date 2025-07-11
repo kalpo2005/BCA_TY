@@ -1,9 +1,14 @@
-CREATE TABLE cutomer(
+CREATE TABLE customer(
 	customer_id VARCHAR(5),
-	cutomer_name VARCHAR(30),
+	customer_name VARCHAR(30),
 	customer_city VARCHAR(10)
 );
 
+// modify table
+ ALTER TABLE customer MODIFY COLUMN cutomer_name customer_name VARCHAR(30);
+
+ 
+ //insert data 
 INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C101','ALI AKBAR','BHAVNAGAR');
 INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C102','MONIT VERMA','BHAVNAGAR');
 INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C103','REENA SHARMA','RAJKOT');
@@ -13,4 +18,47 @@ INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C106','SA
 INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C107','MAN SHEIKHA','BOTAD');
 INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C108','NEELAM PATEL','SIHOR');
 INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C109','KARTIK VERMA','JAMNAGAR');
-INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C110','NEELAM MEHTA','JAMNAGAR');
+INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C110','PRAVI JOSHI','JUNAGADH');
+INSERT INTO customer(customer_id,customer_name,customer_city) VALUES ('C111','NEELAM MEHTA','JAMNAGAR');
+
+//Select query 
+SELECT * FROM customer;
+
+// update
+UPDATE customer SET customer_city = 'BOTAD' WHERE customer_id = 'C111';
+
+// 4. name and city of the customer
+SELECT customer_name,customer_city FROM customer;
+
+//5. SHOW TABLE STRUCTURE
+DESC customer;
+
+//6. C107 
+SELECT * FROM customer WHERE customer_id='C107';
+
+//7. BHAVNAGAR
+SELECT * FROM customer WHERE customer_city='BHAVNAGAR';
+
+//8. AMARELI AND BHAVNAGAR
+SELECT * FROM customer WHERE customer_city='RAJKOT' AND customer_city='AMERELI';
+
+//9. BOTAD SIVAY
+SELECT * FROM customer WHERE NOT customer_city = 'BOTAD';
+
+//10. ALL NILAM INFORMATION
+SELECT * FROM customer WHERE customer_name LIKE 'NEELAM%';
+
+11. DESCENDING
+SELECT * FROM customer ORDER BY customer_id DESC;
+
+12. Ali akbar  full info
+SELECT * FROM customer WHERE customer_name='ALI AKBAR';
+
+13. LETTER A 
+SELECT * FROM customer WHERE customer_name LIKE 'A%';
+
+14. MEHTA SURNAME
+SELECT * FROM customer WHERE customer_name LIKE '%MEHTA';
+
+15.  E END
+SELECT * FROM customer WHERE customer_name LIKE '_A%';

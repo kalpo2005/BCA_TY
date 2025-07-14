@@ -1,108 +1,207 @@
 <?php
-
-	if($_SERVER['REQUEST_METHOD']==='POST'){
-
-	$data = array();
-	foreach($_POST as $key=>$value)
-	$data[$key]=$value;
-	echo $value;
-	}
-
+	require 'Ragistration-logic.php';
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+	<meta charset="UTF-8">
+	<title>Registration Form</title>
 
-<html>
-	<head>
-	
-		<style>
-			body{
-			height:100vh;
-			display:flex;
-			justify-content:center;
-			align-items:center;
-			font-family:arial;
-			}
-		
-		</style>
-	
-	</head>
-	
-	<body>
-		
-		<div class="container">
-		<h2>Ragistration Form</h2>
-		
-		<form id="form" method="POST">
-			
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Segoe UI', sans-serif;
+			background: #f4f4f4;
+			display: flex;
+			gap: 1em;
+			justify-content: center;
+			align-items: flex-start;
+			min-height: 100vh;
+		}
+
+		.container {
+			background: white;
+			margin-top: 30px;
+			padding: 2em;
+			border-radius: 10px;
+			box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+			width: 400px;
+		}
+
+		h2 {
+			text-align: center;
+			margin-bottom: 1em;
+		}
+
+		.field {
+			margin-bottom: 1em;
+		}
+
+		.field p {
+			margin: 0 0 5px;
+			font-weight: bold;
+			font-size: 0.9em;
+		}
+
+		.field input[type="text"],
+		.field input[type="number"],
+		.field input[type="password"],
+		.field textarea,
+		.field select {
+			width: 100%;
+			padding: 8px 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			font-size: 0.9em;
+			outline: none;
+		}
+
+		.field textarea {
+			resize: vertical;
+			font-family: inherit;
+		}
+
+		.field input[type="radio"],
+		.field input[type="checkbox"] {
+			margin-right: 5px;
+		}
+
+		.field label {
+			margin-right: 10px;
+		}
+
+		button {
+			width: 100%;
+			padding: 10px;
+			background-color: #0077cc;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			font-size: 1em;
+			cursor: pointer;
+			transition: background 0.3s;
+		}
+
+		button:hover {
+			background-color: #005fa3;
+		}
+
+		table {
+			width: 300px;
+			margin: 30px auto;
+			border-collapse: collapse;
+			font-size: 0.95em;
+			background: #fff;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		}
+
+		table th,
+		table td {
+			padding: 10px;
+			border: 1px solid #ccc;
+			text-align: left;
+		}
+
+		table th {
+			background: #0077cc;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container">
+		<h2>Registration Form</h2>
+
+		<form method="POST" id="form" action="Ragistration-logic.php">
+
 			<div class="field">
 				<p>Username</p>
-				<input type="text" placeholder="Enter username" name="username">
+				<input type="text" name="username" placeholder="Enter username" required>
 			</div>
-			
+
 			<div class="field">
-				<p>phone number</p>
-				<input type="number" placeholder="Enter mobile number" name="mobile">
+				<p>Phone Number</p>
+				<input type="number" name="mobile" placeholder="Enter mobile number" required>
 			</div>
-			
-			
+
 			<div class="field">
 				<p>Email</p>
-				<input type="text" placeholder="Enter user email" name="email">
+				<input type="text" name="email" placeholder="Enter email" required>
 			</div>
-			
+
 			<div class="field">
 				<p>Password</p>
-				<input type="password" placeholder="Enter password" name="username">
+				<input type="password" name="password" placeholder="Enter password" required>
 			</div>
-			
+
 			<div class="field">
 				<p>Address</p>
-				<textarea type="text" placeholder="Enter user name" name="address">
-				</textarea>
+				<textarea name="address" placeholder="Enter address" rows="3"></textarea>
 			</div>
-			
+
 			<div class="field">
 				<p>City</p>
-				<select name="city">
-					<option value="empty" disable>Select city</option>
-					<option value="botad">botad</option>
-					<option value="rajkot">rajkot</option>
-					<option value="jamnagar">jamnagar</option>
+				<select name="city" required>
+					<option value="" disabled selected>Select city</option>
+					<option value="botad">Botad</option>
+					<option value="rajkot">Rajkot</option>
+					<option value="jamnagar">Jamnagar</option>
 				</select>
 			</div>
-		
+
 			<div class="field">
 				<p>Gender</p>
-				
-				<input type="radio" placeholder="Enter user name" name="gender" value="male">male
-				
-				<input type="radio" placeholder="Enter user name" name="gender" value="female">female
-				
+				<label><input type="radio" name="gender" value="male" required checked> Male</label>
+				<label><input type="radio" name="gender" value="female"> Female</label>
 			</div>
-			
+
 			<div class="field">
 				<p>Hobbies</p>
-				
-				<input type="checkbox" placeholder="Enter user name" name="hobbies" value="male">Reading
-				
-				<input type="checkbox" placeholder="Enter user name" name="hobbies" value="female">Travelling
-				
+				<label><input type="checkbox" name="hobbies[]" value="Reading"> Reading</label>
+				<label><input type="checkbox" name="hobbies[]" value="Travelling"> Travelling</label>
 			</div>
-		
-			<div class="field">	
-				<input type="submit" name="submit" value="submit">
+
+			<div class="field">
+				<button type="submit" id="btn">Submit</button>
 			</div>
-				
+
 		</form>
-		
-		</div>
-		
-		<?php 
-			if(isset($data)){
-				var_dump($data);
-			}
-		?>
+	</div>
+
+	<?php if (isset($data)): ?>
 	
-	</body>
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th>Detail</th>
+						<th>Information</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($data as $key => $value): ?>
+						<tr>
+							<td><?php echo (ucfirst($key)); ?></td>
+							<td>
+								<?php
+								if (is_array($value)) {
+									echo (implode(', ', $value));
+								} else {
+									echo ($value);
+								}
+								?>
+							</td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+	<?php endif; ?>
+	
+</body>
 
 </html>

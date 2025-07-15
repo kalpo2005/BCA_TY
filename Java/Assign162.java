@@ -22,41 +22,34 @@ class Series{
 	void process(){
 		int value =1;
 		int count=1;
-		int returnPrime=2;
+		int returnPrime=1;
 		System.out.println(count);
-		count+=2;
-		System.out.println(count+"------");	
+
 		while(value<=Number){
-	returnPrime=primeCheck(returnPrime);
-		System.out.println(count+returnPrime);
-	//	returnPrime=primeCheck(returnPrime);
+			returnPrime=primeCheck(returnPrime);
+		//	System.out.println("return  value"+returnPrime);
+			count+=returnPrime;
+			System.out.println(count);
+		//	returnPrime=primeCheck(returnPrime);
 			
 			value++;
 		}
 	}
 	
 	int primeCheck(int prime){
-		int primeNumber=prime+1;
-		int count=1;
-		
-		for(int i=primeNumber;;i++){
-			for(int j=2;j<i; j++){
+		for(int i=prime+1;;i++){
+			int temp=0;
+			for(int j=1;j<=i;j++){
 				if(i%j==0){
-					count=0;
-					break;
+					temp++;
 				}
-				
-				
 			}
-			
-			if(count==1){
-				primeNumber=i;
-					break;
+			if(temp==2){
+				return i;
 			}
-			
 		}
 		
-		return primeNumber;
+
 	}
 	
 }

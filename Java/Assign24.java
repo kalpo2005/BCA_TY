@@ -12,7 +12,7 @@ class Assign24{
  class Operation{
 	
 	int a,b,choice;
-	char ch;
+	int ch;
 	Scanner sc = new Scanner(System.in);
 	void input(){
 		do{	
@@ -46,9 +46,9 @@ class Assign24{
 						break;
 			}
 			
-			System.out.print("Do you want a continue .....Y/N :");
-			ch = sc.nextLine().charAt(0);
-		}while(ch=='y' ||ch=='Y');		
+			System.out.print("Do you want a continue .....\n 01. yes  :");
+			ch = sc.nextInt();
+		}while(ch==1);		
 		sc.close();
 	}
 	

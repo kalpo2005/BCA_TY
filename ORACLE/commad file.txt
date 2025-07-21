@@ -1,0 +1,25 @@
+CREATE TABLE studentData(
+	roll_number NUMBER(10),
+	name VARCHAR2(20),
+	address VARCHAR2(20),
+	mobile_number NUMBER(10),
+	birth_date DATE
+);
+
+INSERT INTO studentData(roll_number,name,address,mobile_number) VALUES(23,'KALPESH BAVALIYA','hamapar','7096720999');
+
+INSERT INTO studentData(roll_number,name,address,mobile_number) VALUES(23,'ANIL BARAIYA','kaniyad',7096588888);
+
+INSERT INTO studentData(roll_number,name,address,mobile_number) VALUES(23,'MAHESH BAVALIYA','jotingada','7098122222');
+
+INSERT INTO studentData(roll_number,name,address,mobile_number) VALUES(23,'KRUPAL PADANI','naglpar','7096733333');
+
+INSERT INTO studentData(roll_number,name,address,mobile_number) VALUES(23,'UMIT PADANI','botad','7096755555');
+INSERT INTO studentData(roll_number,name,address,mobile_number,birth_date) VALUES(23,'UMIT PADANI','botad','7096755555','22-may-1999');
+
+ SELECT name,address,mobile_number FROM studentData;
+ 
+ 
+ INSERT INTO studentData(birth_date) VALUES ('23-MAY-2005') WHERE roll_number=23;
+ 
+ UPDATE studentData SET NAME='kalpesh' WHERE name='KALPESH BAVALIYA';

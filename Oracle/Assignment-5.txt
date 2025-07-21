@@ -1,0 +1,56 @@
+// ORACLE ASSIGNMET 5 
+
+// CREATE A TABLE 
+
+	CREATE TABLE customers(
+		cust_no NUMBER(3),
+		fname VARCHAR2(20),
+		lname VARCHAR2(20),
+		birth_date DATE,
+		city VARCHAR2(10),
+		mob_no NUMBER(10),
+		dept_name VARCHAR2(15),
+		salary NUMBER(5),
+		PRIMARY KEY (cust_no),
+		CHECK (salary > 5000)
+	);
+	
+	UPDATE customers SET mob_no =9995612358 WHERE cust_no = 4;
+	UPDATE customers SET city ='MAHESANA' WHERE cust_no = 5;
+	
+ // FOLLOWING IS A QUERY 
+ 
+INSERT A RECORD 
+
+	INSERT INTO customers (cust_no,fname,lname,birth_date,city,mob_no,dept_name,salary) VALUES (1,'KALPESH','BAVALIYA','13-MAY-2005','HAMAPAR',7895683254,'DEVELOPMENT',8000);
+	
+	INSERT INTO customers (cust_no,fname,lname,birth_date,city,mob_no,dept_name,salary) VALUES (2,'ANIL','BARAIYA','25-JUN-1950','MAHUVA',6666663254,'MANAGEMENT',9000);
+	
+	INSERT INTO customers (cust_no,fname,lname,birth_date,city,mob_no,dept_name,salary) VALUES (3,'DHRUV','DEGAMA','15-OCT-1990','PALIYAD',7966633254,'DRIVER',6000);
+	
+	INSERT INTO customers (cust_no,fname,lname,birth_date,city,mob_no,dept_name,salary) VALUES (4,'DARSHAN','SANKLIYA','13-AUG-2015','HAMAPAR',3575613254,'SELLING',8457);
+	
+	INSERT INTO customers (cust_no,fname,lname,birth_date,city,mob_no,dept_name,salary) VALUES (5,'YASH','DHOLAKIYA','03-MAR-1980','VINCHIYA',2457483254,'DEVELOPMENT',9572);
+	
+	INSERT INTO customers (cust_no,fname,lname,birth_date,city,mob_no,dept_name,salary) VALUES (6,'MAHESH','PADANI','13-MAY-1805','GADHADA',784556254,'MANAGEMENT',7955);
+	
+	
+1. display with the deparatment name 
+		SELECT fname,dept_name FROM customers;
+
+
+2. salary wise customer name
+		SELECT * FROM customers ORDER BY salary ASC; 
+		
+3. BIRTH DATA IN THE 1980
+	SELECT * FROM customers WHERE birth_date BETWEEN '01-JAN-1980' AND '31-DEC-1980';
+	
+4. MOBIEL NUMBER IS STAR 99.....
+	SELECT * FROM customers WHERE mob_no LIKE '99%';
+
+5. city is start with the "M"
+	SELECT * FROM customers WHERE city LIKE 'M%';
+
+
+	
+ 

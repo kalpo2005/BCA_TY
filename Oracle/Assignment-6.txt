@@ -51,3 +51,12 @@
 	
 7. GIVE THE NUMBER OF THE GROUP BY  BRANCH ID 
 	SELECT branch_id AS branch,COUNT(branch_id)
+	
+8. COMMITITON 8 PERCENTAGE	
+	UPDATE employee_master SET commission = (salary*5)/100;
+
+9. FINAL SALARY COMMISSION + SALARY 
+	SELECT TRUNC(salary + commission) AS final_salary FROM employee_master;
+	
+10 show who is a manager
+	SELECT * FROM employee_master WHERE designantion LIKE '%MANAGER%';

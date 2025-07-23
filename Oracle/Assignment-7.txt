@@ -1,0 +1,53 @@
+Assignment 7 
+table name student
+
+	CREATE TABLE student(
+		stud_id NUMBER(3),
+		stud_name VARCHAR(20) NOT NULL,
+		gender VARCHAR(2),
+		contact_no NUMBER(10),
+		sub_1 NUMBER(3),
+		sub_2 NUMBER(3),
+		sub_3 NUMBER(3),
+		PRIMARY KEY(stud_id),
+		CHECK (gender = 'M' OR gender = 'F'),
+		CHECK (sub_1 BETWEEN 0 AND 100),
+		CHECK (sub_2 BETWEEN 0 AND 100),
+		CHECK (sub_3 BETWEEN 0 AND 100)
+	);
+	
+1. insert a 10 records 
+
+	INSERT INTO student(stud_id,stud_name,gender,contact_no,sub_1,sub_2,sub_3) VALUES (1,'KALPESH','M',7096466885,98,95,85);
+	
+	INSERT INTO student(stud_id,stud_name,gender,contact_no,sub_1,sub_2,sub_3) VALUES (2,'DRASTI','F',6445466855,78,65,56);
+	
+	INSERT INTO student(stud_id,stud_name,gender,contact_no,sub_1,sub_2,sub_3) VALUES (3,'ANIL','M',5454564564,100,100,100);
+	
+	INSERT INTO student(stud_id,stud_name,gender,contact_no,sub_1,sub_2,sub_3) VALUES (4,'RENUKA','F',5456564425,45,98,100);
+	
+	INSERT INTO student(stud_id,stud_name,gender,contact_no,sub_1,sub_2,sub_3) VALUES (5,'DISHA','F',2215675135,26,54,47);
+	
+	INSERT INTO student(stud_id,stud_name,gender,contact_no,sub_1,sub_2,sub_3) VALUES (6,'YASH','M',7879231885,45,68,82);
+	
+	INSERT INTO student(stud_id,stud_name,gender,contact_no,sub_1,sub_2,sub_3) VALUES (7,'KINJAL','F',4564545885,45,45,75);
+	
+	INSERT INTO student(stud_id,stud_name,gender,contact_no,sub_1,sub_2,sub_3) VALUES (8,'DARSHAN','M',8866224575,10,10,30);
+	
+	INSERT INTO student(stud_id,stud_name,gender,contact_no,sub_1,sub_2,sub_3) VALUES (9,'DHRUV','M',7096466885,95,98,75);
+	
+	INSERT INTO student(stud_id,stud_name,gender,contact_no,sub_1,sub_2,sub_3) VALUES (10,'VILASH','F',7096466885,88,45,55);
+	
+2. Display table strucure
+	DESC student;
+	
+3. Name start with the  "M"
+	SELECT * FROM student WHERE stud_name LIKE 'M%';
+	
+4. Second laater is a "A"
+	SELECT * FROM student WHERE stud_name LIKE '_A%';
+	
+5. display all student where all student marks are grater then 35
+	SELECT * FROM student WHERE sub_1 >35 AND sub_2 > 35 AND sub_3 > 35;
+
+6. 

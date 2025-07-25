@@ -6,3 +6,23 @@ class Assign6{
     }
 
 }
+
+class Shopping{
+		
+	int itemCode,itemQnt,itemPrice;
+	String itemName;
+	
+	void input(){
+		Scanner sc = new Scanner();
+		System.out.print("Enter a item code: ");
+		itemCode = sc.nextLine();
+		
+		System.out.print("Enter a item name:");
+		itemCode = sc.nextLine();
+		
+		System.out.print"Enter a item Quenty : ");
+		itemCode = sc.nextLine();
+		
+		
+	}
+}

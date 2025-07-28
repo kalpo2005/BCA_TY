@@ -1,0 +1,63 @@
+Oracle assignment 8
+
+1. Create a table 
+	CREATE TABLE customer(
+		cust_id NUMBER(4),
+		cust_city VARCHAR2(15),
+		product_name VARCHAR2(5),
+		product_price NUMBER(7,2) NOT NULL,
+		quantity NUMBER(5) NOT NULL,
+		bill_amt NUMBER(7,2) NOT NULL,
+		PRIMARY KEY(cust_id)
+	);
+	
+2. Insert 10 record 
+	
+	INSERT INTO customer(cust_id,cust_city,product_name,product_price,quantity,bill_amt) VALUES (1,'BOTAD','SODA',2000,3,0);
+	
+	INSERT INTO customer(cust_id,cust_city,product_name,product_price,quantity,bill_amt) VALUES (2,'KANIYAD','BHAJI',5000,25,0);
+	
+	INSERT INTO customer(cust_id,cust_city,product_name,product_price,quantity,bill_amt) VALUES (3,'GADHADA','DVD',25000,12,0);
+	
+	INSERT INTO customer(cust_id,cust_city,product_name,product_price,quantity,bill_amt) VALUES (4,'HAMAPAR','CD',10000,8,0);
+	
+	INSERT INTO customer(cust_id,cust_city,product_name,product_price,quantity,bill_amt) VALUES (5,'JANDA','TOFEE',8000,32,0);
+	
+	INSERT INTO customer(cust_id,cust_city,product_name,product_price,quantity,bill_amt) VALUES (6,'NAGALPAR','TABLE',7500,23,0);
+	
+	INSERT INTO customer(cust_id,cust_city,product_name,product_price,quantity,bill_amt) VALUES (6,'TATAM','CHAIR',4750,13,0);
+	
+	INSERT INTO customer(cust_id,cust_city,product_name,product_price,quantity,bill_amt) VALUES (7,'VINCHIYA','COIN',4547,2,0);
+	
+	INSERT INTO customer(cust_id,cust_city,product_name,product_price,quantity,bill_amt) VALUES (8,'DWARKA','PEN',20075,3,0);
+	
+	INSERT INTO customer(cust_id,cust_city,product_name,product_price,quantity,bill_amt) VALUES (9,'SURAT','BOOK',5000,8,0);
+	
+	INSERT INTO customer(cust_id,cust_city,product_name,product_price,quantity,bill_amt) VALUES (10,'BOTAD','CPU',8575,5,0);
+	
+3. inset record amereli for the 1,3,5 and vadodara for the 2,4,6,8
+	UPDATE customer SET cust_city = 'AMRELI' WHERE cust_id IN(1,3,5);
+	UPDATE customer SET cust_city = 'VADODARA' WHERE cust_id IN(2,4,6,8);
+	UPDATE customer SET cust_city = 'SURAT' WHERE cust_id NOT IN(1,3,5,2,4,6,8);
+	
+4. UPDATE A SURAT TO MUMBAI
+	UPDATE customer SET cust_city = 'MUMBAI' WHERE cust_city = 'SURAT';
+	
+5. ADD NEW COLUMN DISCOUNT 
+	ALTER TABLE customer ADD discount NUMBER(3);
+	
+6. UPDATE A BILL AMOUNT 
+	UPDATE customer SET bill_amt = (product_price * quantity);
+	
+7. discount 10000 so bill amt grater 10 %
+	UPDATE customer	SET discount = (bill_amt * 10) / 100 WHERE bill_amt>10000;
+	
+8. NOT ELIGIBLE FOR DISCOUNT
+	SELECT * FROM customer WHERE bill_amt<10000;
+	
+9. DELETE WHOSE AMMOUNT IS A LESSS THAN  1000;
+	DELETE FROM customer WHERE bill_amt<1000;
+	
+10. display all record whose ammount is  
+	SELECT * FROM customer WHERE bill_amt BETWEEN 2000 AND 5000;
+	

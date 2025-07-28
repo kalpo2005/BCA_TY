@@ -54,3 +54,14 @@ table name student
 	SELECT SUM(sub_1,sub_2) total FROM student;
 	
 	select max(sub_1) from student
+	
+7. drop constain not null
+
+8. Add new column to new city right data type 
+	ALTER TABLE student ADD city VARCHAR2(15);
+
+9. rename table to student_master
+	RENAME student TO student_master;
+	
+10. delete record whose id is a 101 
+	DELETE FROM student WHERE stud_id=101;

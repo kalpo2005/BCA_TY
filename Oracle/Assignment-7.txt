@@ -50,4 +50,7 @@ table name student
 5. display all student where all student marks are grater then 35
 	SELECT * FROM student WHERE sub_1 >35 AND sub_2 > 35 AND sub_3 > 35;
 
-6. 
+6. calculate a sum total and min and max marks
+	SELECT SUM(sub_1,sub_2) total FROM student;
+	
+	select max(sub_1) from student

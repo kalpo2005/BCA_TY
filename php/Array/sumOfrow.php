@@ -11,41 +11,40 @@
 			echo "<br>";
 		}
 	}
-	
-	function sumArray($arr1){
-		$sum = array();
-		$m =0;
-		
-		for($i=0;$i<3;$i++){
-			
-	for($j=0;$j<3-1; $j++){
-					$add =0;
-				for($k=0;$k<3; $k++){
-					print_r($arr1[$k][$j]). "<br>";
-					$add += $arr1[$k][$j][$i] . " ";
-				}
-						
-				echo $add . " ";					
+	function showArray2d($arr){
+		for($i=0;$i<count($arr); $i++){
+			for($j=0;$j<count($arr[$i]); $j++){
+				echo $arr[$i][$j]."  ";
 			}
 			echo "<br>";
-			
 		}
+	}
 	
-		return $sum;
+	function sumArray($arr){
+		
+		for($i=0;$i<count($arr[0][0]);$i++){
+			for($j=0;$j<count($arr[0]); $j++){
+				$final[$j][$i] = 0;
+				for($k=0;$k<count($arr); $k++){
+					$final[$j][$i]+=$arr[$k][$j][$i];
+				}
+			}
+		}
+		return $final;
 	}
 
 	$arr1 = array(
 				array(
 					array(10,20,30),
-					array(30,20,10),
+					array(32,35,94)
 				),
 				array(
 					array(32,35,94),
-					array(30,20,10),
+					array(32,35,94)
 				),
 				array(
 					array(45,49,45),
-					array(50,90,90),
+					array(32,35,94)
 				)
 			);
 			
@@ -55,10 +54,11 @@
 	showArray($arr1);
 
 	// for the sum
-	$sum = sumArray($arr1);
+	$final= array();
+	$final = sumArray($arr1);
 	
 	//Sum of array is a 
 	echo "<br> sum of array is a <br>";
-	showArray($sum);
+	showArray2d($final);
 
 ?>

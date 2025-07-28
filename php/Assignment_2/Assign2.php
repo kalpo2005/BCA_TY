@@ -1,15 +1,15 @@
 <?php
 	$data = array(
 		'kalpesh'=>20,
-		'anil'=>64,
-		'darshan'=>57,
-		'dhruv'=>95,
-		'vijay'=>21,
-		'yash'=>54
+		'darshan'=>64,
+		'jay'=>57,
+		'ravi'=>95,
+		'yash'=>21,
+		'utsav'=>54
 	);
 	
 	//For the printting 
 	foreach($data as $key => $value){
-		echo "<br> Name of person : <b>{$key} </b> and their age is <b> {$value}. </b>";
+		echo "<br> Name of Person : <b>{$key} </b> and their Age is <b> {$value}. </b>";
 	}
 ?>

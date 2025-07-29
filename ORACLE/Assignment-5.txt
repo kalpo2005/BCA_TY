@@ -45,12 +45,29 @@ INSERT A RECORD
 3. BIRTH DATA IN THE 1980
 	SELECT * FROM customers WHERE birth_date BETWEEN '01-JAN-1980' AND '31-DEC-1980';
 	
-4. MOBIEL NUMBER IS STAR 99.....
+4. MOBILE NUMBER IS STAR 99.....
 	SELECT * FROM customers WHERE mob_no LIKE '99%';
 
 5. city is start with the "M"
 	SELECT * FROM customers WHERE city LIKE 'M%';
+	
+6. Display average salary of customer 
 
+
+7. Display minimum salary in each department 
+
+8. Display count of customer having salary greater than 3000
+	SELECT * FROM customers WHERE salary > 3000;
+	
+9.List name of customer having ‘A’ as 2nd letter in first name 
+	SELECT * FROM customers WHERE fname LIKE '_A%';
+	
+10. Write a query to add middle_name column to customer table 
+	ALTER TABLE customers ADD middle_name VARCHAR2(20);
+	
+11 Create Synonyms for above table.
+
+12 Create unique index on the cust_no
 
 	
  

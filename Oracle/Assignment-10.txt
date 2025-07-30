@@ -1,0 +1,27 @@
+Assignment 10 oracle 
+
+create a table 
+	CREATE TABLE sales(
+	orderId NUMBER(3),
+	orderDate DATE,
+	orderPrice NUMBER(5),
+	orderQuentity NUMBER(2),
+	customerName VARCHAR(20)
+	);
+	
+INSERT RECORDS
+	
+	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (1,'22-dec-2005',160,2,'Smith');
+	
+	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (2,'',190,2,'Johnson');
+	
+	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (3,'',500,5,'Baldwin');
+	
+	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (4,'',420,2,'Smith');
+	
+	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (5,'',1000,4,'Wood');
+	
+	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (6,'',820,4,'Smith');
+	
+	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (7,'',2000,2,'Baldwin');
+	

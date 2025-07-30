@@ -2,29 +2,70 @@
 
 // Create a table 
 
-	CREATE TABLE EMP(
+	CREATE TABLE dept(
+		dept_no NUMBER(3),
+		dname VARCHAR(20),
+		location VARCHAR(20),
+		PRIMARY KEY(dept_no)
+	);
+	
+	Insert dept in the department
+	
+	INSERT INTO dept(dept_no,dname,location) VALUES (1,'MANAGER','DELHI');
+	INSERT INTO dept(dept_no,dname,location) VALUES (2,'OFFICER’','PUNE');
+	INSERT INTO dept(dept_no,dname,location) VALUES (3,'ACCOUNT','DELHI');
+	INSERT INTO dept(dept_no,dname,location) VALUES (4,'PROGRAMMER','PUNE');
+	
+	UPDATE DEPT SET DNAME = 'MARKETING' WHERE DEPT_NO=4;
+	
+	SELECT e.name,d.*  FROM emp e,dept d  where d.dept_no = e.dept_no;
+
+	CREATE TABLE emp(
 		emp_id NUMBER(3),
-		name
-		city
-		job
-		salary
-		join_date
-		commission
-		dept_no
-		
+		name VARCHAR(20),
+		city VARCHAR(20),
+		job VARCHAR(20),
+		salary NUMBER(5),
+		join_date DATE,
+		commission NUMBER(5,2),
+		dept_no NUMBER(3),
+		FOREIGN KEY (dept_no) REFERENCES dept (dept_no)
 	);
 
+	INSERT  INTO emp(emp_id, name,city, job, salary, join_date,dept_no) VALUES (1,'KALPESH','DELHI','MANAGER',45000,'13-MAY-2005',1);
+	
+	INSERT  INTO emp(emp_id, name,city, job, salary, join_date,dept_no) VALUES (2,'ANIL','PUNE','OFFICER',55000,'15-MAY-2015',2);
+	
+	INSERT  INTO emp(emp_id, name,city, job, salary, join_date,dept_no) VALUES (3,'DHRUV','MUMBAI','PROGRAMMER',5000,'10-SEP-2015',3);
+	
+	INSERT  INTO emp(emp_id, name,city, job, salary, join_date,dept_no) VALUES (4,'DARSHAN','BOTAD','SELLER',56222,'26-FEB-2025',2);
+	
+	INSERT  INTO emp(emp_id, name,city, job, salary, join_date,dept_no) VALUES (5,'YASH','GADHADA','OFFICER',24454,'13-OCT-1905',4);
 
  Create the following Table. 
 Emp ( emp_id, name,city, job, salary, join_date, commission, dept_no ) 
 Dept (dept_no, dname, location ) 
  Solve the following query 
+
+
 1) Display detailed of employee joined in the month of ‘MARCH’ 
+	SELECT * FROM emp WHERE join_date = months
+	
 2) Display details of employee whose city is not ‘DELHI’ or ‘PUNE’ 
+	SELECT * FROM emp WHERE city IN('DELHI','PUNE');
+
 3) Display details of employee joined after ‘1st January 1990’ 
+		SELECT * FROM emp WHERE join_date>'01-JAN-1990';
+	
 4) Display details of employee whose is ‘MANAGER’ or ‘OFFICER’ 
+	SELECT * FROM emp WHERE job IN('MANAGER','OFFICER');
+
 5) Display details of employee in ascending order of name 
+	SELECT * FROM emp ORDER BY name ASC;
+
 6) Display second highest salary of employee 
+	SELECT MAX(SALARY) FROM emp;
+	
 7) Display details of employee whose joining date is in month of ‘FEB’ 
 8) List details of employee not working in ‘ACCOUNT ‘department 
 9) Display the list of employee whose post is ‘PROGRAMMER’ or salary >= 15000 

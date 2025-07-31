@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.*;
 
 class Shopping{
 		
@@ -24,11 +25,11 @@ class Shopping{
 	}
 	
 	void display(){
-		System.out.print(itemCode + "     ");
-		System.out.print(itemName + "     ");
-		System.out.print(itemPrice + "     ");
-		System.out.print(itemQnt + "     ");
-		System.out.print(total + "     ");
+		System.out.print(itemCode + "           ");
+		System.out.print(itemName + "           ");
+		System.out.print(itemPrice + "           ");
+		System.out.print(itemQnt + "           ");
+		System.out.print(total + "            ");
 	
 	}
 }
@@ -36,12 +37,12 @@ class Shopping{
 class Assign6{
     public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
-		int i = 0,toalAmount = 0;
+		int toalAmount = 0,i=0;
 		Shopping[] kal = new Shopping[5];
 		char choice;
 	
 		do{
-			
+			kal[i] = new Shopping();
 			kal[i++].input(sc);
 			sc.nextLine();
 			System.out.println("\n Do you continue to add items : y/n ......");
@@ -54,14 +55,15 @@ class Assign6{
 		System.out.println("item code     item name    item price    item qntity     total");
 		System.out.println("---------------------------------------------------------------------");
 		
-		for(int k = 0 ; k < i ; k++){
-			
-			obj[k].display();
-			toalAmount += obj[i].total;
+		for(int k = 0 ; k<i;k++){
+			System.out.println("");
+			kal[k].display();
+			toalAmount += kal[k].total;
 		}
 		
 		// Printing a gross total 
-		System.out.println("A total paybale ammount is a :                               "+ toalAmount);
+		System.out.println("\n---------------------------------------------------------------------\n");
+		System.out.println("\n A total paybale ammount is a :                               "+ toalAmount);
 
     }
 

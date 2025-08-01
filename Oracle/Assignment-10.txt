@@ -11,17 +11,39 @@ create a table
 	
 INSERT RECORDS
 	
-	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (1,'22-dec-2005',160,2,'Smith');
+	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (1,'22-DEC-2005',160,2,'Smith');
 	
-	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (2,'',190,2,'Johnson');
+	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (2,'10-AUG-2005',190,2,'Johnson');
+		
+	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (3,'13-JUL-2005',500,5,'Baldwin');
 	
-	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (3,'',500,5,'Baldwin');
+	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (4,'15-JUL-2005',420,2,'Smith');
 	
-	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (4,'',420,2,'Smith');
+	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (5,'22-DEC-2005',1000,4,'Wood');
 	
-	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (5,'',1000,4,'Wood');
+	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (6,'02-OCT-2005',820,4,'Smith');
 	
-	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (6,'',820,4,'Smith');
+	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (7,'11-NOV-2005',2000,2,'Baldwin');
 	
-	INSERT INTO sales(orderId,orderDate,orderPrice,orderQuentity,customerName) VALUES (7,'',2000,2,'Baldwin');
 	
+	
+1. NO OF SMITH HOW MANY ORDER 
+
+2.FIND A UNIQUE CUSTOMER TO ORDER A ORDER FROME STORE 
+
+3. FIND A TOTAL ITEM TO CUSTOMER ITEM ORDER
+	SELECT SUM(orderQuentity) AS total FROM sales;
+	
+4. average of the total items 
+	SELECT SUM(orderQuentity)/COUNT(orderId) AS average FROM sales;
+
+5. find the avarage of the items but product price is a grater 2000
+	SELECT SUM(orderQuentity)/COUNT(orderId) AS average FROM sales WHERE orderPrice > 200;
+	
+6. find the customer to paid a  minimum price
+	
+	
+7.  find the customer to paid a  maximum price
+
+
+8. unique customer name from the table

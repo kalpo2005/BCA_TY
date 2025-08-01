@@ -49,13 +49,13 @@ Dept (dept_no, dname, location )
 
 
 1) Display detailed of employee joined in the month of ‘MARCH’ 
-	SELECT * FROM emp WHERE join_date = months
+	SELECT * FROM emp WHERE join_date LIKE '%MAR%';
 	
 2) Display details of employee whose city is not ‘DELHI’ or ‘PUNE’ 
 	SELECT * FROM emp WHERE city IN('DELHI','PUNE');
 
 3) Display details of employee joined after ‘1st January 1990’ 
-		SELECT * FROM emp WHERE join_date>'01-JAN-1990';
+	SELECT * FROM emp WHERE join_date >'01-JAN-1990';
 	
 4) Display details of employee whose is ‘MANAGER’ or ‘OFFICER’ 
 	SELECT * FROM emp WHERE job IN('MANAGER','OFFICER');
@@ -67,8 +67,14 @@ Dept (dept_no, dname, location )
 	SELECT MAX(SALARY) FROM emp;
 	
 7) Display details of employee whose joining date is in month of ‘FEB’ 
+		SELECT * FROM emp WHERE join_date LIKE '%FEB%';
+
+
 8) List details of employee not working in ‘ACCOUNT ‘department 
+	SELECT e.name,d.dname  FROM emp e,dept d  where d.dname NOT LIKE ('ACCOUNT') AND d.dept_no = e.dept_no;
+	
 9) Display the list of employee whose post is ‘PROGRAMMER’ or salary >= 15000 
+	SELECT * FROM emp WHERE JOB = 'PROGRAMMER' OR salary >= 15000;
 10) Count the number of employee in each department.
 11) Create Synonyms for above table.
 12) Create unique index on the emp_id

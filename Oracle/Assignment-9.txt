@@ -1,0 +1,25 @@
+Assignment 9 
+
+primary deptartment table
+	
+CREATE TABLE
+	CREATE TABLE department(
+		dept_id NUMBER(10),
+		dept_name VARCHAR2(30),
+		PRIMARY KEY(dept_id)
+	);
+	
+SECOND TABLE 
+
+	CREATE TABLE student_membar(
+		roll_no
+		fname
+		mname
+		sname
+		dept_id
+		semester
+		contact_no
+		gender,
+		PRIMARY KEY(roll_no),
+		FOREGIN KEY ()
+	);

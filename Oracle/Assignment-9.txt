@@ -9,17 +9,72 @@ CREATE TABLE
 		PRIMARY KEY(dept_id)
 	);
 	
+INSERT DEPARATMENT RECORDS 
+
+	INSERT INTO department(dept_id,dept_name) VALUES (1,'Information Technology');
+	
+	INSERT INTO department(dept_id,dept_name) VALUES (2,'Electrical');
+	
+	INSERT INTO department(dept_id,dept_name) VALUES (3,'Civil');
+	
+	INSERT INTO department(dept_id,dept_name) VALUES (4,'Mechanical');
+	
+	INSERT INTO department(dept_id,dept_name) VALUES (5,'Chemical');
+	
 SECOND TABLE 
 
 	CREATE TABLE student_membar(
-		roll_no
-		fname
-		mname
-		sname
-		dept_id
-		semester
-		contact_no
-		gender,
+		roll_no NUMBER(3),
+		fname VARCHAR2(20),
+		mname VARCHAR2(20),
+		sname VARCHAR2(20),
+		dept_id NUMBER(10),
+		semester NUMBER(3),
+		contact_no NUMBER(10),
+		gender CHAR(1),
 		PRIMARY KEY(roll_no),
-		FOREGIN KEY ()
+		FOREIGN KEY (dept_id) REFERENCES department(dept_id),
+		CHECK (gender IN ('M','F'))
 	);
+	
+INSERT A RECORDS FROM STUDENT MEBAR TABLE 
+	
+	INSERT INTO student_membar(roll_no,fname,mname,sname,dept_id,semester,contact_no,gender) VALUES (1,'Ankur','Samair','Kahar',1,1,272121,'M');
+	
+	INSERT INTO student_membar(roll_no,fname,mname,sname,dept_id,semester,contact_no,gender) VALUES (2,'Dhaval','Dhiren','Joshi',1,1,232122,'M');
+	
+	INSERT INTO student_membar(roll_no,fname,mname,sname,dept_id,semester,contact_no,gender) VALUES (3,'Ankita','Biren','Shah',1,1,112121,'F');
+	
+	INSERT INTO student_membar(roll_no,fname,mname,sname,dept_id,semester,contact_no,gender) VALUES (10,'Komal','MaheshKumar','Pandya',2,3,123123,'F');
+	
+	INSERT INTO student_membar(roll_no,fname,mname,sname,dept_id,semester,contact_no,gender) VALUES (13,'Amit','Jitenkumar','Mehta',2,3,453667,'M');
+	
+	INSERT INTO student_membar(roll_no,fname,mname,sname,dept_id,semester,contact_no,gender) VALUES (23,'Jinal','Ashish','Gandhi',2,1,323232,'M');
+	
+	INSERT INTO student_membar(roll_no,fname,mname,sname,dept_id,semester,contact_no,gender) VALUES (22,'Ganesh','Asha','Patel',2,3,124244,'M');
+	
+	INSERT INTO student_membar(roll_no,fname,mname,sname,dept_id,semester,contact_no,gender) VALUES (4,'Shweta','Mihir','Patel',3,1,646342,'F');
+	
+	INSERT INTO student_membar(roll_no,fname,mname,sname,dept_id,semester,contact_no,gender) VALUES (7,'Pooja','Mayank','Desai',3,3,328656,'F');
+	
+	INSERT INTO student_membar(roll_no,fname,mname,sname,dept_id,semester,contact_no,gender) VALUES (8,'Komal','Krishnaraj','Bhatia',2,3,257422,'F');
+	
+	INSERT INTO student_membar(roll_no,fname,mname,sname,dept_id,semester,contact_no,gender) VALUES (43,'Kiran','Viraj','Shah',1,1,754124,'F');
+	
+1. Display the name and contact_no of student_membar
+
+	SELECT fname,mname,sname,contact_no FROM student_membar;
+	
+2. GIVE THE ROLL  NUMBER OF THE STUDENT WHOSW FROM INFORMATION TECHNOLOGY 
+
+	SELECT s.roll_no,CONCAT(s.fname,s.mname) FROM student_membar s , department d WHERE s.dept_id = d.dept_id AND d.dept_name = 'Information Technology';
+	
+3. DEPARATMENT NAME OF ALL STUDENT
+
+	SELECT DISTINCT(d.dept_name) FROM student_membar s , department d WHERE s.dept_id = d.dept_id;
+
+4. SHOW ALL DEPARRTMET WHOSE NOT Assignment TO MEMBAR
+
+	SELECT DISTINCT(d.dept_name) FROM student_membar s , department d WHERE s.dept_id = d.dept_id;
+
+	

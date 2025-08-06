@@ -15,7 +15,7 @@
 		$keys = array_keys($data);
 	
 		 $sql = "INSERT INTO {$tableName} (".implode(',',$keys).") VALUES (".implode(',',$data).")";
-		//exit;
+	
 		try{
 			if(!mysqli_query($conn,$sql))
 				die("Query Failed !!!");
@@ -29,13 +29,13 @@
 
 <html>
 	<head>
-		<title>Demo 1</title>
+		<title>Insert data</title>
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 
 	<body>
 		<div class="container">
-			<h2>demo 1</h2>
+			<h2>Insert data</h2>
 			<form method="POST">
 				<input type="number" name="roll" required placeholder="Enter a roll Number">
 				

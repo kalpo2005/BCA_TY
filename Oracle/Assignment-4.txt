@@ -75,6 +75,11 @@ Dept (dept_no, dname, location )
 	
 9) Display the list of employee whose post is ‘PROGRAMMER’ or salary >= 15000 
 	SELECT * FROM emp WHERE JOB = 'PROGRAMMER' OR salary >= 15000;
+	
 10) Count the number of employee in each department.
+	SELECT d.dname,COUNT(e.dept_no) AS MEMBER FROM emp e,dept d WHERE d.dept_no = e.dept_no GROUP BY d.dname;
+	
 11) Create Synonyms for above table.
+	CREATE PRIVATE SYNONYM emp_sy for scott.emp;
+	
 12) Create unique index on the emp_id

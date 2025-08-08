@@ -23,9 +23,12 @@
 				$result = "No data found";
 			}
 			else{
-				$data = mysqli_fetch_assoc($kal);
+				while($data = mysqli_fetch_assoc($kal)){
+				
+					//$data = mysqli_fetch_assoc($kal);
 					$result.="Student roll no :".$data['roll'];
 					$result.=", Student name is :" .$data['name']."<br>";
+				}
 			}
 		}catch(Exception $e){
 				echo $e->getMessage();

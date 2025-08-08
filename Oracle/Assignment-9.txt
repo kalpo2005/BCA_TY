@@ -70,11 +70,12 @@ INSERT A RECORDS FROM STUDENT MEBAR TABLE
 	SELECT s.roll_no,CONCAT(s.fname,s.mname) FROM student_membar s , department d WHERE s.dept_id = d.dept_id AND d.dept_name = 'Information Technology';
 	
 3. DEPARATMENT NAME OF ALL STUDENT
-
 	SELECT DISTINCT(d.dept_name) FROM student_membar s , department d WHERE s.dept_id = d.dept_id;
 
 4. SHOW ALL DEPARRTMET WHOSE NOT Assignment TO MEMBAR
-
 	SELECT DISTINCT(d.dept_name) FROM student_membar s , department d WHERE s.dept_id = d.dept_id;
-
 	
+5. display all deptartment name
+
+6. find the student whose has a electric engineer (number)
+		SELECT count(d.dept_name)as total_student FROM student_membar s , department d WHERE s.dept_id = d.dept_id AND d.dept_name = 'Electrical';

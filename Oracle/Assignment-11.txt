@@ -1,0 +1,17 @@
+Assignment 11
+
+CLIENT MASTER TABLE
+
+	CREATE TABLE client_master(
+		clientno NUMBER(3),
+		name VARCHAR(15),
+		address VARCHAR(15),
+		connection_type VARCHAR(15) NOT NULL,
+		area VARCHAR(9) NOT NULL,
+		membar_on_rent char(2) NOT NULL,
+		PRIMARY KEY (clientno),
+		CHECK (name = UPPER(name)),
+		CHECK (connection_type IN ('Domestic','Business','Temporary')),
+		CHECK (area IN ('Rural','Urban')),
+		CHECK (membar_on_rent IN ('y','n'))
+	);

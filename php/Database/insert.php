@@ -9,6 +9,7 @@
 		$data = array();
 		
 		foreach($_POST as $key=>$value){
+			if(is_array($key)
 			$data[$key]="'".$value."'";
 		}
 		

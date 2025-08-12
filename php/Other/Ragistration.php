@@ -1,5 +1,10 @@
 <?php
-	require 'Ragistration-logic.php';
+
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	$data = array();
+	foreach ($_POST as $key => $value) {
+		$data[$key] = $value;
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -116,7 +121,7 @@
 	<div class="container">
 		<h2>Registration Form</h2>
 
-		<form method="POST" id="form" action="Ragistration-logic.php">
+		<form method="POST" id="form" >
 
 			<div class="field">
 				<p>Username</p>

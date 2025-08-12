@@ -38,8 +38,8 @@
 			<h2>Insert data</h2>
 			<form method="POST">
 				<input type="number" name="roll" required placeholder="Enter a roll Number">
-				
 				<input type="text" name="name" required placeholder="Enter a student name">
+				
 				<button type="submit">Insert Data</button>
 			</form>
 		</div>

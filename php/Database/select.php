@@ -14,16 +14,21 @@
 		
 		$keys = array_keys($data);
 	
-		$sql = "DELETE FROM {$tableName} WHERE roll = {$data['roll']}";
+		$sql = "SELECT * FROM {$tableName} WHERE roll = {$data['roll']}";
 		
 		try{
 			$kal = mysqli_query($conn,$sql);
-			//echo $kal;
-			if(mysqli_affected_rows($conn)!==0){
-				$result = "Data successfully Deleted";
+			$row = mysqli_affected_rows($conn);
+			if($row === 0){
+				$result = "No data found";
 			}
 			else{
-				$result = "Data can't deleted ";
+				while($data = mysqli_fetch_assoc($kal)){
+				
+					//$data = mysqli_fetch_assoc($kal);
+					$result.="Student roll no :".$data['roll'];
+					$result.=", Student name is :" .$data['name']."<br>";
+				}
 			}
 		}catch(Exception $e){
 				echo $e->getMessage();
@@ -34,17 +39,17 @@
 
 <html>
 	<head>
-		<title>Delete records </title>
+		<title>Select records </title>
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 
 	<body>
 		<div class="container">
-			<h2>Delete records</h2>
+			<h2>Select records</h2>
 			<form method="POST">
-				<input type="number" name="roll" required placeholder="Enter a roll for delete ">
+				<input type="number" name="roll" required placeholder="Enter a roll for Select ">
 				
-				<button type="submit">Delete Record</button>
+				<button type="submit">Fetch Record</button>
 			</form>
 		</div>
 		<div class="result"><h3><?php echo $result; ?></h3></div>

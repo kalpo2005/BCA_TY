@@ -8,8 +8,7 @@
 	if($_SERVER['REQUEST_METHOD']==='POST'){
 		$data = array();
 		
-		foreach($_POST as $key=>$value){
-			if(is_array($key)
+		foreach($_POST as $key => $value){
 			$data[$key]="'".$value."'";
 		}
 		

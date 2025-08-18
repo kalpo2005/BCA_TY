@@ -29,13 +29,13 @@
 
 <html>
 	<head>
-		<title>Insert data</title>
+		<title>Update data</title>
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 
 	<body>
 		<div class="container">
-			<h2>Insert data</h2>
+			<h2>Update data</h2>
 			<form method="POST">
 				<input type="number" name="rollOld" required placeholder="Enter a roll Number">
 				

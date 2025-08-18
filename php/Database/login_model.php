@@ -22,8 +22,7 @@
 		$data = array();
 		
 		foreach($_POST as $key=>$value){
-			if(is_array($value)){
-				ECHO $key;
+			if(is_array($value) && !empty($value)){
 				$data[$key] = "'". implode(',',$value) . "'";
 			}else if(!empty($value)){
 					$data[$key]="'".$value."'";
@@ -32,15 +31,23 @@
 		
 		$keys = array_keys($data);
 	
-		 $sql = "INSERT INTO {$tableName} (".implode(',',$keys).") VALUES (".implode(',',$data).")";
-	echo $sql;
-		try{
-			if(!mysqli_query($conn,$sql))
-				die("Query Failed !!!");
-			else
-				$result = "Data successfully Inseted !!!";
-			header("Location : addUser.php");
-		}catch(Exception $e){
-				echo $e->getMessage();
-		}
-	}	
+		 $sql = "INSERT INTO {$tableName} (".implode(',',$keys).") VALUE (".implode(',',$data).")";
+
+	
+		if(!mysqli_query($conn,$sql))
+			$result = "Query Failed !!!";
+		else
+			$result = "Data successfully Inseted !!!";
+	if($result!="")
+	{
+		echo"<script>
+		a=confirm('{$result}');
+		if(a) window.location.href='addUser.php';
+		</script>";
+		
+		//header("Location:addUser.php");
+	}		
+
+	}
+?>	
+	

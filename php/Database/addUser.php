@@ -1,7 +1,3 @@
-<?php 
-	require_once "login_model.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -169,20 +165,20 @@
 				<p>Hobbies</p>
 				<label><input type="checkbox" name="hobbies[]" value="Reading"> Reading</label>
 				<label><input type="checkbox" name="hobbies[]" value="Travelling"> Travelling</label>
-			</div> 
+			</div>
 
 			<div class="field">
 				<button type="submit" id="btn">Submit</button>
 			</div>
 
 		</form>
-		
+		<!--
 		<?php if (isset($result)): ?>
 	
 		<div>
 			<h1> <?php echo $result; ?> </h1>
 		</div>
-	<?php endif; ?>
+	<?php endif; ?>-->
 		
 	</div>
 

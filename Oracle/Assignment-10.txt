@@ -28,22 +28,42 @@ INSERT RECORDS
 	
 	
 1. NO OF SMITH HOW MANY ORDER 
+	SELECT customerName AS CUSTOMER_NAME, COUNT(orderQuentity) FROM sales GROUP BY customerName HAVING customerName = 'Smith';
 
 2.FIND A UNIQUE CUSTOMER TO ORDER A ORDER FROME STORE 
+	SELECT COUNT(DISTINCT(customerName)) AS UNIQUE_NO FROM sales;
 
 3. FIND A TOTAL ITEM TO CUSTOMER ITEM ORDER
 	SELECT SUM(orderQuentity) AS total FROM sales;
 	
 4. average of the total items 
 	SELECT SUM(orderQuentity)/COUNT(orderId) AS average FROM sales;
+	
+	SELECT customerName AS CUSTOMER_NAME, AVG(orderQuentity) FROM sales GROUP BY customerName;
 
 5. find the avarage of the items but product price is a grater 2000
-	SELECT SUM(orderQuentity)/COUNT(orderId) AS average FROM sales WHERE orderPrice > 200;
+	SELECT AVG(orderQuentity) AS average FROM sales WHERE orderPrice > 200;
+	
 	
 6. find the customer to paid a  minimum price
+	SELECT customerName , MIN(orderPrice) FROM sales GROUP BY customerName;
 	
-	
+	SELECT MIN(orderPrice) AS minimum FROM sales;
+		
 7.  find the customer to paid a  maximum price
-
+	SELECT customerName , MAX(orderPrice) FROM sales GROUP BY customerName;
+	
+	SELECT MAX(orderPrice) AS minimum FROM sales;
 
 8. unique customer name from the table
+	SELECT DISTINCT(customerName) AS CUTOMER_NAME FROM sales;
+	
+9. CUSTOMER NAME ORDER IN DECEMBER MONTH
+
+
+10 EACH CUTOMER TOTAL MONEY SPEND
+	SELECT customerName, SUM(orderPrice*orderQuentity) FROM sales GROUP BY customerName;
+	
+11. customer spend a 1200 more than
+
+		SELECT customerName,SUM(orderPrice*orderQuentity) AS TOTAL_MONEY FROM sales GROUP BY customerName HAVING SUM(orderPrice*orderQuentity;

@@ -6,10 +6,11 @@
 	$tableName = "studentdata";
 	$result = "";
 	$data = array();
-	if($_SERVER['REQUEST_METHOD']==='POST'){
-		
-		$sql = "SELECT * FROM {$tableName} ORDER BY roll ASC";
+	$currentPage=0;
+	$sql = "SELECT * FROM {$tableName} ORDER BY roll ASC";
 		$kal = mysqli_query($conn,$sql);
+		if(!$kal) die("Something went wrong  !!!");
+		
 			$row = mysqli_affected_rows($conn);
 			if($row === 0){
 				$result = "No data found";
@@ -19,30 +20,36 @@
 				while($row >$i){
 					$data[$i] = mysqli_fetch_assoc($kal);
 					$i++;
-				}unset($data[$i]);
+				}
+				unset($data[$i]);
 				$lenght = count($data);
-			}
-				$result = "Roll Number is : {$data[0]['roll']}, Student name is : {$data[0]['name']}";
-			//echo"<pre>";
-		//print_r($data);
+			} 
+	
+	if($_SERVER['REQUEST_METHOD']==='POST'){
 		
 		if(isset($_POST['first']) && $_POST['first']==="first"){
-			$result = "Roll Number is : {$data[0]['roll']}, Student name is : {$data[0]['name']}";
+			$currentPage=0;
 		}
 		
 		if(isset($_POST['prev']) && $_POST['prev']==="prev"){
+		$currentPage=$_POST['page']-1;
 		
+		if($currentPage<0)
+				$currentPage=$lenght-1;
 		}
 		
 		if(isset($_POST['next']) && $_POST['next']==="next"){
-			
+			$currentPage=$_POST['page']+1;
+			if($currentPage>$lenght-1)
+				$currentPage=0;
 		}
 		
 		if(isset($_POST['last']) && $_POST['last']==="last"){
-				$result = "Roll Number is : {$data[$lenght-1]['roll']}, Student name is : {$data[$lenght-1]['name']}";
-			
+			$currentPage=$lenght-1;
 		}
 	}
+	
+	$result = "Roll Number is : {$data[$currentPage]['roll']}, Student name is : {$data[$currentPage]['name']}";
 ?>
 
 <html>
@@ -55,6 +62,7 @@
 		<div class="container">
 			<h2>Select records</h2>
 			<form method="POST">
+			<input type="hidden" name="page" value="<?php echo $currentPage; ?>">
 				<input type="submit" name="first" value="first"></input>
 				<input type="submit" name="prev" value="prev"></input>
 				<input type="submit" name="next" value="next"></input>

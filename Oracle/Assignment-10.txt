@@ -59,11 +59,33 @@ INSERT RECORDS
 	SELECT DISTINCT(customerName) AS CUTOMER_NAME FROM sales;
 	
 9. CUSTOMER NAME ORDER IN DECEMBER MONTH
+		
+		SELECT customerName AS CUTOMER_NAME FROM sales where (TO_CHAR(orderDate,'month')) LIKE 'december%';
 
-
+		SELECT DISTINCT(TO_CHAR(orderDate,'month')) FROM sales;
+		
 10 EACH CUTOMER TOTAL MONEY SPEND
 	SELECT customerName, SUM(orderPrice*orderQuentity) FROM sales GROUP BY customerName;
 	
 11. customer spend a 1200 more than
 
-		SELECT customerName,SUM(orderPrice*orderQuentity) AS TOTAL_MONEY FROM sales GROUP BY customerName HAVING SUM(orderPrice*orderQuentity;
+	SELECT customerName,SUM(orderPrice*orderQuentity) AS TOTAL_MONEY FROM sales GROUP BY customerName HAVING SUM(orderPrice*orderQuentity)>1200;
+		
+12.  TOTAL ORDER IN GRATTER THAN 5 ORDER 
+	SELECT customerName,SUM(orderQuentity) AS TOTAL_MONEY FROM sales GROUP BY customerName HAVING SUM(orderQuentity)>5;
+
+
+13. SPEND A MORE THAN 1000 AFTER THAN DATA 10-01-2005
+
+	SELECT orderDate,SUM(orderPrice) AS TOTAL_MONEY FROM sales GROUP BY orderDate AND orderDate > '10-jan-2005' HAVING SUM(orderPrice)>1000 ;
+	
+14. incresing orderwise	
+
+	SELECT customerName,SUM(orderQuentity) AS TOTAL_MONEY FROM sales GROUP BY customerName ORDER BY SUM(orderQuentity);
+	
+15. descrising pricewise
+	
+	SELECT customerName,SUM(orderQuentity) AS TOTAL_MONEY FROM sales GROUP BY customerName ORDER BY SUM(orderQuentity) DESC;
+
+	
+	

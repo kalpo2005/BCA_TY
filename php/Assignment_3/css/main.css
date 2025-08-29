@@ -1,0 +1,46 @@
+*{
+	padding:0;
+	margin:0;	
+}
+.container{
+	height:100svh;
+	display:grid;
+	place-items:center;
+	
+}
+
+td,tr,th{
+	border:2px solid black;
+}
+th{
+		padding:1rem;
+}
+td{
+		padding:0.5rem;
+}
+
+table{
+	border-collapse:collapse;
+	text-align:center;
+}
+table input,table textarea{
+	padding:0.3rem;
+	border-radius:5px;
+}
+
+table button{
+	padding:0.3rem;
+	width: 100%;
+	padding: 10px;
+	background-color: #0077cc;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 1em;
+	cursor: pointer;
+	transition: background 0.3s;
+}
+
+table button:hover {
+	background-color: #005fa3;
+}

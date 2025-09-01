@@ -4,7 +4,6 @@ and another class result with total and percentage and define a method to displa
 this value.
 */
 
-
 import java.util.*;
 
 class Result{

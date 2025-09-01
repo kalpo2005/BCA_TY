@@ -1,3 +1,17 @@
+<?php
+	
+	$data = '';
+	if($_SERVER['REQUEST_METHOD']==='POST'){
+		foreach($_POST as $key=>$value){
+			$data .= "{$key}=$value&";
+		}
+		
+		header("Location:welcome.php?".$data);
+	}
+	
+
+?>
+
 <html>
 	<head>
 		<title>Contact form</title>
@@ -10,9 +24,10 @@
 				<thead>
 					<tr>
 						<th><img src="..\images\program1.png" width="150px"></th>
-						<th colspan="2" ><h3>ADARSH EDUCATIONAL CAMPUS</h3>
-						<h5>Managed by Takshshial edu. & Char. Trust
-</h5></th>
+						<th colspan="2" >
+							<h3>ADARSH EDUCATIONAL CAMPUS</h3>
+							<h5>Managed by Takshshial edu. & Char. Trust</h5>
+						</th>
 					</tr>
 				</thead>
 				
@@ -22,11 +37,10 @@
 						<td>Home</td>
 						<td colspan="2">Any query contact us ....</td>
 					</tr>
-					
+					<form method="POST">
 					<tr>
 						<td>About us</td>
-						<td>You Name:
-</td>
+						<td>You Name:</td>
 						<td><input type="text" name="name" placeholder="Enter your name" required></td>
 					</tr>
 					
@@ -37,8 +51,7 @@
 					</tr>
 					
 					<tr>
-						<td>Contact No:
-</td>
+						<td>Contact No:</td>
 						<td><input type="number" name="mobile" placeholder="Enter contact Number" required></td>
 					</tr>
 					
@@ -54,7 +67,7 @@
 					<tr>
 						<td colspan="3"><h5>POWERED BY @ ADARSH CAMPUS</h5></td>
 					</tr>
-					
+					</form>
 				</tbody>
 				
 			</table>

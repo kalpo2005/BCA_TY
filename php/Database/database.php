@@ -1,6 +1,7 @@
 <?php
 
 	function getDatabase(){
+		
 		$host = 'localhost';
 		$user = 'root';
 		$password = '';

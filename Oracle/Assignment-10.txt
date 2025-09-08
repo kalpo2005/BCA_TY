@@ -77,7 +77,7 @@ INSERT RECORDS
 
 13. SPEND A MORE THAN 1000 AFTER THAN DATA 10-01-2005
 
-	SELECT orderDate,SUM(orderPrice) AS TOTAL_MONEY FROM sales GROUP BY orderDate AND orderDate > '10-jan-2005' HAVING SUM(orderPrice)>1000 ;
+	SELECT orderDate,SUM(orderPrice) AS TOTAL_MONEY FROM sales GROUP BY orderDate AND orderDate > '10-jan-2005' HAVING SUM(orderPrice)>1000 ;  // baki chhe 
 	
 14. incresing orderwise	
 

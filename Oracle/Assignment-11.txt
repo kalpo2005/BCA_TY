@@ -15,3 +15,49 @@ CLIENT MASTER TABLE
 		CHECK (area IN ('Rural','Urban')),
 		CHECK (membar_on_rent IN ('y','n'))
 	);
+	
+// insert 10 records 
+
+	INSERT INTO client_master(clientno,name,address,connection_type,area,membar_on_rent) VALUES (23,'KALPESH','HAMAPAR','Domestic','Rural','y');
+	
+	INSERT INTO client_master(clientno,name,address,connection_type,area,membar_on_rent) VALUES (56,'ANIL','KANIYAD','Temporary','Urban','n');
+	
+	INSERT INTO client_master(clientno,name,address,connection_type,area,membar_on_rent) VALUES (89,'YASH','PALIYAD','Business','Rural','y');
+	
+	INSERT INTO client_master(clientno,name,address,connection_type,area,membar_on_rent) VALUES (85,'DHRUV','HAMAPAR','Domestic','Urban','n');
+	
+	INSERT INTO client_master(clientno,name,address,connection_type,area,membar_on_rent) VALUES (8,'MAHESH','BHAVNAGAR','Temporary','Urban','n');
+	
+	INSERT INTO client_master(clientno,name,address,connection_type,area,membar_on_rent) VALUES (25,'DRESHTI','GADHADA','Business','Urban','n');
+	
+	INSERT INTO client_master(clientno,name,address,connection_type,area,membar_on_rent) VALUES (7,'ANJALI','BHAVNAGAR','Domestic','Rural','y');
+	
+	INSERT INTO client_master(clientno,name,address,connection_type,area,membar_on_rent) VALUES (89,'VILASH','BOTAD','Business','Rural','n');
+	
+	INSERT INTO client_master(clientno,name,address,connection_type,area,membar_on_rent) VALUES (324,'PRADIP','GADHADA','Business','Urban','n');
+	
+	INSERT INTO client_master(clientno,name,address,connection_type,area,membar_on_rent) VALUES (52,'SANJAYBHAI','LATHIDAD','Temporary','Rural','n');
+	
+	INSERT INTO client_master(clientno,name,address,connection_type,area,membar_on_rent) VALUES (88,'VIJAYBHAI','BOTAD','Domestic','Urban','n');
+	
+	update client_master set connection_type='Business' where clientno=88;
+	
+	
+1. Add a contact number with the not null contrain
+
+	ALTER TABLE client_master ADD contact_no NUMBER(10);
+	ALTER TABLE client_master MODIFY contact_no NUMBER(10) NOT NULL;
+	
+2. CREATE A SYNONYMS
+	CREATE PUBLIC SYNONYM clientMaster FOR scott.clientMmaster;
+	
+3.  CREATE A UNIQUE INDEX FOR THE CLIENT NOT
+	CREATE INDEX unique_index ON client_master(clientno);  // skip
+	
+4. who leave in the rural having own meter and temrary connection_type
+
+	SELECT name,address FROM client_master WHERE area =  'Rural' AND membar_on_rent ='n' AND connection_type = 'Temporary';
+	
+5. COUNT THE MEMBAR WHO LEAVE IN URBAN AND  WITH THE Business METER AND NOT OWNED BY HIS
+	SELECT COUNT(name) as urban_membar FROM client_master WHERE  area =  'Urban' AND membar_on_rent ='y' AND connection_type = 'Business' ;
+	

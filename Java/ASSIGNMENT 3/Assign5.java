@@ -25,7 +25,7 @@ class Assign5{
 		System.out.print("Enter a price ammount       : ");
 		float price = sc.nextFloat();
 		
-		System.out.print("Enter a interest duration   : ");
+		System.out.print("Enter a interest rate       : ");
 		float rate = sc.nextFloat();
 		
 		System.out.print("Enter a duration of time    : ");

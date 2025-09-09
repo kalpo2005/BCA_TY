@@ -1,0 +1,19 @@
+Assignment oracle 12
+
+create a following table
+
+CREATE TABLE account(
+	acc_no NUMBER(10),
+	name VARCHAR(20),
+	dob DATE,
+	opening_dt DATE,
+	ac_balance NUMBER(10),
+	ac_type CHAR(1),
+	ac_status CHAR(1),
+	PRIMARY KEY(acc_no),
+	CHECK(name = UPPER(name)),
+	CHECK(ac_type IN ('S','N')),
+	CHECK(ac_status IN ('O','C')),
+	CHECK(ac_balance > 0)
+);
+

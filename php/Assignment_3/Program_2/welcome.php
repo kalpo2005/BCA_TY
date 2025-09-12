@@ -8,7 +8,7 @@
 	<body>
 		<div class="container" style="display:inline-block;">
 			
-			<h3>Welcome Mr/Miss.<?php echo $_GET['name']; ?> You are successfully registered…!!</h3>
+			<h3>Welcome Mr/Miss.<?php echo $_GET['STUD_NAME']; ?> You are successfully registered…!!</h3>
 			
 		</div>
 	</body>

@@ -15,20 +15,20 @@
 		
 		$keys = array_keys($data);
 	
-		$sql = "SELECT * FROM {$tableName} WHERE USERNAME = {$data['USERNAME']}";
-		
+		$sql = "SELECT * FROM {$tableName} WHERE USERNAME = '{$data['USERNAME']}'";
+
 		try{
 			$kal = mysqli_query($conn,$sql);
 			$row = mysqli_affected_rows($conn);
 			if($row === 0){
-				$die("No user found");
+				die("No user found");
 			}
 			else{
-				$student = mysqli_fetch_assoc($kal))
+				$student = mysqli_fetch_assoc($kal);
 					if($student['PASSWORD']===$data['PASSWORD']){
 						$sendData ='';
 						foreach($student as $key=>$value){
-							$sendData.="$key=$value$";
+							$sendData.="$key=$value&";
 						}
 						header("Location:welcome.php?".$sendData);
 						
@@ -67,11 +67,11 @@
 						
 						<tr>
 							<td>USERNAME:</td>
-							<td><input type="text" name="USERNAME" placeholder="Enter your name" required></td>
+							<td><input type="text" name="USERNAME" placeholder="Enter username" required></td>
 						</tr>
 						
 							<td>PASSWORD</td>
-							<td><input type="password" name="PASSWORD" placeholder="Enter your name" required></td>
+							<td><input type="password" name="PASSWORD" placeholder="Enter password" required></td>
 						</tr>
 						
 						<tr>

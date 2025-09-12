@@ -1,35 +1,43 @@
-*{
-	padding:0;
-	margin:0;	
-}
-.container{
-	height:100svh;
-	display:grid;
-	place-items:center;
-	
+* {
+	padding: 0;
+	margin: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-td,tr,th{
-	border:2px solid black;
-}
-th{
-		padding:1rem;
-}
-td{
-		padding:0.5rem;
+.container {
+	height: 100svh;
+	display: grid;
+	place-items: center;
+
 }
 
-table{
-	border-collapse:collapse;
-	text-align:center;
-}
-table input,table textarea{
-	padding:0.3rem;
-	border-radius:5px;
+td,
+tr,
+th {
+	border: 2px solid black;
 }
 
-table button{
-	padding:0.3rem;
+th {
+	padding: 1rem;
+}
+
+td {
+	padding: 0.5rem;
+}
+
+table {
+	border-collapse: collapse;
+	text-align: center;
+}
+
+table input,
+table textarea {
+	padding: 0.3rem;
+	border-radius: 5px;
+}
+
+table button {
+	padding: 0.3rem;
 	width: 100%;
 	padding: 10px;
 	background-color: #0077cc;
@@ -38,9 +46,170 @@ table button{
 	border-radius: 5px;
 	font-size: 1em;
 	cursor: pointer;
-	transition: background 0.3s;
+	transition: background-color 0.3s;
 }
 
 table button:hover {
 	background-color: #005fa3;
+}
+
+
+/* ============= program 6 css ================ */
+.emp {
+	background: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add new button section */
+.addemp {
+	margin-bottom: 15px;
+}
+
+.addemp button {
+	background-color: #28a745;
+	color: white;
+	padding: 8px 15px;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.addemp button:hover {
+	background-color: #218838;
+}
+
+/* Search and entries section */
+.search {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 15px;
+	gap: 20px;
+}
+
+.search input[type="text"] {
+	padding: 6px 10px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+}
+
+.search button {
+	background-color: #007bff;
+	color: white;
+	padding: 6px 12px;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+.search button:hover {
+	background-color: #0056b3;
+}
+
+/* Employee table styling */
+.employee-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 10px;
+}
+
+.employee-table thead {
+	background-color: #d9edf7;
+}
+
+.employee-table th,
+.employee-table td {
+	border: 1px solid #ccc;
+	padding: 10px;
+	text-align: center;
+}
+
+.employee-table tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.btns{
+	display:flex;
+	justify-content:center;
+	
+}
+
+/* Action buttons */
+.updatebtn {
+	background-color: #007bff;
+	color: white;
+	padding: 5px 8px;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	margin-right: 5px;
+}
+
+.updatebtn:hover {
+	background-color: #0056b3;
+}
+
+.deletebtn {
+	background-color: #dc3545;
+	color: white;
+	padding: 5px 8px;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+.deletebtn:hover {
+	background-color: #c82333;
+}
+
+/* Add form section */
+.AddForm {
+	width:100%;
+	margin-top: 30px;
+	background: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.AddForm>div{
+	width:400px;
+}
+.AddForm p {
+	margin: 8px 0 4px;
+	font-weight: bold;
+}
+
+.AddForm input[type="text"],
+.AddForm input[type="number"],
+.AddForm select  {
+	width: 90%;
+	padding: 6px 10px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	margin-bottom: 10px;
+}
+
+.AddForm input[type="radio"] {
+	margin-right: 5px;
+}
+
+.AddForm button {
+	background-color: #28a745;
+	color: white;
+	padding: 8px 15px;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.AddForm button:hover {
+	background-color: #218838;
 }

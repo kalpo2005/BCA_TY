@@ -29,7 +29,7 @@
 		
 		echo "<script>alert(' $result')</script>";
 		
-		if(isLogin){
+		if($isLogin){
 			header("Location:welcome.php?name=".$data['STUD_NAME']);
 		}
 	}	
@@ -59,22 +59,22 @@
 						
 						<tr>
 							<td>USERNAME:</td>
-							<td><input type="text" name="USERNAME" placeholder="Enter your name" required></td>
+							<td><input type="text" name="USERNAME" placeholder="Enter username" required></td>
 						</tr>
 						
 						<tr>
 							<td>student Email:</td>
-							<td><input type="email" name="STUD_EMAIL" placeholder="Enter your name" required></td>
+							<td><input type="email" name="STUD_EMAIL" placeholder="Enter email id" required></td>
 						</tr>
 						
 						<tr>
 							<td>PASSWORD</td>
-							<td><input type="password" name="PASSWORD" placeholder="Enter your name" required></td>
+							<td><input type="password" name="PASSWORD" placeholder="Enter password" required></td>
 						</tr>
 						
 						<tr>
 							<td>STUD_ID</td>
-							<td><input type="number" name="STUD_ID" placeholder="Enter your name" required></td>
+							<td><input type="number" name="STUD_ID" placeholder="Enter student id" required></td>
 						</tr>
 						
 						<tr>
@@ -84,17 +84,17 @@
 						
 						<tr>
 							<td>ADDRESS</td>
-							<td><input type="text" name="STUD_ADD" placeholder="Enter your name" required></td>
+							<td><input type="text" name="STUD_ADD" placeholder="Enter address" required></td>
 						</tr>
 						
 						<tr>
 							<td>STANDARD</td>
-							<td><input type="text" name="STUD_STD" placeholder="Enter your name" required></td>
+							<td><input type="text" name="STUD_STD" placeholder="Enter standard" required></td>
 						</tr>
 						
 						<tr>
 							<td>DOB</td>
-							<td><input type="date" name="STUD_DOB" placeholder="Enter your name" required></td>
+							<td><input type="date" name="STUD_DOB" placeholder="Enter dob" required></td>
 						</tr>
 						
 						<tr>
@@ -121,7 +121,4 @@ PASSWORD VARCHAR(30)
 		</div>
 	</body>
 	
-	
-	
-
 </html>

@@ -6,6 +6,7 @@ $conn = getDatabase();
 $tableName = "employee";
 $result = "";
 $addUser = false;
+$detail = false;
 $search = '';
 $limit = null;
 
@@ -15,6 +16,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['addnew'])) {
         $addUser = true;
     } else  if (isset($_POST['account']) && $_POST['account'] === 'account') {
+		$sql = "SELECT * FROM {$tableName}"." WHERE emp_id = {$_POST['emp_id']}";
+		$kal = mysqli_query($conn, $sql);
+		$data = mysqli_fetch_assoc($kal);
+		
+		
+		$userRow=" <tr>
+                    <td>{$data['name']}</td>
+                    <td>{$data['name']}</td>
+                    <td>{$data['gender']}</td>
+                    <td>{$data['emp_type']}</td>
+                    <td>{$data['department']}</td>
+					<td>";
+		$detail = true;
+		
     } else if (isset($_POST['deleteBtn']) && $_POST['deleteBtn'] === 'delete') {
         $keys = "emp_id=" . $_POST['emp_id'];
         header("Location:delete.php?" . $keys);
@@ -210,6 +225,28 @@ if ($row === 0) {
                 </form>
             </div>
         </div>
+
+    <?php endif; ?>
+	
+	  <?php if ($detail): ?>
+        
+       <table class="employee-table">
+            <thead>
+                <tr>
+                   <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Employee Type</th>
+                    <th>Department</th>
+                </tr>
+                    
+                </tr>
+            </thead>
+            <tbody>
+              
+                <?php echo $userRow; ?>
+            </tbody>
+        </table>
 
     <?php endif; ?>
 

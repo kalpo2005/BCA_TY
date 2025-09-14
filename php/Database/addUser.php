@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -114,7 +113,7 @@
 	<div class="container">
 		<h2>Registration Form</h2>
 
-		<form method="POST" id="form" action="">
+		<form method="POST" id="form" action="login_model.php">
 
 			<div class="field">
 				<p>User Id</p>
@@ -123,12 +122,12 @@
 		
 			<div class="field">
 				<p>Username</p>
-				<input type="text" name="username" placeholder="Enter username" required>
+				<input type="text" name="user_name" placeholder="Enter username" required>
 			</div>
 
 			<div class="field">
 				<p>mobile_number</p>
-				<input type="number" name="mobile" placeholder="Enter mobile number" required>
+				<input type="number" name="mobile_number" placeholder="Enter mobile number" required>
 			</div>
 
 			<div class="field">
@@ -162,49 +161,27 @@
 				<label><input type="radio" name="gender" value="female"> Female</label>
 			</div>
 
-		<!--	<div class="field">
+			<div class="field">
 				<p>Hobbies</p>
 				<label><input type="checkbox" name="hobbies[]" value="Reading"> Reading</label>
 				<label><input type="checkbox" name="hobbies[]" value="Travelling"> Travelling</label>
-			</div> -->
+			</div>
 
 			<div class="field">
 				<button type="submit" id="btn">Submit</button>
 			</div>
 
 		</form>
-	</div>
-<!--
-	<?php if (isset($data)): ?>
+		<!--
+		<?php if (isset($result)): ?>
 	
 		<div>
-			<table>
-				<thead>
-					<tr>
-						<th>Detail</th>
-						<th>Information</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php foreach ($data as $key => $value): ?>
-						<tr>
-							<td><?php echo (ucfirst($key)); ?></td>
-							<td>
-								<?php
-								if (is_array($value)) {
-									echo (implode(', ', $value));
-								} else {
-									echo ($value);
-								}
-								?>
-							</td>
-						</tr>
-					<?php endforeach; ?>
-				</tbody>
-			</table>
+			<h1> <?php echo $result; ?> </h1>
 		</div>
-	<?php endif; ?>
-	-->
+	<?php endif; ?>-->
+		
+	</div>
+
 </body>
 
 </html>

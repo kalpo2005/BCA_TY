@@ -1,0 +1,51 @@
+Assignment oracle 12
+
+create a following table
+
+CREATE TABLE account(
+	acc_no NUMBER(10),
+	name VARCHAR(20),
+	dob DATE,
+	opening_dt DATE,
+	ac_balance NUMBER(10),
+	ac_type CHAR(1),
+	ac_status CHAR(1),
+	PRIMARY KEY(acc_no),
+	CHECK(name = UPPER(name)),
+	CHECK(ac_type IN ('S','C')),
+	CHECK(ac_status IN ('O','C')),
+	CHECK(ac_balance > 0)
+);
+
+1. INSERT 10  RECORDS 
+	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'KALPESH','13-MAY-2005','13-MAY-2015','4000','S','O');
+	
+	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'ANIL','30-JUN-2006','17-MAY-2012','40000','S','C');
+	
+	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'DHRUV','13-MAY-1999','23-MAY-2012','8000','S','O');
+	
+	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'YASH','13-MAY-1970','02-OCT-2012','89000','S','O');
+	
+	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'DARSHAN','13-MAY-2001','02-MAY-2022','88000','S','O');
+	
+	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'ANKITA','13-OCT-1970','04-SEP-2015','5000','S','O');
+	
+	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'SNEHA','13-MAY-1970','13-MAY-2022','4200','S','O');
+
+	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'DRASHTI','13-SEP-2001','13-MAY-2025','54000','S','O');
+	
+	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'KRUPAL','13-OCT-2018','13-SEP-2022','84000','S','O');
+	
+	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'NAYANA','6-OCT-2001','13-SEP-2012','44000','S','O');
+
+2. select record name birthdate
+
+	SELECT name,dob,acc_no,opening_dt,ac_balance,ac_type,ac_status FROM account WHERE (MONTHS_BETWEEN(SYSDATE,dob)/12) < 18;
+
+3. Ch=ycle generate for the 50001
+
+	CREATE SEQUENCE ac_seq INCREMENT BY 1 START WITH 50001 NOCACHE NOCYCLE;
+
+
+
+

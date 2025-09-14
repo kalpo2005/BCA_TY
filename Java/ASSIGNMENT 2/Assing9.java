@@ -8,7 +8,6 @@ class Book{
 	int price;
 	String name;
  
-	
 	void getBook(Scanner sc){
 
 		System.out.print("Enter a ACC NO : ");

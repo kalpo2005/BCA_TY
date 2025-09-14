@@ -73,9 +73,31 @@ INSERT A RECORDS FROM STUDENT MEBAR TABLE
 	SELECT DISTINCT(d.dept_name) FROM student_membar s , department d WHERE s.dept_id = d.dept_id;
 
 4. SHOW ALL DEPARRTMET WHOSE NOT Assignment TO MEMBAR
+<<<<<<< HEAD
 	SELECT DISTINCT(d.dept_name) FROM student_membar s , department d WHERE s.dept_id = d.dept_id;
 	
 5. display all deptartment name
 
 6. find the student whose has a electric engineer (number)
 		SELECT count(d.dept_name)as total_student FROM student_membar s , department d WHERE s.dept_id = d.dept_id AND d.dept_name = 'Electrical';
+=======
+	SELECT * FROM department WHERE dept_id NOT IN (SELECT dept_id FROM student_membar);
+	
+5. display all deptartment name
+	SELECT * FROM department;
+
+6. find the student whose has a electric engineer (number)
+		SELECT count(d.dept_name)as total_student FROM student_membar s , department d WHERE s.dept_id = d.dept_id AND d.dept_name = 'Electrical';
+		
+7. all information where the stuedent from electric department
+	SELECT s.* FROM student_membar s , department d WHERE s.dept_id = d.dept_id AND d.dept_name like 'Electrical';
+	
+8. display inormation of male maber
+	SELECT s.*,d.dept_name AS department_name FROM student_membar s , department d WHERE s.dept_id = d.dept_id AND s.gender like 'M';
+	
+9. All student who current in the sem 30
+	SELECT * FROM student_membar WHERE semester = 3;
+	
+10. All femele data in alphbatic order
+		SELECT s.*,d.dept_name AS department_name FROM student_membar s , department d WHERE s.dept_id = d.dept_id AND s.gender like 'F' ORDER BY fname;
+>>>>>>> master

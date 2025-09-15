@@ -1,0 +1,5 @@
+Assigment 13
+
+	CREATE TABLE depratment(
+		
+	);

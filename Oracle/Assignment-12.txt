@@ -22,19 +22,19 @@ CREATE TABLE account(
 	
 	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'ANIL','30-JUN-2006','17-MAY-2012','40000','S','C');
 	
-	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'DHRUV','13-MAY-1999','23-MAY-2012','8000','S','O');
+	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'DHRUV','13-MAY-1999','23-MAY-2012','8000','C','O');
 	
-	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'YASH','13-MAY-1970','02-OCT-2012','89000','S','O');
+	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'YASH','13-MAY-1970','02-OCT-2012','89000','C','O');
 	
 	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'DARSHAN','13-MAY-2001','02-MAY-2022','88000','S','O');
 	
-	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'ANKITA','13-OCT-1970','04-SEP-2015','5000','S','O');
+	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'ANKITA','13-OCT-1970','04-SEP-2015','5000','C','O');
 	
-	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'SNEHA','13-MAY-1970','13-MAY-2022','4200','S','O');
+	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'SNEHA','05-JAN-1970','05-JAN-1999','4200','S','O');
 
 	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'DRASHTI','13-SEP-2001','13-MAY-2025','54000','S','O');
 	
-	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'KRUPAL','13-OCT-2018','13-SEP-2022','84000','S','O');
+	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'KRUPAL','13-OCT-2008','05-JAN-2012','84000','C','O');
 	
 	INSERT INTO account(acc_no,name,dob,opening_dt,ac_balance,ac_type,ac_status) VALUES(ac_seq.NEXTVAL,'NAYANA','6-OCT-2001','13-SEP-2012','44000','S','O');
 
@@ -46,6 +46,11 @@ CREATE TABLE account(
 
 	CREATE SEQUENCE ac_seq INCREMENT BY 1 START WITH 50001 NOCACHE NOCYCLE;
 
+4. Balance between 5000 to 50000
 
+	SELECT * FROM account WHERE ac_balance BETWEEN 5000 AND 50000 AND ac_type = 'C';
+	
+5. ACCOUNT FRON 5TH JANUARY SINCE 10 YEAR
+	SELECT * FROM account WHERE (MONTHS_BETWEEN(SYSDATE,dob)/12) > 10 AND opening_dt LIKE '05-JAN%';
 
 

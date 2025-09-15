@@ -150,19 +150,6 @@ if ($row === 0) {
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr>
-                    <td>kalpesh</td>
-                    <td>male</td>
-                    <td>Casual</td>
-                    <td>Admin</td>
-                    <td>
-					<form method="POST" class="btns">
-                         <input type="hidden" name="emp_id" value="1">
-						<button type="submit" name="account" value="account" class="updatebtn">Account</button>
-						<button type="submit" name="deleteBtn" value="delete" class="deletebtn">Delete</button>
-					</form>
-                    </td>
-                </tr>-->
 
                 <?php echo $result; ?>
             </tbody>

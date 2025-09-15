@@ -3,11 +3,12 @@
 require_once "../../Database/database.php";
 
 $conn = getDatabase();
-$tableName = "employee";
+$tableName = "book";
 $result = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = array();
 
+    $data['netAmmount'] =  $_POST['price'] *  $_POST['quantity'];
     foreach ($_POST as $key => $value) {
         if (!empty($value))
             $data[$key] = "'" . $value . "'";

@@ -15,15 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['addnew'])) {
         $addBook = true;
     } else  if (isset($_POST['update']) && $_POST['update'] === 'update') {
-		$conn = getDatabase();
-		$tableName = "book";
-        $sql = "SELECT * FROM {$tableName} WHERE book_id = {$_POST['bookId']}";
+
+        $sql = "SELECT * FROM {$tableName} WHERE bookId = {$_POST['bookId']}";
         $kal = mysqli_query($conn, $sql);
         $updateData = mysqli_fetch_assoc($kal);
-        print_r($updateData);
         $update = true;
     } else if (isset($_POST['deleteBtn']) && $_POST['deleteBtn'] === 'delete') {
-        $keys = "book_id=" . $_POST['bookId'];
+        $keys = "bookId=" . $_POST['bookId'];
         header("Location:delete.php?" . $keys);
     } else if (isset($_POST['searchbtn']) && $_POST['searchbtn'] === 'searchbtn') {
         if (isset($_POST['search'])) {
@@ -145,45 +143,48 @@ if ($row === 0) {
     <?php if ($addBook || $update): ?>
         <div class="AddForm">
             <div>
-
                 <?php if ($update): ?>
                     <h3>Update Book</h3>
                     <form method="POST" action="update.php">
-                    <?php else: ?> <h2>Add New Book</h2>
+                    <?php endif; ?>
+                    <?php if ($addBook): ?> <h2>Add New Book</h2>
                         <form method="POST" action="insert.php">
                         <?php endif; ?>
+
                         <div>
-                            <p>Enter book Id</p>
-                            <input type="number" name="bookId" value="<?php if (isset($updateData['bookId'])) echo $data['bookId']; ?>" placeholder="Enter book Id" required>
+                            <p>Enter book ID</p>
+                            <input type="number" name="bookId" value="<?php if (isset($updateData['bookId'])) echo $updateData['bookId']; ?>" placeholder="Enter book Id" required>
                         </div>
+
 
                         <div>
                             <p>Enter book name</p>
-                            <input type="text" name="bookName" value="<?php if (isset($updateData['bookName'])) echo $data['bookName']; ?>" placeholder="Enter book name" required>
+                            <input type="text" name="bookName" value="<?php if (isset($updateData['bookName'])) echo $updateData['bookName']; ?>" placeholder="Enter book name" required>
                         </div>
 
                         <div>
                             <p>Enter author name</p>
-                            <input type="text" name="AuthorName" value="<?php if (isset($updateData['AuthorName'])) echo $data['AuthorName']; ?>" placeholder="Enter author name" required>
+                            <input type="text" name="AuthorName" value="<?php if (isset($updateData['AuthorName'])) echo $updateData['AuthorName']; ?>" placeholder="Enter author name" required>
                         </div>
 
                         <div>
                             <p>Enter book Price</p>
-                            <input type="number" name="price" value="<?php if (isset($updateData['price'])) echo $data['price']; ?>" placeholder="Enter book price" required>
+                            <input type="number" name="price" value="<?php if (isset($updateData['price'])) echo $updateData['price']; ?>" placeholder="Enter book price" required>
                         </div>
 
                         <div>
                             <p>Enter book quantity</p>
-                            <input type="number" name="quantity" value="<?php if (isset($updateData['quantity'])) echo $data['quantity']; ?>" placeholder="Enter book quantity" required>
+                            <input type="number" name="quantity" value="<?php if (isset($updateData['quantity'])) echo $updateData['quantity']; ?>" placeholder="Enter book quantity" required>
                         </div>
 
                         <?php if ($update): ?>
                             <button type="submit" name="update" id="btn">Update</button>
-                            <input type="hidden" name="bookId" value="' . $updateData[" bookId"] . '">
+
                         <?php else: ?>
                             <button type="submit" name="addbook" id="btn">Submit</button>
                         <?php endif; ?>
-                    </form>
+                        </form>
+
             </div>
         </div>
 

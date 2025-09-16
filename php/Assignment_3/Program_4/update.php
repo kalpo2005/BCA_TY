@@ -5,22 +5,26 @@ $tableName = "book";
 $result = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+print_r($_POST);
 	$where = $_POST['bookId'];
-	$data = array();
-	unset($_POST['rollOld']);
-
+	$data .=  " netAmmount = " . ($_POST['price'] *  $_POST['quantity']);
 	foreach ($_POST as $key => $value) {
 		if (!empty($value))
-			$data[] = "$key = '$value'";
+			$data.= " , $key = '$value' ";
 	}
 
-	$sql = "UPDATE {$tableName} SET " . implode(',', $data) . " WHERE roll = $where";
-	// echo $sql;
+	$sql = "UPDATE {$tableName} SET " .$data . " WHERE bookId = ". $where;
+	 echo $sql;
 
 	$update = mysqli_query($conn, $sql);
 	if (!$update || mysqli_affected_rows($conn) === 0)
-		$result = "Data wan not updated !!!";
+	echo "<script>
+        alert('Data can't updated !!!');
+        window.location.href = 'index.php';
+    </script>";
 	else
-		$result = "Data update successfully !!!";
+		echo "<script>
+        alert('Data Successfully updated !!!');
+        window.location.href = 'index.php';
+    </script>";
 }

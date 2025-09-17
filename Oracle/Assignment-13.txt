@@ -1,5 +1,83 @@
 Assigment 13
 
-	CREATE TABLE depratment(
-		
+	CREATE TABLE department13(
+		dept_id NUMBER(3),
+		dept_name VARCHAR(25) NOT NULL,
+		dept_location VARCHAR(25) NOT NULL,
+		PRIMARY KEY(dept_id)
 	);
+	
+	CREATE TABLE employee13(
+		emp_id NUMBER(3),
+		emp_name VARCHAR(25) NOT NULL,
+		doj DATE,
+		dob DATE,
+		salary NUMBER(15,2),
+		dept_id NUMBER(3),
+		FOREIGN KEY(dept_id) REFERENCES department13(dept_id),
+		PRIMARY KEY(emp_id)
+	);
+	
+	
+	------------------ DEPARTMENT 13 TABLE-----------------
+	
+		INSERT INTO department13(dept_id,dept_name,dept_location) VALUES(1,'DEVELOPMENT','BHAVNAGAR');
+		
+		INSERT INTO department13(dept_id,dept_name,dept_location) VALUES(2,'TESTING','BOTAD');
+		
+		INSERT INTO department13(dept_id,dept_name,dept_location) VALUES(3,'QA','AMRELI');
+		
+		INSERT INTO department13(dept_id,dept_name,dept_location) VALUES(4,'HR','RAJKOT');
+		
+		INSERT INTO department13(dept_id,dept_name,dept_location) VALUES(5,'MANAGER','BOTAD');
+		
+		INSERT INTO department13(dept_id,dept_name,dept_location) VALUES(6,'SALES','SURAT');
+		
+		INSERT INTO department13(dept_id,dept_name,dept_location) VALUES(7,'MANAGER','RAJKOT');
+		
+		INSERT INTO department13(dept_id,dept_name,dept_location) VALUES(8,'DEPLOYMENT','RAJKOT');
+		
+		INSERT INTO department13(dept_id,dept_name,dept_location) VALUES(20,'ACCOUNT','MUMBAI');
+		
+		INSERT INTO department13(dept_id,dept_name,dept_location) VALUES(10,'PRODUCTION','SURAT');
+		
+		
+	------------------ Employee 13 TABLE -----------------
+	
+	INSERT INTO employee13(emp_id,emp_name,dob,doj,salary,dept_id) VALUES(1,'KALPESH','13-MAY-2005','13-MAY-2022',25000.33,20);
+	
+	INSERT INTO employee13(emp_id,emp_name,dob,doj,salary,dept_id) VALUES(103,'MAHESH','30-JUN-2006','17-MAY-2007',25455.88,8);
+	
+	INSERT INTO employee13(emp_id,emp_name,dob,doj,salary,dept_id) VALUES(105,'DARSHAN','13-MAY-2001','02-MAY-2022',7557.75,7);
+	
+	INSERT INTO employee13(emp_id,emp_name,dob,doj,salary,dept_id) VALUES(108,'DRASHTI','13-OCT-2011','05-JAN-2012',4544.75,4);
+	
+	INSERT INTO employee13(emp_id,emp_name,dob,doj,salary,dept_id) VALUES(156,'KINJAL','6-OCT-2021','13-SEP-2022',757544.42,6);
+	
+	INSERT INTO employee13(emp_id,emp_name,dob,doj,salary,dept_id) VALUES(196,'VILASH','13-OCT-1970','04-SEP-2007',5000.44,3);
+	
+	INSERT INTO employee13(emp_id,emp_name,dob,doj,salary,dept_id) VALUES(999,'YASH','08-MAY-2001','28-DEC-2018',7111.33,6);
+	
+	INSERT INTO employee13(emp_id,emp_name,dob,doj,salary,dept_id) VALUES(562,'DHRUV','09-MAR-1922','13-JUL-2020',5888.45,10);
+	
+	INSERT INTO employee13(emp_id,emp_name,dob,doj,salary,dept_id) VALUES(745,'ANIL','28-DEC-2018','16-NOV-2023',8888.35,5);
+	
+	INSERT INTO employee13(emp_id,emp_name,dob,doj,salary,dept_id) VALUES(455,'VIJAY','23-SEP-2018','26-AUG-2025',5564.89,20);
+	
+	------------------  QUERY EXECUTION 1 TO N ----------------
+	
+1. Display only those records which are work in sales department. 
+
+	SELECT e.*,d.dept_name AS DEPARTMENT FROM employee13 e , department13 d WHERE e.dept_id = d.dept_id AND D.dept_name LIKE 'SALES';
+	
+2. Update salary of employee with 500 Rs/- where dept_id is 20. 
+	
+	UPDATE employee13 SET salary = 500 WHERE dept_id=20;
+	
+3.  Display only those employee details whose joining year is 2007. 
+	
+	SELECT * FROM employee13 WHERE TO_CHAR(doj,'yyyy') = 2007;
+	
+4. Create view for manager which provides details of both tables. 
+
+	CREATE VIEW manage AS SELECT e.*,d.dept_name FROM employee13 e , department13 d WHERE e.dept_id = d.dept_id ;

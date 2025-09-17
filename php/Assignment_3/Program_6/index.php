@@ -23,16 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		
 		$userRow=" <tr>
                     <td>{$data['name']}</td>
-                    <td>{$data['name']}</td>
                     <td>{$data['gender']}</td>
                     <td>{$data['emp_type']}</td>
                     <td>{$data['department']}</td>
-					<td>";
+					</tr>";
 		$detail = true;
 		
     } else if (isset($_POST['deleteBtn']) && $_POST['deleteBtn'] === 'delete') {
         $keys = "emp_id=" . $_POST['emp_id'];
         header("Location:delete.php?" . $keys);
+		
     } else if (isset($_POST['searchbtn']) && $_POST['searchbtn'] === 'searchbtn') {
         if (isset($_POST['search'])) {
             $search = trim($_POST['search']);
@@ -132,7 +132,7 @@ if ($row === 0) {
                         <option value="13">13</option>
                     </select>
             </div>
-            <div>
+            <div class="search">
 
                 <input type="text" name="search" value="<?php if (!empty($search)) echo $search ?>" placeholder="Search by Name.....">
                 <button type="submit" name="searchbtn" value="searchbtn" class="searchbtn updatebtn">Search</button>
@@ -152,6 +152,7 @@ if ($row === 0) {
             <tbody>
 
                 <?php echo $result; ?>
+				
             </tbody>
         </table>
 
@@ -219,19 +220,17 @@ if ($row === 0) {
         
        <table class="employee-table">
             <thead>
-                <tr>
                    <tr>
                     <th>Name</th>
                     <th>Gender</th>
                     <th>Employee Type</th>
                     <th>Department</th>
                 </tr>
-                    
-                </tr>
             </thead>
             <tbody>
-              
+			
                 <?php echo $userRow; ?>
+
             </tbody>
         </table>
 

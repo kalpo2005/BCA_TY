@@ -6,6 +6,13 @@ $result = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
+	echo "<script>
+        const isDelete =confirm ('Data delete successfully !!!');
+		if(isDelete)
+        window.location.href = 'index.php';
+    </script>";
+	
+
 	$sql = "DELETE FROM {$tableName} WHERE emp_id = {$_GET['emp_id']}";
 
 	try {

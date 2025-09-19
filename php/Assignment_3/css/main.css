@@ -4,7 +4,7 @@
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-.container, {
+.container{
 	height: 100svh;
 	display: grid;
 	place-items: center;
@@ -241,6 +241,12 @@ table button:hover {
 .program3 td {
 	padding: 10px;
 	text-align: center;
+}
+
+.errorMessage{
+	color:red;
+	font-size:12px;
+	text-align: start;
 }
 
 .program3 tr:nth-child(even) {

@@ -6,18 +6,34 @@ $conn = getDatabase();
 $tableName = "student";
 $result = "";
 $isLogin = false;
+$isError = false;
+$error = array();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	$data = array();
+	$data = array();	
 
 	foreach ($_POST as $key => $value) {
-		$data[$key] = "'" . $value . "'";
+		
+		if(empty($_POST[$key])){
+			$isError = true;
+			$error[$key] = "Fill the user " .$key;	
+		
+		}else{
+			// all the validatoin
+			if(is_Numeric($key === 'USERNAME')){
+				$isError = true;
+				$error[$key] = "usernamme must be string";		
+			}
+		}		
+			$data[$key] = $value;
 	}
 	
+	if(!$isError){
 	$keys = array_keys($data);
 
-	$sql = "INSERT INTO {$tableName} (" . implode(',', $keys) . ") VALUES (" . implode(',', $data) . ")";
+	$sql = "INSERT INTO {$tableName} ('" . implode("' , '", $keys) . "') VALUES (" . implode(',', $data) . ")";
 	try {
 		if (!mysqli_query($conn, $sql)) {
+		echo $sql;
 			die("Query Failed !!!");
 		} else {
 			$result = "Data successfully Inseted !!!";
@@ -30,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	if ($isLogin) {
 		header("Location:welcome.php?name=" . $data['STUD_NAME']);
-	}
+	}}
 }
 ?>
 
@@ -59,42 +75,67 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 					<tr>
 						<td>USERNAME:</td>
-						<td><input type="text" name="USERNAME" placeholder="Enter username" required></td>
+						<td><input type="text" name="USERNAME" value="<?php if(isset($data['USERNAME'])) echo $data['USERNAME']; ?>"placeholder="Enter username" >
+						<?php if(!empty($error['USERNAME']) && $isError ){
+							echo "<p class='errorMessage'>". $error['USERNAME'] . "</p>"; } ?>
+						</td>
+						
 					</tr>
 
 					<tr>
 						<td>student Email:</td>
-						<td><input type="email" name="STUD_EMAIL" placeholder="Enter email id" required></td>
+						<td><input type="email" name="STUD_EMAIL"  value="<?php if(isset($data['STUD_EMAIL'])) echo $data['STUD_EMAIL']; ?>" placeholder="Enter email id" >
+						<?php if(!empty($error['STUD_EMAIL']) && $isError ){
+						echo "<p class='errorMessage'>". $error['STUD_EMAIL'] . "</p>"; } ?>
+						</td>
 					</tr>
 
 					<tr>
 						<td>PASSWORD</td>
-						<td><input type="password" name="PASSWORD" placeholder="Enter password" required></td>
+						<td><input type="password" name="PASSWORD" value="<?php if(isset($data['PASSWORD'])) echo $data['PASSWORD']; ?>" placeholder="Enter password" >
+						<?php if(!empty($error['PASSWORD']) && $isError ){
+						echo "<p class='errorMessage'>". $error['PASSWORD'] . "</p>"; } ?>
+						</td>
 					</tr>
 
 					<tr>
 						<td>STUD_ID</td>
-						<td><input type="number" name="STUD_ID" placeholder="Enter student id" required></td>
+						<td><input type="number" name="STUD_ID" value="<?php if(isset($data['STUD_ID'])) echo $data['STUD_ID']; ?>" placeholder="Enter student id" >
+						<?php if(!empty($error['STUD_ID']) && $isError ){
+						echo "<p class='errorMessage'>". $error['STUD_ID'] . "</p>"; } ?>
+						</td>
 					</tr>
 
 					<tr>
 						<td>NAME</td>
-						<td><input type="text" name="STUD_NAME" placeholder="Enter your name" required></td>
+						<td><input type="text" name="STUD_NAME" value="<?php if(isset($data['STUD_NAME'])) echo $data['STUD_NAME']; ?>" placeholder="Enter your name" >
+						<?php if(!empty($error['STUD_NAME']) && $isError ){
+						echo "<p class='errorMessage'>". $error['STUD_NAME'] . "</p>"; } ?>
+						</td>
 					</tr>
 
 					<tr>
 						<td>ADDRESS</td>
-						<td><input type="text" name="STUD_ADD" placeholder="Enter address" required></td>
+						<td><input type="text" name="STUD_ADD" value="<?php if(isset($data['STUD_ADD'])) echo $data['STUD_ADD']; ?>" placeholder="Enter address" >
+						<?php if(!empty($error['STUD_ADD']) && $isError ){
+						echo "<p class='errorMessage'>". $error['STUD_ADD'] . "</p>"; } ?>
+						</td>
 					</tr>
 
 					<tr>
 						<td>STANDARD</td>
-						<td><input type="text" name="STUD_STD" placeholder="Enter standard" required></td>
+						<td><input type="text" name="STUD_STD" value="<?php if(isset($data['STUD_STD'])) echo $data['STUD_STD']; ?>" placeholder="Enter standard" >
+						<?php if(!empty($error['STUD_STD']) && $isError ){
+						echo "<p class='errorMessage'>". $error['STUD_STD'] . "</p>"; } ?>
+						</td>
 					</tr>
 
 					<tr>
 						<td>DOB</td>
-						<td><input type="date" name="STUD_DOB" placeholder="Enter dob" required></td>
+						<td><input type="date" name="STUD_DOB" value="<?php if(isset($data['STUD_DOB'])) echo $data['STUD_DOB']; ?>" placeholder="Enter dob" >
+						<?php if(!empty($error['STUD_DOB']) && $isError ){
+						echo "<p class='errorMessage'>". $error['STUD_DOB'] . "</p>"; } ?>
+						</td>
 					</tr>
 
 					<tr>

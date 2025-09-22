@@ -81,3 +81,47 @@ Assigment 13
 4. Create view for manager which provides details of both tables. 
 
 	CREATE VIEW manage AS SELECT e.*,d.dept_name FROM employee13 e , department13 d WHERE e.dept_id = d.dept_id ;
+	
+(5). Display sum of salary given to the production department. 
+	
+	SELECT SUM(salary) AS TOTAL_SALARY FROM employee13 e , department13 d WHERE e.dept_id = d.dept_id AND D.dept_name LIKE 'PRODUCTION';
+	
+(6). Display only those records where dept_location is Rajkot. 
+
+		SELECT e.*,d.dept_name AS DEPARTMENT,d.dept_location AS DEPARTMENT_LOCATION FROM employee13 e , department13 d WHERE e.dept_id = d.dept_id AND D.dept_location LIKE 'RAJKOT';
+		
+(7). Display minimum and maximum salary given to the employee. 
+
+		SELECT * FROM employee13 WHERE salary = (SELECT MAX(salary)FROM employee13);
+
+(8). Display name and experience of the employees.
+
+			SELECT FLOOR(MONTHS_BETWEEN(SYSDATE,doj)) AS EXPERINECE_MONTHS FROM employee13;
+
+			SELECT emp_name,CEIL(MONTHS_BETWEEN(SYSDATE,doj)) AS EXPERINECE_MONTHS FROM employee13;	
+ 
+(9). Display the number of days between system date and 1st January 2011. 			
+			
+		SELECT CEIL(SYSDATE - TO_DATE('2011-01-11','YYYY-MM-DD')) AS DAY_BETWEEN FROM DUAL;	
+		SELECT FLOOR(SYSDATE - TO_DATE('2011-01-11','YYYY-MM-DD')) AS DAY_BETWEEN FROM DUAL;	
+
+(10). Display name after converting the first letter of each name to upper case and the rest to lower case.  		
+	
+		SELECT INITCAP(emp_name) AS NAME FROM employee13;	
+
+(11). Display names and Salary of employee whose name begin with ‘A’ or ‘B’. 		
+		
+		SELECT emp_name,salary FROM employee13 WHERE emp_name LIKE 'A%' OR emp_name LIKE 'B%';	
+		
+(12). Display name of employee and age as on today. 
+	
+		SELECT emp_name, FLOOR(MONTHS_BETWEEN(SYSDATE,dob)/12) AS AGE_IN_YEAR FROM employee13;	
+		SELECT emp_name, CEIL(MONTHS_BETWEEN(SYSDATE,dob)/12) AS AGE_IN_YEAR FROM employee13;	
+		
+(13). Display the information of employee whose name is greater the 5 character. 
+	
+		SELECT e.*,d.dept_name AS DEPARTMENT FROM employee13 e , department13 d WHERE e.dept_id = d.dept_id AND LENGTH(e.emp_name)>5;
+((14). Delete the information of whose salary between 5000 to 10000. 
+
+	DELETE FROM employee13 WHERE salary BETWEEN 5000 AND 10000;
+	

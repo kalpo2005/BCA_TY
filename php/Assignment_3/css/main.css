@@ -191,6 +191,7 @@ table button:hover {
 
 .AddForm input[type="text"],
 .AddForm input[type="number"],
+.AddForm input[type="date"],
 .AddForm select,
 .AddForm textarea,
 .dob {
@@ -252,3 +253,15 @@ table button:hover {
 .program3 tr:nth-child(even) {
 	background-color: #f2f2f2;
 }
+
+.employee-table .student {
+	width: 80%;
+	border-collapse: collapse;
+	margin-top: 10px;
+}
+
+.student{
+	flex-direction:column;
+}
+
+

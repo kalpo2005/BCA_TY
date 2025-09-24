@@ -4,7 +4,7 @@
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-.container {
+.container{
 	height: 100svh;
 	display: grid;
 	place-items: center;
@@ -185,10 +185,16 @@ table button:hover {
 	margin: 8px 0 4px;
 	font-weight: bold;
 }
+.AddForm H3 {
+	text-align:center;
+}
 
 .AddForm input[type="text"],
 .AddForm input[type="number"],
-.AddForm select  {
+.AddForm input[type="date"],
+.AddForm select,
+.AddForm textarea,
+.dob {
 	width: 90%;
 	padding: 6px 10px;
 	border: 1px solid #ccc;
@@ -213,3 +219,49 @@ table button:hover {
 .AddForm button:hover {
 	background-color: #218838;
 }
+
+
+/* Program 3 css */
+.prg-2{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+}
+
+.program3 {
+	width: 100%;
+	margin-top: 10px;
+}
+
+.program3 thead {
+	background-color: #d9edf7;
+}
+
+.program3 th,
+.program3 td {
+	padding: 10px;
+	text-align: center;
+}
+
+.errorMessage{
+	color:red;
+	font-size:12px;
+	text-align: start;
+}
+
+.program3 tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.employee-table .student {
+	width: 80%;
+	border-collapse: collapse;
+	margin-top: 10px;
+}
+
+.student{
+	flex-direction:column;
+}
+
+

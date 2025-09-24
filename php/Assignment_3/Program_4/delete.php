@@ -1,19 +1,12 @@
 <?php
 require_once "../../Database/database.php";
 $conn = getDatabase();
-$tableName = "employee";
+$tableName = "book";
 $result = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-	echo "<script>
-        const isDelete =confirm ('Data delete successfully !!!');
-		if(isDelete)
-        window.location.href = 'index.php';
-    </script>";
-	
-
-	$sql = "DELETE FROM {$tableName} WHERE emp_id = {$_GET['emp_id']}";
+	$sql = "DELETE FROM {$tableName} WHERE bookId = {$_GET['bookId']}";
 
 	try {
 		$kal = mysqli_query($conn, $sql);

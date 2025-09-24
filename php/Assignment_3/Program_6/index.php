@@ -6,6 +6,7 @@ $conn = getDatabase();
 $tableName = "employee";
 $result = "";
 $addUser = false;
+$detail = false;
 $search = '';
 $limit = null;
 
@@ -15,9 +16,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['addnew'])) {
         $addUser = true;
     } else  if (isset($_POST['account']) && $_POST['account'] === 'account') {
+		$sql = "SELECT * FROM {$tableName}"." WHERE emp_id = {$_POST['emp_id']}";
+		$kal = mysqli_query($conn, $sql);
+		$data = mysqli_fetch_assoc($kal);
+		
+		
+		$userRow=" <tr>
+                    <td>{$data['name']}</td>
+                    <td>{$data['gender']}</td>
+                    <td>{$data['emp_type']}</td>
+                    <td>{$data['department']}</td>
+					</tr>";
+		$detail = true;
+		
     } else if (isset($_POST['deleteBtn']) && $_POST['deleteBtn'] === 'delete') {
         $keys = "emp_id=" . $_POST['emp_id'];
         header("Location:delete.php?" . $keys);
+		
     } else if (isset($_POST['searchbtn']) && $_POST['searchbtn'] === 'searchbtn') {
         if (isset($_POST['search'])) {
             $search = trim($_POST['search']);
@@ -117,7 +132,7 @@ if ($row === 0) {
                         <option value="13">13</option>
                     </select>
             </div>
-            <div>
+            <div class="search">
 
                 <input type="text" name="search" value="<?php if (!empty($search)) echo $search ?>" placeholder="Search by Name.....">
                 <button type="submit" name="searchbtn" value="searchbtn" class="searchbtn updatebtn">Search</button>
@@ -135,21 +150,9 @@ if ($row === 0) {
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr>
-                    <td>kalpesh</td>
-                    <td>male</td>
-                    <td>Casual</td>
-                    <td>Admin</td>
-                    <td>
-					<form method="POST" class="btns">
-                         <input type="hidden" name="emp_id" value="1">
-						<button type="submit" name="account" value="account" class="updatebtn">Account</button>
-						<button type="submit" name="deleteBtn" value="delete" class="deletebtn">Delete</button>
-					</form>
-                    </td>
-                </tr>-->
 
                 <?php echo $result; ?>
+				
             </tbody>
         </table>
 
@@ -210,6 +213,26 @@ if ($row === 0) {
                 </form>
             </div>
         </div>
+
+    <?php endif; ?>
+	
+	  <?php if ($detail): ?>
+        
+       <table class="employee-table">
+            <thead>
+                   <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Employee Type</th>
+                    <th>Department</th>
+                </tr>
+            </thead>
+            <tbody>
+			
+                <?php echo $userRow; ?>
+
+            </tbody>
+        </table>
 
     <?php endif; ?>
 

@@ -1,0 +1,73 @@
+Assignment 14
+
+============== SALEMAN ==================
+
+	CREATE TABLE salesmen(
+		sid NUMBER(5),
+		sname VARCHAR(30),
+		sadd VARCHAR(50),
+		sphone NUMBER(10),
+		PRIMARY KEY(sid)
+	);
+	
+============== ITEM ==================
+	CREATE TABLE item(
+		itemNo NUMBER(5),
+		itemName VARCHAR(30),
+		price NUMBER(7),
+		PRIMARY KEY(itemNo)
+	);
+	
+============== SMAN ==================
+	CREATE TABLE sman_item(
+		sid NUMBER(5),
+		itemNo NUMBER(5),
+		qty NUMBER(4),
+		FOREIGN KEY(sid) REFERENCES salesmen(sid),
+		FOREIGN KEY(itemNo) REFERENCES item(itemNo)
+	);
+	
+	
+============== INSERT INTO THE ALL TABLE =================
+
+	INSERT INTO salesmen(sid,sname,sadd,sphone) VALUES(10,'KALPESH','HAMAPAR',7096720915);
+	INSERT INTO salesmen(sid,sname,sadd,sphone) VALUES(56,'ANIL','KANIYAD',7096352626);
+	INSERT INTO salesmen(sid,sname,sadd,sphone) VALUES(560,'YASH','VINCHCHIYA',7784470915);
+	INSERT INTO salesmen(sid,sname,sadd,sphone) VALUES(7,'DHRUV','BOTAD',7847780915);
+	INSERT INTO salesmen(sid,sname,sadd,sphone) VALUES(95,'VIJAY','LATHIDAD',5751720915);
+	
+	INSERT INTO item(itemNo,itemName,price) VALUES(10,'LEPTOP',62000);
+	INSERT INTO item(itemNo,itemName,price) VALUES(757,'MOBILE',25000);
+	INSERT INTO item(itemNo,itemName,price) VALUES(475,'BIKE',820000);
+	INSERT INTO item(itemNo,itemName,price) VALUES(2,'SHAMPOO',60);
+	INSERT INTO item(itemNo,itemName,price) VALUES(458,'PENDRIVRE',20);
+	
+	INSERT INTO sman_item(sid,itemNo,qty) VALUES(10,10,20);
+	INSERT INTO sman_item(sid,itemNo,qty) VALUES(560,458,200);
+	INSERT INTO sman_item(sid,itemNo,qty) VALUES(7,757,25);
+	INSERT INTO sman_item(sid,itemNo,qty) VALUES(95,475,8);
+	INSERT INTO sman_item(sid,itemNo,qty) VALUES(10,458,2000);
+	
+=============== ALL THE QUERY =======================
+
+
+(1). Display details of all those items that have never been sold. 
+
+	SELECT * FROM item I WHERE itemNo NOT IN(SELECT DISTINCT(itemNo) FROM sman_item);
+
+(2). Delete all those items that have been sold only once. 
+
+	DELETE * FROM 
+
+(3). Display all those salesmen who have sale out more than 1000 qty of the same item. 
+
+	SELECT * FROM salesmen WHERE SID IN(SELECT SID FROM sman_item GROUP BY sid HAVING SUM(QTY) > 1000); 
+
+(4). List all salesmen with their total amount of selling.	
+
+	SELECT S.*(SE.qty * I.price) as total_sales
+ 
+(5). Display item wise selling details. 
+
+	SELECT S.*,I.*,SE.QTY FROM sman_item SE, item I, salesmen S WHERE I.itemNo = SE.itemNo(+);
+	

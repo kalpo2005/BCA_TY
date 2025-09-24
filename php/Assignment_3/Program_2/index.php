@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 					<tr>
 						<td>USERNAME:</td>
-						<td><input type="text" name="USERNAME" value="<?php if(isset($data['USERNAME'])) echo $data['USERNAME']; ?>"placeholder="Enter username" >
+						<td><input type="text" name="USERNAME" value="<?php if(isset($data['USERNAME'])) echo $data['USERNAME']; ?>" placeholder="Enter username" >
 						<?php if(!empty($error['USERNAME']) && $isError ){
 							echo "<p class='errorMessage'>". $error['USERNAME'] . "</p>"; } ?>
 						</td>

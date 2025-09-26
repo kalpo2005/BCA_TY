@@ -37,6 +37,7 @@ body {
 		.field input[type="text"],
 		.field input[type="number"],
 		.field input[type="password"],
+		.field input[type="file"],
 		.field textarea,
 		.field select {
 			width: 100%;

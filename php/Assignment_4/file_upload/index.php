@@ -1,42 +1,56 @@
 <?php
 
 $isError = false;
+$isUploaded = false;
 $error = array();
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-	
-	try{
-		
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+	try {
+
 		//$file = $_FILES['image'] ?? null;
-		$file = isset($_FILES['image']) ? $_FILES['image']: null;
+		$file = isset($_FILES['image']) ? $_FILES['image'] : null;
 		//	print_r($file);
-			$tmpName = $file['tmp_name'];
-			$fileName = $file['name'];
-			$allowedExtention =array('png','jpg','jpeg');
-			$extention = pathinfo($fileName,PATHINFO_EXTENSION);
-			
-		if($file['error'] != UPLOAD_ERR_OK){
+		$tmpName = $file['tmp_name'];
+		$fileName = $file['name'];
+		$allowedExtention = array('png', 'jpg', 'jpeg');
+		$extention = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+		$filePath ="../uploads/";
+		//echo $filePath;
+
+		if ($file['error'] != UPLOAD_ERR_OK) {
 			$isError = true;
 			$error['image'] = "Image Not uploaded !!!";
 			throw new Exception("Image not Uploaded !!!");
 		}
-		
-		if($file['size'] > 2 * 1024 * 1024){
+
+		if ($file['size'] > 1 * 1024 * 1024) {
 			$isError = true;
-			$error['image'] = "Image size must be less 2 MB !!!";
-			throw new Exception("Image size must be less 2 MB !!!");
+			$error['image'] = "Image size must be less 1 MB !!!";
+			throw new Exception("Image size must be less 1 MB !!!");
 		}
-		
-			if(!in_array($extention,$allowedExtention)){
+
+		if (!in_array($extention, $allowedExtention)) {
 			$isError = true;
-			$error['image'] = "Allowed extentions are ". implode(',',$allowedExtention) . "  !!!!";
+			$error['image'] = "Allowed extentions are " . implode(',', $allowedExtention) . "  !!!!";
 			throw new Exception(" This extention are not allowed !!!");
 		}
-		
-	
-		
-	}catch(Exception $e){
-		echo " <script> alert({$e->getMessage()}) </script>";
+		if (!dirname($filePath)) {
+			mkdir($filePath, 0775, true);
+		}
+		if(!$isError)
+			$isUploaded = true;
+
+		$dateName = date('ymd_hmi');
+		$fullPath = $filePath . $dateName . "." . $extention;
+
+		if (!move_uploaded_file($tmpName, $fullPath)) {
+			$error['image'] = "File can't uploaded !!!";
+			throw new Exception("File can't uploaded !!!");
+		} 
+		//echo $fullPath . " 555";
+	} catch (Exception $e) {
+		echo " <script> alert({$e->getMessage()}); </script>";
 	}
 }
 ?>
@@ -71,8 +85,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			</div>
 
 		</form>
-	</div>
-
+	<?php if ($isUploaded): ?>
+	<div>
+		<h2>your file is </h2>
+			<img class="fileupload" src="<?php echo $fullPath; ?>" />
+			</div>
+	<?php endif; ?>
+		</div>
+		
 </body>
 
 </html>

@@ -18,6 +18,10 @@ body {
 			box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 			width: 400px;
 		}
+		.fileupload {
+			margin-top: 20px;
+			width: 400px;
+		}
 
 		h2 {
 			text-align: center;

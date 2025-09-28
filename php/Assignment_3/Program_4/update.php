@@ -14,7 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
 
 	$sql = "UPDATE {$tableName} SET " .$data . " WHERE bookId = ". $where;
-	 echo $sql;
 
 	$update = mysqli_query($conn, $sql);
 	if (!$update || mysqli_affected_rows($conn) === 0)

@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$error['image'] = "Allowed extentions are " . implode(',', $allowedExtention) . "  !!!!";
 			throw new Exception(" This extention are not allowed !!!");
 		}
-		if (!dirname($filePath)) {
+		if (!is_dir($filePath)) {
 			mkdir($filePath, 0775, true);
 		}
 		if(!$isError)

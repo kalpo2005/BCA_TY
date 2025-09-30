@@ -9,7 +9,7 @@ import java.util.*;
 	abstract void sum(float a, float b);
 }
 
-class Assign4 extends OverrideDemo{
+class Assign4 extends AbstaractDemo{
 	
 
 	void sum(float a, float b){

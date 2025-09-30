@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(isset($_SESSION['isLogin']) && $_SESSION['isLogin']=== true)
+if (isset($_SESSION['isLogin']) && $_SESSION['isLogin'] === true)
 	header("Location:index.php");
 
 $isError = false;
@@ -26,17 +26,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$error['username'] = "User not found !!!";
 		}
 	}
-	
-	if(!$isError && $data['password'] !== '123'){
+
+	if (!$isError && $data['password'] !== '123') {
 		$isError = true;
 		$error['password'] = "password is wrong !!!";
 	}
-	
-	if(!$isError){
+
+	if (!$isError) {
 		$_SESSION['isLogin'] = true;
 		header("Location:index.php");
 	}
-
 }
 ?>
 

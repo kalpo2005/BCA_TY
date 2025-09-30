@@ -1,15 +1,11 @@
 /**
-*  (6) Write a java program that has class shape which include that abstract method name 
-getarea(). Class rectangle, triangle and circle inherit the class shape and implements 
-method getarea and return value of area respectively. 
+*  (6) Write a java program that has class shape which include that abstract method name getarea(). Class rectangle, triangle and circle inherit the class shape and implements method getarea and return value of area respectively. 
 */
 
 import java.util.*;
 
  abstract class Shape{
-	 
 	abstract void getaArea(Scanner sc);
-	
 }
 
 class Ractangle extends Shape{

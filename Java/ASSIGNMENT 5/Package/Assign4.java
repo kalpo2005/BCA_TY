@@ -1,6 +1,5 @@
 /**
-* (4) Create a package vehicle which will have 2 classes 2-Wheeler and 4-Wheeler. 2
-Wheeler with method show(CC,price). 4-Wheeler with method show(regno, 
+* (4) Create a package vehicle which will have 2 classes 2-Wheeler and 4-Wheeler. 2 Wheeler with method show(CC,price). 4-Wheeler with method show(regno, 
 regyear).  
 */
 

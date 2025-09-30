@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         try {
             if (!mysqli_query($conn, $sql))
-               throw new Exception("Query Failed !!!");
+                throw new Exception("Query Failed !!!");
             else
                 echo "<script>
         alert('Data inserted successfully !!!');
@@ -52,9 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         unset($_POST['sNo']);
         foreach ($_POST as $key => $value) {
             if (!empty($value))
-                $data[$key]= " $key = '$value' ";
+                $data[$key] = " $key = '$value' ";
         }
-        $sql = "UPDATE {$tableName} SET ". implode(',',$data) . " WHERE sNo = " . $where;
+        $sql = "UPDATE {$tableName} SET " . implode(',', $data) . " WHERE sNo = " . $where;
 
         $update = mysqli_query($conn, $sql);
         if (!$update || mysqli_affected_rows($conn) === 0)
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         alert('Data Successfully updated !!!');
         window.location.href = 'index.php';
     </script>";
-    }else if (isset($_POST['deletestudent']) && $_POST['deletestudent'] === 'deletestudent') {
+    } else if (isset($_POST['deletestudent']) && $_POST['deletestudent'] === 'deletestudent') {
         if (empty($_POST['sNo'])) {
             echo "<script>
 						alert('sNo is required !!!');
@@ -172,9 +172,9 @@ if ($row === 0) {
     </div>
 
     <div class="AddForm student">
-	<div>
-		<h3>Student Information</h3>
-	</div>
+        <div>
+            <h3>Student Information</h3>
+        </div>
         <table class="employee-table">
             <thead>
                 <tr>

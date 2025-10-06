@@ -38,7 +38,6 @@ INSERT A RECORD
 1. display with the deparatment name 
 		SELECT fname,dept_name FROM customers;
 
-
 2. salary wise customer name
 		SELECT * FROM customers ORDER BY salary ASC; 
 		
@@ -52,22 +51,27 @@ INSERT A RECORD
 	SELECT * FROM customers WHERE city LIKE 'M%';
 	
 6. Display average salary of customer 
-
+    SELECT AVG(salary) AS CUSTOMER_SALARY FROM customers;
 
 7. Display minimum salary in each department 
 
+    SELECT dept_name, MIN(salary) FROM customers GROUP BY (dept_name);
+	
 8. Display count of customer having salary greater than 3000
 	SELECT * FROM customers WHERE salary > 3000;
 	
 9.List name of customer having ‘A’ as 2nd letter in first name 
-	SELECT * FROM customers WHERE fname LIKE '_A%';
+	SELECT MIN(salary) FROM customers WHERE SID IN(SELECT SID FROM sman_item GROUP BY sid HAVING SUM(QTY) > 1000);
 	
 10. Write a query to add middle_name column to customer table 
 	ALTER TABLE customers ADD middle_name VARCHAR2(20);
 	
 11 Create Synonyms for above table.
+	CREATE PUBLIC SYNONYM cuMaster FOR customers;
 
 12 Create unique index on the cust_no
+	CREATE INDEX unique_index ON customers(cust_no);
+
 
 	
  

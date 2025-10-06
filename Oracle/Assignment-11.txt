@@ -49,7 +49,7 @@ CLIENT MASTER TABLE
 	ALTER TABLE client_master MODIFY contact_no NUMBER(10) NOT NULL;
 	
 2. CREATE A SYNONYMS
-	CREATE PUBLIC SYNONYM clientMaster FOR scott.clientMmaster;
+	CREATE PUBLIC SYNONYM clientMaster FOR scott.client_master;
 	
 3.  CREATE A UNIQUE INDEX FOR THE CLIENT NOT
 	CREATE INDEX unique_index ON client_master(clientno);  // skip

@@ -64,7 +64,7 @@ Dept (dept_no, dname, location )
 	SELECT * FROM emp ORDER BY name ASC;
 
 6) Display second highest salary of employee 
-	SELECT MAX(SALARY) FROM emp;
+	SELECT MAX(salary) FROM emp WHERE salary < (SELECT MAX(salary) FROM emp);
 	
 7) Display details of employee whose joining date is in month of ‘FEB’ 
 		SELECT * FROM emp WHERE join_date LIKE '%FEB%';
@@ -80,6 +80,8 @@ Dept (dept_no, dname, location )
 	SELECT d.dname,COUNT(e.dept_no) AS MEMBER FROM emp e,dept d WHERE d.dept_no = e.dept_no GROUP BY d.dname;
 	
 11) Create Synonyms for above table.
-	CREATE PRIVATE SYNONYM emp_sy for scott.emp;
+	CREATE PUBLIC SYNONYM empMaster FOR emp;
 	
 12) Create unique index on the emp_id
+	CREATE INDEX unique_index ON emp(emp_id);
+	

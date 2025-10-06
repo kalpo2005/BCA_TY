@@ -57,7 +57,7 @@ Assignment 14
 
 (2). Delete all those items that have been sold only once. 
 
-	DELETE * FROM 
+	DELETE FROM sman_item WHERE itemNo in(SELECT itemNo FROM sman_item GROUP BY itemNo HAVING count(itemNo) = 1);
 
 (3). Display all those salesmen who have sale out more than 1000 qty of the same item. 
 
@@ -65,7 +65,7 @@ Assignment 14
 
 (4). List all salesmen with their total amount of selling.	
 
-	SELECT S.*(SE.qty * I.price) as total_sales
+	SELECT s.sname SUM(I.price * si.qty) AS total_sales from salesman s,item I, sman_items si WHERE s.sid(+) = si.si;
  
 (5). Display item wise selling details. 
 

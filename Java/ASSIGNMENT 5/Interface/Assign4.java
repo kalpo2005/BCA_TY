@@ -1,6 +1,6 @@
 /**
-* (3) Write a java programing code for demonstrate the use of Multiple Inheritance using 
-interface. 
+* 4) Write a java programing code for demonstrate the use of Hybrid Inheritance using 
+interface.  
 */
 
 import java.util.*;

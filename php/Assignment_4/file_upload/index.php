@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$fileName = $file['name'];
 		$allowedExtention = array('png', 'jpg', 'jpeg');
 		$extention = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-		$filePath = "../uploads/";
+		$filePath ="../uploads/";
 		//echo $filePath;
 
 		if ($file['error'] != UPLOAD_ERR_OK) {
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		if (!is_dir($filePath)) {
 			mkdir($filePath, 0775, true);
 		}
-		if (!$isError)
+		if(!$isError)
 			$isUploaded = true;
 
 		$dateName = date('ymd_hmi');
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		if (!move_uploaded_file($tmpName, $fullPath)) {
 			$error['image'] = "File can't uploaded !!!";
 			throw new Exception("File can't uploaded !!!");
-		}
+		} 
 		//echo $fullPath . " 555";
 	} catch (Exception $e) {
 		echo " <script> alert({$e->getMessage()}); </script>";
@@ -85,14 +85,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			</div>
 
 		</form>
-		<?php if ($isUploaded): ?>
-			<div>
-				<h2>your file is </h2>
-				<img class="fileupload" src="<?php echo $fullPath; ?>" />
+	<?php if ($isUploaded): ?>
+	<div>
+		<h2>your file is </h2>
+			<img class="fileupload" src="<?php echo $fullPath; ?>" />
 			</div>
-		<?php endif; ?>
-	</div>
-
+	<?php endif; ?>
+		</div>
+		
 </body>
 
 </html>

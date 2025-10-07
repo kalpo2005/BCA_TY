@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 		if(isDelete)
         window.location.href = 'index.php';
     </script>";
-
+	
 
 	$sql = "DELETE FROM {$tableName} WHERE emp_id = {$_GET['emp_id']}";
 

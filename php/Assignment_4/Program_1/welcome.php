@@ -1,6 +1,6 @@
 <?php
-session_start();
-$data = $_SESSION['userdata'];
+	session_start();
+		$data = $_SESSION['userdata'];
 ?>
 
 <html>

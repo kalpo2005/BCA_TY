@@ -8,11 +8,7 @@
 	if($_SERVER['REQUEST_METHOD']==='POST'){
 		$data = array();
 		
-<<<<<<< HEAD
 		foreach($_POST as $key=>$value){
-=======
-		foreach($_POST as $key => $value){
->>>>>>> master
 			$data[$key]="'".$value."'";
 		}
 		

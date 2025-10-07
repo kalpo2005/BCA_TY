@@ -4,13 +4,6 @@
 	$conn = getDatabase();
 	
 	// for the crating table
-<<<<<<< HEAD
-	$sql = CREATE TABLE users(
-				user_id INT(5) PRIMARY  KEY AUTO INCREMENT,
-				
-				
-			);
-=======
 	/*$sql = "CREATE TABLE users(
 				user_id INT(5) PRIMARY  KEY,
 				user_name VARCHAR(255),
@@ -58,4 +51,3 @@
 	}
 ?>	
 	
->>>>>>> master

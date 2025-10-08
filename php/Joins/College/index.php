@@ -13,16 +13,16 @@ $update = false;
 $search = '';
 $search = '';
 $limit = null;
-$optins = optinMaping('roles','1=1');
+$optins = optinMaping('roles', '1=1');
 $updateData = array();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    if (isset($_POST['addRole'])) {
+    if (isset($_POST['addUser'])) {
         $addBook = true;
     } else  if (isset($_POST['update']) && $_POST['update'] === 'update') {
 
-        $sql = "SELECT * FROM {$tableName} WHERE rollId = {$_POST['rollId']}";
+        $sql = "SELECT * FROM {$tableName} WHERE staffId = {$_POST['staffId']}";
         $kal = mysqli_query($conn, $sql);
         $updateData = mysqli_fetch_assoc($kal);
         $update = true;
@@ -46,10 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($_POST['column'] !== 'all')
                 $limit = trim($_POST['column']);
         }
-    } else if (isset($_POST['insertRole']) && $_POST['insertRole'] === 'insertRole') {
+    } else if (isset($_POST['insertUser']) && $_POST['insertUser'] === 'insertUser') {
 
         $data = array();
-        unset($_POST['insertRole']);
+        unset($_POST['insertUser']);
 
         foreach ($_POST as $key => $value) {
             if (!empty($value))
@@ -60,21 +60,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($isInsert) {
             echo "<script>
         alert('Data inserted successfully !!!');
-        window.location.href = 'roles.php';
+        window.location.href = 'index.php';
     </script>";
         } else {
             echo "<script>
         alert('Data can't inserted !!!');
-        window.location.href = 'roles.php';
+        window.location.href = 'index.php';
+    </script>";
+        }
+    }else if (isset($_POST['updateRole']) && $_POST['updateRole'] === 'updateRole') {
+
+        $data = array();
+		$where = "staffId = {$_POST['staffId']}";
+        unset($_POST['updateRole'],$_POST['rollId']);
+
+        foreach ($_POST as $key => $value) {
+            if (!empty($value))
+                $data[] = "{$key} = '{$value}'";
+        }
+
+        $isInsert = updateData($tableName, $data,$where);
+        if ($isInsert) {
+            echo "<script>
+        alert('Data updated successfully !!!');
+        window.location.href = 'index.php';
+    </script>";
+        } else {
+            echo "<script>
+        alert('Data can't updated !!!');
+        window.location.href = 'index.php';
     </script>";
         }
     }
 }
 
-$sql = "SELECT * FROM {$tableName} ";
-if (!empty($search)) {
+$sql = "SELECT s.*, r.* FROM {$tableName} s  LEFT JOIN roles r ON s.roleId = r.rollId ";
+/*if (!empty($search)) {
     $sql .= " WHERE rollName LIKE '%{$search}%' ";
-}
+    $sql .= " firstName LIKE '%{$search}%' ";
+}/*/
 
 if (!empty($limit)) {
     $sql .= "  LIMIT {$limit}";
@@ -89,11 +113,15 @@ if ($row === 0) {
 } else {
     while ($data = mysqli_fetch_assoc($kal)) {
         $result .= "<tr>
-                    <td>{$data['rollId']}</td>
+                    <td>{$data['staffId']}</td>
+                    <td>{$data['firstName']}</td>
+                    <td>{$data['secondName']}</td>
+                    <td>{$data['lastName']}</td>
+                    <td>{$data['email']}</td>
                     <td>{$data['rollName']}</td>
 					<td> " .
             '<form method="POST" class="btns">
-                         <input type="hidden" name="rollId" value="' . $data["rollId"] . '">
+                         <input type="hidden" name="staffId" value="' . $data["staffId"] . '">
 						<button type="submit" name="update" value="update" class="updatebtn">Update</button>
 						<button type="submit" name="deleteBtn" value="delete" class="deletebtn">Delete</button>
 					</form>
@@ -127,7 +155,7 @@ if ($row === 0) {
         <div class="addbook">
             <form action="" method="POST">
                 <input type="hidden" name="addUser" value="addUser">
-                <button type="submit" name="adduser" class="searchbtn updatebtn">Add New</button>
+                <button type="submit" name="addbook" class="searchbtn updatebtn">Add New</button>
                 <a class="searchbtn deletebtn redirectBtn" href="roles.php">Show Roles</a>
             </form>
         </div>
@@ -184,25 +212,42 @@ if ($row === 0) {
                         <form method="POST">
                         <?php endif; ?>
 
-                        <input type="hidden" name="rollId" value="<?php if (isset($updateData['rollId'])) echo $updateData['rollId']; ?>" placeholder="Enter role Id" required>
+                        <input type="hidden" name="staffId" value="<?php if (isset($updateData['staffId'])) echo $updateData['staffId']; ?>" placeholder="Enter staff Id" required>
+
                         <div>
-                            <p>Enter Role name</p>
-                            <input type="text" name="rollName" value="<?php if (isset($updateData['rollName'])) echo $updateData['rollName']; ?>" placeholder="Enter role name" required>
+                            <p>Ente first name</p>
+                            <input type="text" name="firstName" value="<?php if (isset($updateData['firstName'])) echo $updateData['firstName']; ?>" placeholder="Enter first name" required>
                         </div>
-						
-						<div>
-                        <p>select staff role</p>
-                        <select name="roleId" placeholder="Enter emp type" required>
-                            <option disabled selected>select emp type</option>
-                               <?php echo $options; ?>
-                        </select>
-                    </div>
+
+                        <div>
+                            <p>Enter second name</p>
+                            <input type="text" name="secondName" value="<?php if (isset($updateData['secondName'])) echo $updateData['secondName']; ?>" placeholder="Enter second name" required>
+                        </div>
+
+                        <div>
+                            <p>Enter last name</p>
+                            <input type="text" name="lastName" value="<?php if (isset($updateData['lastName'])) echo $updateData['lastName']; ?>" placeholder="Enter last name" required>
+                        </div>
+
+                        <div>
+                            <p>Enter email</p>
+                            <input type="text" name="email" value="<?php if (isset($updateData['email'])) echo $updateData['email']; ?>" placeholder="Enter email" required>
+                        </div>
+
+
+                        <div>
+                            <p>select staff role</p>
+                            <select name="roleId" placeholder="Enter emp type" required>
+                                <option disabled selected>select emp type</option>
+                                <?php echo $optins; ?>
+                            </select>
+                        </div>
 
                         <?php if ($update): ?>
-                            <button type="submit" name="updateRole" value="updateRole" id="btn">Update</button>
+                            <button type="submit" name="updateUser" value="updateUser" id="btn">Update</button>
 
                         <?php else: ?>
-                            <button type="submit" name="insertRole" value="insertRole" id="btn">Submit</button>
+                            <button type="submit" name="insertUser" value="insertUser" id="btn">Submit</button>
                         <?php endif; ?>
                         </form>
 

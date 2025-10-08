@@ -3,6 +3,7 @@
 require_once "../../Database/database.php";
 require_once "delete.php";
 require_once "insert.php";
+require_once "update.php";
 
 $conn = getDatabase();
 $tableName = "roles";
@@ -65,6 +66,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         window.location.href = 'roles.php';
     </script>";
         }
+    } else if (isset($_POST['updateRole']) && $_POST['updateRole'] === 'updateRole') {
+
+        $data = array();
+		$where = "rollId = {$_POST['rollId']}";
+        unset($_POST['updateRole'],$_POST['rollId']);
+
+        foreach ($_POST as $key => $value) {
+            if (!empty($value))
+                $data[] = "{$key} = '{$value}'";
+        }
+
+        $isInsert = updateData($tableName, $data,$where);
+        if ($isInsert) {
+            echo "<script>
+        alert('Data updated successfully !!!');
+        window.location.href = 'roles.php';
+    </script>";
+        } else {
+            echo "<script>
+        alert('Data can't updated !!!');
+        window.location.href = 'roles.php';
+    </script>";
+        }
     }
 }
 
@@ -102,6 +126,7 @@ if ($row === 0) {
 ?>
 
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -124,7 +149,7 @@ if ($row === 0) {
             <form action="" method="POST">
                 <input type="hidden" name="addRole" value="addUser">
                 <button type="submit" name="adduser" class="searchbtn updatebtn">Add New</button>
-				<a class="searchbtn deletebtn redirectBtn" href="index.php">Home Page</a>
+                <a class="searchbtn deletebtn redirectBtn" href="index.php">Home Page</a>
             </form>
         </div>
         <div class="search">
@@ -175,7 +200,7 @@ if ($row === 0) {
                         <form method="POST">
                         <?php endif; ?>
 
-                            <input type="hidden" name="rollId" value="<?php if (isset($updateData['rollId'])) echo $updateData['rollId']; ?>" placeholder="Enter role Id" required>
+                        <input type="hidden" name="rollId" value="<?php if (isset($updateData['rollId'])) echo $updateData['rollId']; ?>" placeholder="Enter role Id" required>
                         <div>
                             <p>Enter Role name</p>
                             <input type="text" name="rollName" value="<?php if (isset($updateData['rollName'])) echo $updateData['rollName']; ?>" placeholder="Enter role name" required>

@@ -2,14 +2,12 @@
 
 require_once "../../Database/database.php";
 
-function insertData($tableName, $data)
+function updateData($tableName, $data,$where)
 {
     $conn = getDatabase();
 
-    $keys = array_keys($data);
-
-    $sql = "INSERT INTO {$tableName} (" . implode(',', $keys) . ") VALUES (" . implode(',', $data) . ")";
-
+    $sql = "UPDATE {$tableName} SET ".implode(",",$data) . " WHERE {$where} ";
+echo $sql;
     try {
         if (!mysqli_query($conn, $sql))
             return false;

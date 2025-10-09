@@ -4,6 +4,7 @@ require_once "../../Database/database.php";
 require_once "delete.php";
 require_once "insert.php";
 require_once "select.php";
+require_once "update.php";
 
 $conn = getDatabase();
 $tableName = "collegeStaff";
@@ -68,11 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         window.location.href = 'index.php';
     </script>";
         }
-    }else if (isset($_POST['updateRole']) && $_POST['updateRole'] === 'updateRole') {
+    }else if (isset($_POST['updateUser']) && $_POST['updateUser'] === 'updateUser') {
 
         $data = array();
 		$where = "staffId = {$_POST['staffId']}";
-        unset($_POST['updateRole'],$_POST['rollId']);
+        unset($_POST['updateUser'],$_POST['staffId']);
 
         foreach ($_POST as $key => $value) {
             if (!empty($value))
@@ -95,15 +96,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $sql = "SELECT s.*, r.* FROM {$tableName} s  LEFT JOIN roles r ON s.roleId = r.rollId ";
-/*if (!empty($search)) {
-    $sql .= " WHERE rollName LIKE '%{$search}%' ";
-    $sql .= " firstName LIKE '%{$search}%' ";
-}/*/
+if (!empty($search)) {
+    $sql .= " WHERE r.rollName LIKE '%{$search}%' ";
+    $sql .= "OR s.firstName LIKE '%{$search}%' ";
+    $sql .= "OR s.secondName LIKE '%{$search}%' ";
+    $sql .= "OR s.lastName LIKE '%{$search}%' ";
+    $sql .= "OR s.email LIKE '%{$search}%' ";
+}
 
 if (!empty($limit)) {
     $sql .= "  LIMIT {$limit}";
 }
-
 $kal = mysqli_query($conn, $sql);
 $row = mysqli_affected_rows($conn);
 $rowData = '';

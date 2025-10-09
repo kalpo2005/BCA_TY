@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$data[$key] = $value;
 	}
 
-
 	//username validation
 	if (!empty($data['username'])) {
 		if (!preg_match('/^[A-Za-z]/', $data['username'])) {
@@ -81,6 +80,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if (empty($data['gender'])) {
 		$isError = true;
 		$error['gender'] = "User gender is required !!!";
+	}
+
+	// Hobbies validation 
+	if (!isset($data['hobbies'])) {
+		$isError = true;
+		$error['hobbies'] = "select your hobby is required !!!";
 	}
 
 	//password validation
@@ -182,9 +187,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				<p>City</p>
 				<select name="city">
 					<option value="" disabled selected>Select city</option>
-					<option value="botad">Botad</option>
-					<option value="rajkot">Rajkot</option>
-					<option value="jamnagar">Jamnagar</option>
+					<option value="botad" <?php if (isset($data['city']) && $data['city'] === 'botad') echo "selected"; ?>>Botad</option>
+					<option value="rajkot" <?php if (isset($data['city']) && $data['city'] === 'rajkot') echo "selected"; ?>>Rajkot</option>
+					<option value="jamnagar" <?php if (isset($data['city']) && $data['city'] === 'jamnagar') echo "selected"; ?>>Jamnagar</option>
 				</select>
 				<?php if (!empty($error['city']) && $isError) {
 					echo "<p class='errorMessage'>" . $error['city'] . "</p>";
@@ -193,21 +198,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 			<div class="field">
 				<p>Gender</p>
-				<label><input type="radio" name="gender" value="male">Male</label>
-				<label><input type="radio" name="gender" value="female"> Female</label>
+				<label><input type="radio" name="gender" value="male" <?php if (isset($data['gender']) && $data['gender'] === 'male') echo "checked"; ?>>Male</label>
+				<label><input type="radio" name="gender" value="female" <?php if (isset($data['gender']) && $data['gender'] === 'female') echo "checked"; ?>> Female</label>
 				<?php if (!empty($error['gender']) && $isError) {
 					echo "<p class='errorMessage'>" . $error['gender'] . "</p>";
 				} ?>
 			</div>
 
-			<!-- <div class="field">
+			<div class="field">
 				<p>Hobbies</p>
-				<label><input type="checkbox" name="hobbies[]" value="Reading"> Reading</label>
-				<label><input type="checkbox" name="hobbies[]" value="Travelling"> Travelling</label>
+				<label><input type="checkbox" name="hobbies[]" value="Reading" <?php if (isset($data['hobbies']) && in_array('Reading', $data['hobbies'])) echo "checked"; ?>> Reading</label>
+				<label><input type="checkbox" name="hobbies[]" value="Travelling" <?php if (isset($data['hobbies']) && in_array('Travelling', $data['hobbies'])) echo "checked"; ?>> Travelling</label>
 				<?php if (!empty($error['hobbies']) && $isError) {
 					echo "<p class='errorMessage'>" . $error['hobbies'] . "</p>";
 				} ?>
-			</div> -->
+			</div>
 
 			<div class="field">
 				<button type="submit" id="btn">Submit</button>

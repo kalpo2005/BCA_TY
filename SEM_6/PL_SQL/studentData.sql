@@ -32,9 +32,13 @@ BEGIN
 	DBMS_OUTPUT.PUT_LINE('Student percentage  :' || percentage);
 	--DBMS_OUTPUT.PUT_LINE('Student result is   :' || mark3);
 	
+	IF (mark1 > 33 AND mark2 > 33 AND mark3 > 33) THEN
+	DBMS_OUTPUT.PUT_LINE(' STUDENT RESULT : PASS ');
 	
+	ELSE
+	DBMS_OUTPUT.PUT_LINE(' STUDENT RESULT : FAIL ');
 	
-	
+	END IF;
 	
 END;
 /

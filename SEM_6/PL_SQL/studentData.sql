@@ -4,6 +4,7 @@
 DECLARE 
 	roll NUMBER(3);
 	name VARCHAR2(30);
+	result1 VARCHAR2(30);
 	mark1 NUMBER(2);
 	mark2 NUMBER(2);
 	mark3 NUMBER(2);
@@ -21,6 +22,13 @@ BEGIN
 	total := mark1 + mark2 + mark3;
 	percentage := (total * 100) / 300;
 	
+	IF (mark1 > 33 AND mark2 > 33 AND mark3 > 33) THEN
+	result1 := 'PASS';
+	
+	ELSE
+	result1 := 'FAIL';
+	
+	END IF;
 	
 	DBMS_OUTPUT.PUT_LINE('Student Detail ');
 	DBMS_OUTPUT.PUT_LINE('Student roll number : ' || roll);
@@ -30,15 +38,8 @@ BEGIN
 	DBMS_OUTPUT.PUT_LINE('Student sub3   mark :' || mark3);
 	DBMS_OUTPUT.PUT_LINE('Student total  mark :' || total);
 	DBMS_OUTPUT.PUT_LINE('Student percentage  :' || percentage);
-	--DBMS_OUTPUT.PUT_LINE('Student result is   :' || mark3);
+	DBMS_OUTPUT.PUT_LINE('Student result is   :' || result1);
 	
-	IF (mark1 > 33 AND mark2 > 33 AND mark3 > 33) THEN
-	DBMS_OUTPUT.PUT_LINE(' STUDENT RESULT : PASS ');
-	
-	ELSE
-	DBMS_OUTPUT.PUT_LINE(' STUDENT RESULT : FAIL ');
-	
-	END IF;
 	
 END;
 /

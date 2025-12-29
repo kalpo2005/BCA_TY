@@ -12,13 +12,17 @@
     
     </div>
     <p>
-        <asp:Button ID="Button1" runat="server" BackColor="#3399FF" 
-            BorderColor="#CC6600" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" 
-            Height="39px" Text="Enter" Width="80px" /><br />s
+        <br /><br />
         <asp:ImageButton ID="ImageButton1" runat="server" Height="365px" 
             ImageUrl="~/images/gkmaza sunday-1.png" onclick="ImageButton1_Click1" 
-            Width="423px" />
+            Width="378px" />
         <br />
+    </p>
+    <p>
+        <asp:Button ID="Button1" runat="server" BackColor="#3399FF" 
+            BorderColor="#CC6600" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" 
+            Height="36px" Text="Welcome" Width="126px" style="margin-left: 116px" 
+            onclick="Button1_Click" />
     </p>
     </form>
 </body>

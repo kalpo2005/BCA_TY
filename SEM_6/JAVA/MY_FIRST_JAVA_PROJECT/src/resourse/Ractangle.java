@@ -6,14 +6,23 @@
 package resourse;
 
 import java.awt.Frame;
+import java.awt.HeadlessException;
 
 /**
  *
  * @author ABC
  */
 public class Ractangle extends Frame{
+
+    public Ractangle() {
+        
+        
+        
+    }
     
     
+    
+     
     public static void main(String[] args) {
         new Ractangle();
     }

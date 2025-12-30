@@ -11,14 +11,9 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-public partial class demobutton : System.Web.UI.Page
+public partial class welcomeButton : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
- 
-    protected void ImageButton1_Click1(object sender, ImageClickEventArgs e)
     {
 
     }

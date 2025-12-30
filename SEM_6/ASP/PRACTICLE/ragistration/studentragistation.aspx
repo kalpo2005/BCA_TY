@@ -1,17 +1,17 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="imagedemo.aspx.cs" Inherits="imagedemo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="studentragistation.aspx.cs" Inherits="ragistration_studentragistation" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Image Demo</title>
+    <title>Untitled Page</title>
 </head>
 <body>
     <form id="form1" runat="server">
-    <asp:Image ID="Image1" runat="server" Height="395px" 
-        ImageUrl="~/images/ui ux designer.jpg" Width="417px" 
-        ImageAlign="Baseline" />
     <div>
+    
+        <div style="height: 277px">
+        </div>
     
     </div>
     </form>

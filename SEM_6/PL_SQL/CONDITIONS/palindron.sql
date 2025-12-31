@@ -10,7 +10,7 @@ DECLARE
 	
 	
 BEGIN	
-	number1 := &number_for_the_reverse;
+	number1 := &number_for_the_PALINDRONE;
 	rev     :=0;
 	checkNumber := number1;
 	WHILE number1 > 0

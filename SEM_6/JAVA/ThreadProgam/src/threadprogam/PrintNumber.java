@@ -5,7 +5,7 @@
  */
 package threadprogam;
 
-class HelperPrint extends Thread {
+class HelperPrint extends Thread {sss
 
     @Override
     public void run() {

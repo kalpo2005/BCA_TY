@@ -8,22 +8,27 @@
      area   NUMBER(10,2)
  );
 
-DECLARE r NUMBER;
+DECLARE
+    r NUMBER;
+    a NUMBER;
+    isDone VARCHAR(10) := 'NO';
 
-a NUMBER;
+BEGIN 
 
-BEGIN -- Calculate and insert area for radius > 3 and <= 7
-FOR r IN 10..12 LOOP a := 3.14 * r * r;
+     
+    WHILE isDone = 'OK'
+    LOOP
+    r:= &Radius;
 
-INSERT INTO
-    storeArea(radisus, area)
-VALUES
-    (r, a);
+    DBMS_OUTPUT.PUT_LINE('kalpesh' || r);
+     IF r >= 4 AND r <= 7 THEN
+            a := r * r * 3.14;
+            INSERT INTO storeArea(radius, area) VALUES (r, a);
+            isDone := 'OK';
 
-END LOOP;
+     END IF;
 
-COMMIT;
+    END LOOP;
 
 END;
-
 /

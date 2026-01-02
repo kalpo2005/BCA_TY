@@ -26,4 +26,8 @@ public partial class linkimage : System.Web.UI.Page
     {
         ImageButton1.Visible = false;
     }
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+
+    }
 }

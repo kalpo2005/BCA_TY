@@ -10,7 +10,8 @@
     <form id="form1" runat="server">
      
     <asp:ImageButton ID="ImageButton1" runat="server" Height="500px" 
-        Width="800px" ImageUrl="~/images/09032025-2.jpg" />
+        Width="800px" ImageUrl="~/images/09032025-2.jpg" 
+        onclick="ImageButton1_Click" />
          <br /> <br />
     <div>
     

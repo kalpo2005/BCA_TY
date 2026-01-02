@@ -9,9 +9,8 @@ package threadprogam;
  *
  * @author ABC
  */
-
-class PrintValue extends Thread{
-
+class PrintValue extends Thread {
+    
     @Override
     public void run() {
         for (int i = 1; i <= 5; i++) {
@@ -19,31 +18,31 @@ class PrintValue extends Thread{
         }
     }
     
-    
 }
 
 public class ThreadThreeValue {
+
     public static void main(String[] args) throws InterruptedException {
         
-       PrintValue obj = new PrintValue();
-       PrintValue obj2 = new PrintValue();
-       PrintValue obj3 = new PrintValue();
-       
-       System.out.println("Thread first is alive : " + obj.isAlive());
-       
-       System.out.println("\n First Thred !!!");
-       obj.start();
-       obj.join();
-       System.out.println("Thread first is alive : " + obj.isAlive());
-       obj.setPriority(Thread.MAX_PRIORITY);
-       obj.getName();
-       
-       System.out.println("\n Second Thred !!!");
-       obj2.start();
-       obj2.join();
-       
-       
-       System.out.println("\n Third Thred !!!");
-       obj3.start();
+        PrintValue obj = new PrintValue();
+        PrintValue obj2 = new PrintValue();
+        PrintValue obj3 = new PrintValue();
+        
+        System.out.println("Thread first is alive : " + obj.isAlive());
+        
+        System.out.println("\n First Thred !!!");
+        obj.start();
+        obj.join();
+        System.out.println("Thread first is alive : " + obj.isAlive());
+        System.out.println(obj.getName());
+//        obj.setName("Kalpesh Thread !!!");
+//        obj.getName();
+        
+        System.out.println("\n Second Thred !!!");
+        obj2.start();
+        obj2.join();
+        
+        System.out.println("\n Third Thred !!!");
+        obj3.start();
     }
 }

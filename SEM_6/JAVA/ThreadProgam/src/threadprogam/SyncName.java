@@ -32,7 +32,6 @@ public class SyncName {
             }
         };
         
-        th2.sleep(2000);
         th2.start();
         
         Thread th3 = new  Thread(){

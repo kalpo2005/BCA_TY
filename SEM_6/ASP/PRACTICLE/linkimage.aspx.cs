@@ -10,7 +10,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
-
+X
 public partial class linkimage : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)

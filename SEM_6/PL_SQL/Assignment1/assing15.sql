@@ -2,6 +2,7 @@
 table CUSTOMER as (cust_id, cust_name, cust_area, cust_phone).  */
 
 -- @ D:\KALPESH_BAVALIYA\SEM_6\PL_SQL\Assignment1\assing15.sql
+-- DROP TABLE customer;
 
  CREATE TABLE customer(
      custId NUMBER(8),
@@ -11,7 +12,7 @@ table CUSTOMER as (cust_id, cust_name, cust_area, cust_phone).  */
  );
 
 DECLARE
-	custId NUMBER(8) := &custId,
+	custId NUMBER(8) := &custId;
     custName   VARCHAR2(50) := '&custName';
     custArea   VARCHAR2(50) := '&cust_area';
     custPhone NUMBER(15) := &custPhone;
@@ -22,4 +23,6 @@ BEGIN
     
 END;
 /
+
+SELECT * FROM customer;
 

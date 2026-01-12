@@ -9,6 +9,7 @@ of employees by 20% and also display also display the appropriate message.  */
 DECLARE
 
 	rowCount NUMBER(3) := 0;
+	
 
 BEGIN
 
@@ -33,7 +34,7 @@ CREATE TABLE employees(
 	salaryIncrease NUMBER(8,2)
 );
 
-INSERT INTO employees(empId,empName,salary) VALUES (23,'KALPESH',2300);
+INSERT INTO employees(empId,empName,salary) VALUES (23,'KALPESH',6000);
 INSERT INTO employees(empId,empName,salary) VALUES (435,'ANIL',79850);
 INSERT INTO employees(empId,empName,salary) VALUES (87,'DHRUV',2800);
 INSERT INTO employees(empId,empName,salary) VALUES (65,'VIJAY',66666);

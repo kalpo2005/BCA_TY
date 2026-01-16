@@ -42,7 +42,7 @@ public class ThreadThreeValue {
         obj2.start();
         obj2.join();
         
-        System.out.println("\n Third Thred !!!");
         obj3.start();
     }
+        System.out.println("\n Third Thred !!!");
 }

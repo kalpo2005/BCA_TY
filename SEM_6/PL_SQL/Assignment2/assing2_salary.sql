@@ -17,7 +17,7 @@ BEGIN
 	
 	IF rowSalary > 5000 THEN
 		
-		UPDATE employees SET salary = rowSalary + (20 * rowSalary / 100) WHERE empName = empNameEntry;
+		UPDATE employees SET salary = rowSalary + (25 * rowSalary / 100) WHERE empName = empNameEntry;
 		rowCount := SQL%ROWCOUNT;
 		DBMS_OUTPUT.PUT_LINE('DATA UPDATED ROWS : ' || rowCount);
 	

@@ -6,16 +6,12 @@ all those employees of this department who have been working since last five yea
 
 
 
-CREATE TABLE department(
-	empId NUMBER(5),
-	empName VARCHAR(50),
-	salary NUMBER(5),
-	salaryIncrease NUMBER(8,2)
-);
-
 DECLARE
-	CURSOR myCursor IS SELECT * FROM employees;
-	memoryVariable employees%ROWTYPE;
+
+	dept_name department.deptName%type := '&dept_name';
+	CURSOR myCursor IS SELECT e.* FROM empdata e, department d WHERE e.deptId = d.deptId AND d.deptName = dept_name AND e.joiningDate <= ADD_MONTHS(SYSDATE,-60);
+	memoryVariable empdata%ROWTYPE;
+	memoryDept department%ROWTYPE;
 	
 BEGIN
 	
@@ -25,9 +21,9 @@ BEGIN
 	
 		FETCH myCursor INTO memoryVariable;
 	
-			INSERT INTO newEmp(empId,empName,salary) VALUES(memoryVariable.empId,memoryVariable.empName,memoryVariable.salary);
-		
 		EXIT WHEN myCursor%NOTFOUND;
+		
+		DBMS_OUTPUT.PUT_LINE(memoryVariable.empId || ' ' || memoryVariable.empName || ' ' || memoryVariable.deptId );
 	
 	END LOOP;
 	CLOSE myCursor;
@@ -35,18 +31,29 @@ BEGIN
 END;
 /
 
-SELECT * FROM newEmp;
+
 /*
-CREATE TABLE employees(
-	empId NUMBER(5),
-	empName VARCHAR(50),
-	salary NUMBER(5),
-	salaryIncrease NUMBER(8,2)
+CREATE TABLE department(
+  	deptId NUMBER(5) PRIMARY KEY,
+	deptName VARCHAR(50)
 );
 
-INSERT INTO employees(empId,empName,salary) VALUES (23,'KALPESH',6000);
-INSERT INTO employees(empId,empName,salary) VALUES (435,'ANIL',79850);
-INSERT INTO employees(empId,empName,salary) VALUES (87,'DHRUV',2800);
-INSERT INTO employees(empId,empName,salary) VALUES (65,'VIJAY',66666);
+CREATE TABLE empdata(
+  	empId NUMBER(5) PRIMARY KEY,
+	empName VARCHAR(50),
+	deptId references department(deptId),
+	joiningDate DATE
+);
+
+INSERT INTO department(deptId,deptName) VALUES(1,'DEVELPOMENT');
+INSERT INTO department(deptId,deptName) VALUES(2,'TESTING');
+INSERT INTO department(deptId,deptName) VALUES(3,'MARKETNG');
+INSERT INTO department(deptId,deptName) VALUES(4,'SOCIAL');
+
+INSERT INTO empdata(empId,empName,deptId,joiningDate) VALUES(1,'KALPESH',2,'13-MAY-2005');
+INSERT INTO empdata(empId,empName,deptId,joiningDate) VALUES(2,'ANIL',4,'30-JUN-2022');
+INSERT INTO empdata(empId,empName,deptId,joiningDate) VALUES(3,'VIJAY',3,'25-DEC-2023');
+INSERT INTO empdata(empId,empName,deptId,joiningDate) VALUES(4,'BHAVIK',3,'6-SEP-2018');
+INSERT INTO empdata(empId,empName,deptId,joiningDate) VALUES(5,'DHRUV',1,'9-AUG-2020');
 
 */

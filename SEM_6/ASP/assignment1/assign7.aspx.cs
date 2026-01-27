@@ -11,42 +11,47 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-public partial class assign5 : System.Web.UI.Page
+public partial class assign7 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
-    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
-    {
-
-    }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        String selectedCheck = " Language : ";
-        bool isCheck = false;
-        if (CheckBox1.Checked)
+        String course = "Your course is : ";
+        Boolean isCheck = false;
+
+        if (RadioButton1.Checked)
         {
-            selectedCheck += CheckBox1.Text;
+            course += RadioButton1.Text;
             isCheck = true;
         }
 
-        if (CheckBox2.Checked)
+        if (RadioButton2.Checked)
         {
-            selectedCheck += " , " +  CheckBox2.Text;
+            course += RadioButton2.Text;
             isCheck = true;
         }
 
-        if (CheckBox3.Checked)
+        if (RadioButton3.Checked)
         {
-
-            selectedCheck += " , " + CheckBox3.Text;
+            course += RadioButton3.Text;
             isCheck = true;
         }
 
-        if(!isCheck)
-            Label3.Text = " No any value checked ";
-        else
-        Label3.Text = selectedCheck;
+        if (RadioButton4.Checked)
+        {
+            course += RadioButton4.Text;
+            isCheck = true;
+        }
+
+        if (!isCheck)
+        {
+            course = "No any course selected";
+        }
+
+        Label2.Text = course;
+
     }
 }

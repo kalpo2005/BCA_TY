@@ -8,20 +8,19 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div style="text-align: center">
     
         <asp:Label ID="Label1" runat="server" 
             Text="Select language which you learn in BCA"></asp:Label>
         <br />
         <br />
-        <asp:Label ID="Label2" runat="server" Text="please select a language:"></asp:Label>
+        <asp:Label ID="Label2" runat="server" Text="Please Select a Language:"></asp:Label>
         <br />
         <br />
         <asp:CheckBox ID="CheckBox1" runat="server" 
-            oncheckedchanged="CheckBox1_CheckedChanged" Text="nodeJS" />
+            oncheckedchanged="CheckBox1_CheckedChanged" Text="NodeJS" />
 &nbsp;
-        <asp:CheckBox ID="CheckBox2" runat="server" Text="flutter" />
-&nbsp;&nbsp;&nbsp;
+        <asp:CheckBox ID="CheckBox2" runat="server" Text="Flutter" />&nbsp;&nbsp;&nbsp;
         <asp:CheckBox ID="CheckBox3" runat="server" Text="Laravel" />
         
         <br />
@@ -34,5 +33,7 @@
     
     </div>
     </form>
+    <p>
+        &nbsp;</p>
 </body>
 </html>

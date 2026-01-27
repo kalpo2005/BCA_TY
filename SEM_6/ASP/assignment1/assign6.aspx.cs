@@ -55,6 +55,8 @@ public partial class assign6 : System.Web.UI.Page
                 {
                setColor += RadioButton6.Text;
                 isSelected = true;
+
+
             }
 
                if(!isSelected)

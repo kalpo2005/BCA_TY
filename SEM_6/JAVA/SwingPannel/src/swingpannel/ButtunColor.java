@@ -5,47 +5,38 @@
  */
 package swingpannel;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class ButtunColor extends JFrame implements ActionListener {
 
-    JButton red, blue, green, pink, cyne, orange, magenta;
+    JButton red, green, blue, pink,magenta;
 
     public ButtunColor() {
 
         red = new JButton("Red");
-        add(red);
-        red.addActionListener(this);
-
-        blue = new JButton("Blue");
-        add(blue);
-        blue.addActionListener(this);
-
         green = new JButton("Green");
-        add(green);
-        green.addActionListener(this);
-
+        blue = new JButton("Blue");
         pink = new JButton("Pink");
-        add(pink);
-        pink.addActionListener(this);
-        
-        cyne = new JButton("Cyne");
-        add(cyne);
-        cyne.addActionListener(this);
-
         magenta = new JButton("Magenta");
+        
+        add(red);
+        add(green);
+        add(blue);
+        add(pink);
         add(magenta);
+
+        red.addActionListener(this);
+        green.addActionListener(this);
+        blue.addActionListener(this);
+        pink.addActionListener(this);
         magenta.addActionListener(this);
 
-        orange = new JButton("Orange");
-        add(orange);
-        orange.addActionListener(this);
-
-        setSize(500, 800);
-        setTitle("button Color");
+        setSize(600, 800);
+        setTitle("color changes");
         setLayout(new FlowLayout());
         setVisible(true);
 
@@ -58,6 +49,10 @@ public class ButtunColor extends JFrame implements ActionListener {
             getContentPane().setBackground(Color.red);
         }
 
+        if (e.getSource() == pink) {
+            getContentPane().setBackground(Color.pink);
+        }
+
         if (e.getSource() == blue) {
             getContentPane().setBackground(Color.blue);
         }
@@ -65,23 +60,10 @@ public class ButtunColor extends JFrame implements ActionListener {
         if (e.getSource() == green) {
             getContentPane().setBackground(Color.green);
         }
-
-        if (e.getSource() == pink) {
-            getContentPane().setBackground(Color.pink);
-        }
         
         if (e.getSource() == magenta) {
             getContentPane().setBackground(Color.magenta);
         }
-        
-        if (e.getSource() == cyne) {
-            getContentPane().setBackground(Color.CYAN);
-        }
-        
-        if (e.getSource() == orange) {
-            getContentPane().setBackground(Color.orange);
-        }
-
     }
 
     public static void main(String[] args) {

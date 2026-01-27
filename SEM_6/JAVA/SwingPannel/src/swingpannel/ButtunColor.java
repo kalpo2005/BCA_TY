@@ -12,7 +12,7 @@ import javax.swing.*;
 
 public class ButtunColor extends JFrame implements ActionListener {
 
-    JButton red, blue, green;
+    JButton red, blue, green, pink, cyne, orange, magenta;
 
     public ButtunColor() {
 
@@ -27,6 +27,22 @@ public class ButtunColor extends JFrame implements ActionListener {
         green = new JButton("Green");
         add(green);
         green.addActionListener(this);
+
+        pink = new JButton("Pink");
+        add(pink);
+        pink.addActionListener(this);
+        
+        cyne = new JButton("Cyne");
+        add(cyne);
+        cyne.addActionListener(this);
+
+        magenta = new JButton("Magenta");
+        add(magenta);
+        magenta.addActionListener(this);
+
+        orange = new JButton("Orange");
+        add(orange);
+        orange.addActionListener(this);
 
         setSize(500, 800);
         setTitle("button Color");
@@ -48,6 +64,22 @@ public class ButtunColor extends JFrame implements ActionListener {
 
         if (e.getSource() == green) {
             getContentPane().setBackground(Color.green);
+        }
+
+        if (e.getSource() == pink) {
+            getContentPane().setBackground(Color.pink);
+        }
+        
+        if (e.getSource() == magenta) {
+            getContentPane().setBackground(Color.magenta);
+        }
+        
+        if (e.getSource() == cyne) {
+            getContentPane().setBackground(Color.CYAN);
+        }
+        
+        if (e.getSource() == orange) {
+            getContentPane().setBackground(Color.orange);
         }
 
     }

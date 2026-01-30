@@ -7,10 +7,16 @@
     <title>Untitled Page</title>
 </head>
 <body>
-    <p>
-&nbsp;n</p>
     <form id="form1" runat="server">
     <div>
+    
+        <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/4home.aspx">Home</asp:LinkButton>
+&nbsp;&nbsp;
+        <asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="~/4aboutus.aspx">About 
+        Us</asp:LinkButton>
+&nbsp;&nbsp;
+        <asp:LinkButton ID="LinkButton3" runat="server" PostBackUrl="~/4contactus.aspx">Contact 
+        Us</asp:LinkButton>
     
     </div>
     </form>

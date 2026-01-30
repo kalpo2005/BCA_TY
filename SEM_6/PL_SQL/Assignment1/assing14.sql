@@ -8,7 +8,7 @@
      area   NUMBER(10,2)
  );
 
-DECLAREn
+DECLARE
     r NUMBER;
     a NUMBER;
     isDone VARCHAR(10) := 'NO';

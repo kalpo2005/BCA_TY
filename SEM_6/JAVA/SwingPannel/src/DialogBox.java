@@ -24,6 +24,7 @@ public class DialogBox {
         obj.add(b);
         
         b.addActionListener((e) -> {
+        
             JDialog d = new JDialog(obj,"kalpesh",true);
             d.setSize(200, 200);
             d.setLayout(null);

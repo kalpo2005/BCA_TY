@@ -19,10 +19,27 @@ public partial class assign11 : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
+
+        bool isInsert = false;
         for (int i = 0; i < ListBox1.Items.Count; i++)
         {
-            if (ListBox1.Items[i].Selected )
-                ListBox2.Items.Add(ListBox1.Items[i].Text);
+            string name = ListBox1.Items[i].Text;
+            isInsert = false;
+            if (ListBox1.Items[i].Selected)
+            {
+
+                for (int j = 0; j < ListBox2.Items.Count; j++)
+                {
+                    if (ListBox2.Items[j].Text == name)
+                    {                                                
+                        isInsert = true;
+                        break;
+                    }
+                }
+                if (!isInsert)
+                    ListBox2.Items.Add(name);              
+            }
+         
         }
     }
     protected void Button2_Click(object sender, EventArgs e)

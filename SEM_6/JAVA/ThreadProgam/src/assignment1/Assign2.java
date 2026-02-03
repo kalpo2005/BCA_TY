@@ -5,44 +5,45 @@
  */
 package assignment1;
 
-class ThreadAssign2 {
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-    void print() {
+class ThreadAssign2 extends Thread {
+
+    public void print() {
         for (int i = 1; i <= 5; i++) {
-            System.out.println("Number : " + i);
+            System.out.println("Prin Nuber : " + i);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(ThreadAssign2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
     }
-
 }
 
-public class Assign2 extends Thread {
+public class Assign2 {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
-        ThreadAssign2 kal = ThreadAssign2();
+        ThreadAssign2 th = new ThreadAssign2();
 
-        Thread th;
-        th = new Thread() {
+        Thread t1 = new Thread() {
             @Override
             public void run() {
-                kal.print();
+                th.print();
             }
         };
 
-        Thread th2 = new Thread() {
-            @Override
-            public void run() {
-                kal.print();
-            }
-        };
-        
-        th.start();
-        th.join(5000);
-        th2.start();
+        t1.start();
+        try {
+            t1.join();
 
-    }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Assign2.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-    private static ThreadAssign2 ThreadAssign2() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Main Thread done !!!");
     }
 }

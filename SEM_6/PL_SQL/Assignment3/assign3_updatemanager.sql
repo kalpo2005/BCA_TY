@@ -5,23 +5,37 @@ department to the employee in the department with highest salary. */
  -- @ D:\KALPESH_BAVALIYA\SEM_6\PL_SQL\Assignment3\assign3_updatemanager.sql
  
  
- CREATE OR REPLACE PROCEDURE updateManager(deptId IN NUMBER)
- IS
-	managerId ROWTYPE%department.deptId;
-	empId ROWTYPE%employee.empId;
- BEGIN
-	
-	SELECT deptId INTO managerId FROM department WHERE deptName = 'MANAGER';
-	
-	SELECT e.empId INTO empId FROM employee e, department d WHERE e.deptId = d.deptId AND d.deptId = deptId AND e.salary = (SELECT MAX(salary) FROM employee WHERE deptId = deptId);
-	
-	UPDATE employee SET deptId = managerId WHERE empId = empId;
+ CREATE OR REPLACE PROCEDURE updateManager (
+    deptIdParam IN NUMBER
+) IS
+    v_manager_id employee.empId%TYPE;
+BEGIN
+    -- Find employee with highest salary in the department
+    SELECT empId
+    INTO v_manager_id
+    FROM employee
+    WHERE deptId = deptIdParam
+      AND salary = (
+          SELECT MAX(salary)
+          FROM employee
+          WHERE deptId = deptIdParam
+      );
+
+    -- Update manager for all employees in that department
+    UPDATE employee
+    SET manager = v_manager_id
+    WHERE deptId = deptIdParam
+      AND empId <> v_manager_id;
+
+    DBMS_OUTPUT.PUT_LINE(
+        'Manager updated to employee ID ' || v_manager_id
+    );
+END;
+/
  
- END;
- /
  /*
-drop table department;
 drop table employee;
+drop table department;
 
 
 CREATE TABLE department (
@@ -31,7 +45,7 @@ CREATE TABLE department (
 );
 
 INSERT INTO department(deptId,deptName,city) VALUES (10,'DEVELOPER','AHMEDABAD');
-INSERT INTO department(deptId,deptName,city) VALUES (20,'MMANAGER','SURAT');
+INSERT INTO department(deptId,deptName,city) VALUES (20,'MANAGER','SURAT');
 INSERT INTO department(deptId,deptName,city) VALUES (30,'TESTER','VADODARA');
 
 
@@ -61,3 +75,6 @@ select * from department;
 select * from employee;
 
 */
+
+UPDATE employee
+    SET manager = null;

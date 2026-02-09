@@ -12,7 +12,8 @@ BEGIN
 	OPEN myCursor;
 	
 	LOOP 
-	
+
+		EXIT WHEN myCursor%NOTFOUND;
 		FETCH myCursor INTO memoryVariable;
 		DBMS_OUTPUT.PUT_LINE('ID : ' || memoryVariable.empId);
 		DBMS_OUTPUT.PUT_LINE('NAME : ' || memoryVariable.empName);
@@ -20,7 +21,7 @@ BEGIN
 		DBMS_OUTPUT.PUT_LINE(' ');
 		
 		
-		EXIT WHEN myCursor%NOTFOUND;
+		
 	
 	END LOOP;
 	CLOSE myCursor;

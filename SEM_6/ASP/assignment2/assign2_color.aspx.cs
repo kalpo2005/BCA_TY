@@ -21,11 +21,20 @@ public partial class assign2_color : System.Web.UI.Page
     {
         string signal = DropDownList1.SelectedValue;
 
-        if(signal == "Red")
-            Label2.Text = " Please stop your car ";
-        else if (signal == "Yellow")
-            Label2.Text = " Ready to go” ";
-        else if(signal == "Green")
-            Label2.Text = " Go and enjoy your ride !!! ";
+        switch (signal)
+        {
+            case "Red": Label2.Text = " Please stop your car ";
+                break;
+
+                 case "Yellow'": Label2.Text = " Ready to go” ";
+                break;
+
+                 case "Green":   Label2.Text = " Go and enjoy your ride !!! ";
+                break;
+
+                 default: Label2.Text = " No any option selected !!! ";
+                break;
+
+        }
     }
 }

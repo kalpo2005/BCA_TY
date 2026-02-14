@@ -5,8 +5,7 @@
  */
 package unit2;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -20,13 +19,8 @@ public class NewClass {
         JButton b1=new JButton("submit");
         b1.setBounds(20, 20, 120, 30);
         j.add(b1);
-        b1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                    System.out.println("MANOJ GOHIL "+e.getActionCommand());
-            }
-            
-        });
+        
+      
         j.setSize(500,500);
         j.setLayout(null);
         j.setVisible(true);

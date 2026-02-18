@@ -8,7 +8,7 @@ structure of table student.  */
 CREATE OR REPLACE PROCEDURE updateStandard
 IS
 BEGIN
-	UPDATE student SET standard =  (standard + 1) WHERE mark1 >= 33 AND mark1 >= 33 AND mark1 >= 33;
+	UPDATE student SET standard =  (standard + 1) WHERE mark1 >= 33 AND mark2 >= 33 AND mark3 >= 33;
 	
 	DBMS_OUTPUT.PUT_LINE('Standard Updated successfully !!!');
 	

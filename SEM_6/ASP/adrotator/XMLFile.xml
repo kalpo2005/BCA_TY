@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Advertisements>
+  <Ad>
+    <ImageUrl>~\images\images1.jpg</ImageUrl>
+    <NavigateUrl>https://www.goggle.com</NavigateUrl>
+    <AlternateText>Image 1</AlternateText>
+    <Impressions>20</Impressions>
+    <Keyword>ui/ux</Keyword>
+  </Ad>
+
+  <Ad>
+    <ImageUrl>~\images\images2.png</ImageUrl>
+    <NavigateUrl>https://www.goggle.com</NavigateUrl>
+    <AlternateText>Image 2</AlternateText>
+    <Impressions>10</Impressions>
+    <Keyword>Marketing</Keyword>
+  </Ad>
+
+  <Ad>
+    <ImageUrl>~\images\images3.png</ImageUrl>
+    <NavigateUrl>https://www.goggle.com</NavigateUrl>
+    <AlternateText>Image 3</AlternateText>
+    <Impressions>50</Impressions>
+    <Keyword>developer</Keyword>
+  </Ad>
+  
+</Advertisements>

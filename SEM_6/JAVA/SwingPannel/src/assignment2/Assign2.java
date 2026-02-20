@@ -48,11 +48,27 @@ public class Assign2 extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String selected = '';
+        String selected = "";
         
         if (bca.isSelected()) {
-            
+            selected += "BCA,";
         }
+
+        if (bcom.isSelected()) {
+            selected += " BCOM,";
+        }
+
+        if (bsc.isSelected()) {
+            selected += " BSC,";
+        }
+        if (ba.isSelected()) {
+            selected += " BA,";
+        }
+        if (selected.isEmpty()) {
+            selected = "Select a right course !!!";
+        }
+        
+        JOptionPane.showMessageDialog(null, selected, " Message", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public static void main(String[] args) {

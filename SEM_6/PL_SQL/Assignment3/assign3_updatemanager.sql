@@ -23,7 +23,7 @@ BEGIN
 
     -- Update manager for all employees in that department
     UPDATE employee
-    SET manager = v_manager_id
+    SET manager = deptIdParam
     WHERE deptId = deptIdParam
       AND empId <> v_manager_id;
 

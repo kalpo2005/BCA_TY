@@ -2,10 +2,10 @@
 
 DECLARE
 	
-	jobTitle VARCHAR2;
+	jobTitle VARCHAR2(20);
 	
 BEGIN
-	jobTitle := &JOB_TITLE;
+	jobTitle := '&JOB_TITLE';
 	jobEmpData(jobTitle);
 END;
 /

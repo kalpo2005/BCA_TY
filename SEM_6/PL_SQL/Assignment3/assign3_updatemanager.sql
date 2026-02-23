@@ -25,7 +25,7 @@ BEGIN
     UPDATE employee
     SET manager = deptIdParam
     WHERE deptId = deptIdParam
-      AND empId <> v_manager_id;
+      AND empId = v_manager_id;
 
     DBMS_OUTPUT.PUT_LINE(
         'Manager updated to employee ID ' || v_manager_id
@@ -74,7 +74,7 @@ select * from department;
 
 select * from employee;
 
-*/
-
 UPDATE employee
     SET manager = null;
+*/
+

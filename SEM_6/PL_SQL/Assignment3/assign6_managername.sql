@@ -6,12 +6,12 @@
 CREATE OR REPLACE FUNCTION getManagerName (
     deptIdParam IN NUMBER) RETURN VARCHAR2
  IS
-    empName employee.empName%TYPE;
+    empNameParam employee.empName%TYPE;
 BEGIN
     
-	SELECT empName INTO empName FROM employee WHERE manager =  deptIdParam;
+	SELECT empName INTO empNameParam FROM employee WHERE manager =  deptIdParam;
 	
-	RETURN 'MANAGER NAME IS A :' || empName;
+	RETURN 'MANAGER NAME IS A :' || empNameParam;
 	
 	EXCEPTION
 		

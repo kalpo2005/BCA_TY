@@ -3,11 +3,12 @@
 DECLARE
 	
 	deptId NUMBER;
-	returnData VARCHAR2(100);
+	returnData VARCHAR2(100) := '';
 	
 BEGIN
 	deptId := &dept_id;
 	returnData := getManagerName(deptId);
-	DBMS_OUPUT.PUT_LINE(returnData);
+	DBMS_OUTPUT.PUT_LINE(returnData);
+	
 END;
 /

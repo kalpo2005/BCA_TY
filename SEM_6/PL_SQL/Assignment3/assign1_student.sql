@@ -4,6 +4,7 @@
 -- @ D:\KALPESH_BAVALIYA\SEM_6\PL_SQL\Assignment3\assign1_student.sql
 /*
 DROP TABLE student;
+
 CREATE TABLE student(
 rollNumber NUMBER(5) PRIMARY KEY,
 name VARCHAR2(100),

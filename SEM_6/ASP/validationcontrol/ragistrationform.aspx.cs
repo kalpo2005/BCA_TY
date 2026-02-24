@@ -32,4 +32,18 @@ public partial class ragistrationform : System.Web.UI.Page
     {
 
     }
+    protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        args.IsValid = false;
+
+        if (RadioButton1.Checked || RadioButton2.Checked)
+            args.IsValid = true;
+    }
+    protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        args.IsValid = false;
+
+        if (CheckBox1.Checked || CheckBox2.Checked || CheckBox3.Checked)
+            args.IsValid = true;
+    }
 }

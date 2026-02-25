@@ -2,7 +2,7 @@
 salary <20000 an  salary>=10000 than give raise by 20%. If salary>20000 than give 
 raise by 10%.  */
 
- -- SET SERVEROUTPUT ON;
+ -- SET SERVEROUTPUT ON; 	
  -- @ D:\KALPESH_BAVALIYA\SEM_6\PL_SQL\Assignment3\assign9_empSalary.sql
  
 CREATE OR REPLACE FUNCTION empSalaryIncrease (

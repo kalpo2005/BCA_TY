@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="~/assign4_sitemap.aspx" title="Electronics"  description="">
+        <siteMapNode url="~/sitemap/samasung.aspx" title="Samsung"  description="" />
+      <siteMapNode url="~/sitemap/vivo.aspx" title="Vivo"  description="" />
+      <siteMapNode url="~/sitemap/dell.aspx" title="Dell"  description="" />
+      <siteMapNode url="~/sitemap/lenovo.aspx" title="Lenovo"  description="" />
+    </siteMapNode>
+</siteMap>

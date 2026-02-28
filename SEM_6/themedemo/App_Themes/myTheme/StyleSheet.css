@@ -1,0 +1,38 @@
+﻿body 
+{
+	background-color:aqua;
+}
+
+.button
+{
+	margin-inline:10px;
+	padding:5px 10px;
+	color:White;
+	border: 2px solide green;
+	border-radius:5px;
+	transition: 500ms ease-in all;
+}
+
+.button:hover
+{
+	transform: translateY(-10px);
+	transform: scale(1.2);
+}
+	
+
+#Button1
+{
+	background-color:blue;
+}
+
+#Button2
+{
+	background-color:green;
+}
+
+
+#Button3
+{
+	background-color:red;
+}
+	

@@ -1,0 +1,6 @@
+﻿ <asp:Button runat="server" ForeColor="White" 
+            Text="Button" Width="150px" cssClass="button" SkinId="btn1" />
+            
+ <asp:Button runat="server" BackColor="#666633" 
+            BorderColor="#FF3300" BorderWidth="2px" ForeColor="#CCFFFF" Height="50px" 
+            Text="Button" Width="150px" SkinId="btn2" cssClass="button" />

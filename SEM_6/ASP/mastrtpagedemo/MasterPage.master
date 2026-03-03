@@ -1,0 +1,97 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+   
+        <form id="form2" runat="server">
+   
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+    <div>
+    
+        <table class="style1">
+            <tr>
+                <td class="style2">
+                    <asp:Image ID="Image1" runat="server" Height="150px" Width="150px" 
+                        ImageUrl="~/images/images3.png" />
+                </td>
+                <td>
+                    <h1  style="text-align:center">SHREE ADARSH BCA COLLEGE</h1></td>
+            </tr>
+            <tr>
+                <td class="style2">
+                      <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" Width="250px">
+                        <Items>
+                            <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Default.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Staff" Value="Staff" NavigateUrl="~/pages/staff.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Contact Us" Value="About Us" 
+                                NavigateUrl="~/pages/contactus.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="About Us" Value="New Item" NavigateUrl="~/pages/about.aspx"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu></td>
+                <td>
+                  &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style2" colspan="2">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style2"  style="text-align:center" colspan="2">
+                    Copyright@2026</td>
+            </tr>
+        </table>
+    
+    </div>
+        
+        </asp:ContentPlaceHolder>
+    </form>
+        
+        </body>
+</html>

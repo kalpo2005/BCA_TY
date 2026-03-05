@@ -1,0 +1,106 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage7.master.cs" Inherits="MasterPage7" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head id="Head1" runat="server">
+    <title>Untitled Page</title>
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+        }
+        .style2
+        {
+        }
+        .style3
+        {
+            width: 755px;
+        }
+        .style4
+        {
+        }
+        .style5
+        {
+            width: 755px;
+            height: 23px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <table class="style1">
+        <tr>
+            <td class="style2">
+                <asp:Image ID="Image1" runat="server" Height="100px" 
+                    ImageUrl="~/images/images2.png" Width="100px" />
+            </td>
+            <td class="style3">
+                <h2 style="text-align:center">SHREE ADARSH BCA COLLEGE</h2></td>
+        </tr>
+        <tr>
+            <td class="style2">
+                &nbsp;</td>
+            <td style="display:flex; justify-content:flex-end" class="style3">
+                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" Width="400px">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/assign7_masterpage.aspx" Text="Home" Value="Home">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="About us" Value="About us" 
+                            NavigateUrl="~/page_assign7/about.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Ragistation" Value="Ragistation" 
+                            NavigateUrl="~/page_assign7/ragistation.aspx"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/page_assign7/photogallary.aspx" 
+                            Text="Photo Gallary" Value="Photo Gallary"></asp:MenuItem>
+                        <asp:MenuItem Text="Contact Us" Value="Contact Us" 
+                            NavigateUrl="~/page_assign7/contact.aspx"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </td>
+        </tr>
+        <tr>
+            <td class="style2">
+                &nbsp;</td>
+            <td class="style3">
+                &nbsp;</td>
+        </tr>
+        <tr style="display:flex; justify-content:center" >
+            <td class="style4" colspan="2">
+                <asp:AdRotator ID="AdRotator1" runat="server" Height="150px" Width="150px" 
+                    AdvertisementFile="~/adrotator.xml" />
+                </td>
+        </tr>
+        <tr>
+            <td class="style2">
+                &nbsp;</td>
+            <td class="style3">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style2">
+                &nbsp;</td>
+            <td class="style3">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style2">
+                &nbsp;</td>
+            <td class="style3">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style2">
+                &nbsp;</td>
+            <td class="style3">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style2" colspan="2">
+                <p style="text-align:center">copyright@2026</p></td>
+        </tr>
+       
+    </table>
+    </form>
+</body>
+</html>

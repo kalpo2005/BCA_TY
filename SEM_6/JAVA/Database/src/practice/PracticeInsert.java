@@ -76,6 +76,7 @@ public class PracticeInsert {
                          JOptionPane.showMessageDialog(null, "Data succesfully inserted !!!!", "Message", JOptionPane.INFORMATION_MESSAGE);
                         idInput.setText("");
                         rollInput.setText("");
+                        nameInput.setText("");
                          return;
                     }
                     

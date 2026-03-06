@@ -1,0 +1,116 @@
+package database;
+
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
+public class datashow {
+
+static String dburl = "jdbc:ucanaccess://H:/stu.accdb";
+
+static Connection getCon() throws Exception {
+return DriverManager.getConnection(dburl);
+}
+
+public static void main(String[] args) {
+
+JFrame f = new JFrame();
+
+JLabel l1 = new JLabel("ID"); l1.setBounds(20,30,120,30);
+JLabel l2 = new JLabel("RollNo"); l2.setBounds(20,80,120,30);
+JLabel l3 = new JLabel("Name"); l3.setBounds(20,120,120,30);
+
+JTextField t1 = new JTextField(); t1.setBounds(80,30,120,30);
+JTextField t2 = new JTextField(); t2.setBounds(80,80,120,30);
+JTextField t3 = new JTextField(); t3.setBounds(80,120,120,30);
+
+JButton insert = new JButton("Submit"); insert.setBounds(20,180,120,30);
+JButton update = new JButton("Update"); update.setBounds(160,180,120,30);
+JButton delete = new JButton("Delete"); delete.setBounds(300,180,120,30);
+JButton show = new JButton("Show Data"); show.setBounds(20,230,120,30);
+
+String column[] = {"ID","RollNo","Name"};
+DefaultTableModel model = new DefaultTableModel(column,0);
+JTable table = new JTable(model);
+JScrollPane sp = new JScrollPane(table);
+sp.setBounds(20,280,400,150);
+
+f.add(l1); f.add(l2); f.add(l3);
+f.add(t1); f.add(t2); f.add(t3);
+f.add(insert); f.add(update); f.add(delete); f.add(show);
+f.add(sp);
+
+insert.addActionListener(e -> {
+try(Connection con=getCon();
+PreparedStatement ps=con.prepareStatement(
+"INSERT INTO Student(ID,RollNo,SName) VALUES(?,?,?)")){
+
+ps.setInt(1,Integer.parseInt(t1.getText()));
+ps.setInt(2,Integer.parseInt(t2.getText()));
+ps.setString(3,t3.getText());
+
+if(ps.executeUpdate()>0)
+JOptionPane.showMessageDialog(f,"Data Inserted");
+
+}catch(Exception ex){
+JOptionPane.showMessageDialog(f,"Error "+ex.getMessage());
+}
+});
+
+update.addActionListener(e -> {
+try(Connection con=getCon();
+PreparedStatement ps=con.prepareStatement(
+"UPDATE Student SET RollNo=?,SName=? WHERE ID=?")){
+
+ps.setInt(1,Integer.parseInt(t2.getText()));
+ps.setString(2,t3.getText());
+ps.setInt(3,Integer.parseInt(t1.getText()));
+
+if(ps.executeUpdate()>0)
+JOptionPane.showMessageDialog(f,"Data Updated");
+
+}catch(Exception ex){
+JOptionPane.showMessageDialog(f,"Error "+ex.getMessage());
+}
+});
+
+delete.addActionListener(e -> {
+try(Connection con=getCon();
+PreparedStatement ps=con.prepareStatement(
+"DELETE FROM Student WHERE ID=?")){
+
+ps.setInt(1,Integer.parseInt(t1.getText()));
+
+if(ps.executeUpdate()>0)
+JOptionPane.showMessageDialog(f,"Data Deleted");
+
+}catch(Exception ex){
+JOptionPane.showMessageDialog(f,"Error "+ex.getMessage());
+}
+});
+
+show.addActionListener(e -> {
+try(Connection con=getCon();
+PreparedStatement ps=con.prepareStatement(
+"SELECT * FROM Student");
+ResultSet rs=ps.executeQuery()){
+
+model.setRowCount(0);
+
+while(rs.next())
+model.addRow(new Object[]{
+rs.getInt("ID"),
+rs.getInt("RollNo"),
+rs.getString("SName")
+});
+
+}catch(Exception ex){
+JOptionPane.showMessageDialog(f,"Error "+ex.getMessage());
+}
+});
+
+f.setSize(500,500);
+f.setLayout(null);
+f.setVisible(true);
+}
+}

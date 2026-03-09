@@ -18,14 +18,35 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Label3.Visible = false;
+        GridView1.Visible = false;
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        string sql = "INSERT INTO studenttest(name,city) VALUES(@name,@city)";
+        string sql = "INSERT INTO studenttest(name,city,gender,course) VALUES(@name,@city,@gender,@course)";
+
+        string gender = "";
+        string course = "";
+
+        if (RadioButton1.Checked)
+            gender = RadioButton1.Text;
+
+        if (RadioButton2.Checked)
+            gender = RadioButton1.Text;
+
+        if (CheckBox1.Checked)
+            course = CheckBox1.Text + ", ";
+
+        if (CheckBox2.Checked)
+            course += CheckBox2.Text + ", ";
+
+        if (CheckBox3.Checked)
+            course += CheckBox3.Text;
 
         SqlCommand cmd = new SqlCommand(sql,conn);
         cmd.Parameters.AddWithValue("@name", TextBox1.Text);
         cmd.Parameters.AddWithValue("@city", TextBox2.Text);
+        cmd.Parameters.AddWithValue("@gender", gender);
+        cmd.Parameters.AddWithValue("@course", course);
 
         conn.Open();
 
@@ -34,5 +55,23 @@ public partial class _Default : System.Web.UI.Page
 
         
         conn.Close();
+    }
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+
+        string select = "SELECT * FROM studenttest";
+
+        GridView1.Visible = true;
+        SqlDataAdapter da = new SqlDataAdapter(select,conn);
+
+        DataTable table = new DataTable();
+        da.Fill(table);
+        GridView1.DataSource = table;
+        GridView1.DataBind();
+    }
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        int id = int.Parse(TextBox3.Text);
+        
     }
 }

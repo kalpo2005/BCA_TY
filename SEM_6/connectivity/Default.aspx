@@ -51,7 +51,8 @@
         
         <asp:Button ID="Button2" runat="server"
             style="margin-left: 10px; margin-bottom: 2px" Text="Update" 
-            Width="131px" BackColor="#FFFF66" ForeColor="Black" />
+            Width="131px" BackColor="#FFFF66" ForeColor="Black" 
+            onclick="Button2_Click" />
         &nbsp;&nbsp;&nbsp;
         
         <asp:Button ID="Button3" runat="server"
@@ -63,11 +64,11 @@
         <asp:Button ID="Button4" runat="server"
             style="margin-left: 10px; margin-bottom: 2px" Text="Display" 
             Width="131px" BackColor="#3399FF" ForeColor="White" 
-            onclick="Button4_Click" />
+            onclick="Button4_Click" Height="26px" />
         &nbsp;
         <asp:Button ID="Button5" runat="server" 
             style="margin-left: 10px; margin-bottom: 2px" Text="Search" 
-            Width="131px" />
+            Width="131px" onclick="Button5_Click" />
         &nbsp;
         &nbsp;
         <br />

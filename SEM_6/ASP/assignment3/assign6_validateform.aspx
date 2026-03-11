@@ -41,7 +41,7 @@
         ErrorMessage="Pincode Required !!!"></asp:RequiredFieldValidator>
 &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator1" 
         runat="server" ControlToValidate="TextBox3" Display="Dynamic" 
-        ErrorMessage="Must be Valid Pincode !!!" ValidationExpression="\d{6}"></asp:RegularExpressionValidator>
+        ErrorMessage="Must be Valid Pincode !!!" ValidationExpression=s></asp:RegularExpressionValidator>
     <br />
     <br />
     <asp:Label ID="Label5" runat="server" Text="Age :"></asp:Label>

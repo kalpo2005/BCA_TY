@@ -18,18 +18,20 @@ public class Ragister extends JFrame implements ActionListener {
     JButton insertBtn, clearBtn, updateBtn, deleteBtn, showBtn;
     JRadioButton male, female;
     JTextArea address;
+    JComboBox<String> comboBox;
 
-    String fullnameValue, genderValue, emailValue;
+    String fullnameValue, genderValue, emailValue, comboValue, addressValue;
     int idValue, ageValue, phoneValue;
 
     final String DB_PATH = "jdbc:ucanaccess://D:/KALPESH_BAVALIYA/SEM_6/JAVA/Database/src/database/dynamicinsert.accdb";
+    Connection conn;
 
     public Ragister() {
 
         String[] color = {"Select", "bca", "mca", "mscId", "yellow"};
-        JComboBox<String> comboBox = new JComboBox<>(color);
-        add(comboBox);
-        Connection conn = this.getConnection();
+        comboBox = new JComboBox<>(color);
+        comboBox.setSelectedIndex(1);
+        conn = this.getConnection();
 
         idLable = new JLabel("Student Id :");
         fullnameLable = new JLabel("Full Name :");
@@ -138,11 +140,9 @@ public class Ragister extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 //         System.out.println(e.getSource());
         if (e.getActionCommand() == "Insert") {
-            if (validateData()) {
+            if (validateData(false)) {
                 insertData();
             }
-            return;
-
         }
 
         if (e.getActionCommand() == "Update") {
@@ -157,22 +157,88 @@ public class Ragister extends JFrame implements ActionListener {
             showData();
         }
         if (e.getActionCommand() == "Clear") {
-            showData();
+            clearData();
         }
     }
 
-    private boolean validateData() {
+    private boolean validateData(boolean isId) {
 
         try {
-            idValue = Integer.parseInt(id.getText());
+            if (isId) {
+                idValue = Integer.parseInt(id.getText());
+            }
+
             ageValue = Integer.parseInt(age.getText());
             phoneValue = Integer.parseInt(phone.getText());
 
         } catch (NumberFormatException num) {
-            errorDialog();
+            errorDialog(num.getMessage());
+            return false;
+        }
+        ageValue = Integer.parseInt(age.getText());
+        phoneValue = Integer.parseInt(phone.getText());
+
+        fullnameValue = fullname.getText();
+        emailValue = email.getText();
+        addressValue = address.getText();
+
+        if (male.isSelected() || female.isSelected()) {
+            genderValue = male.isSelected() ? "Male" : "Female";
+        } else {
+            errorDialog("Select Gender !!!");
             return false;
         }
 
+        comboValue = comboBox.getSelectedItem().toString();
+        if (comboValue.isEmpty() || comboValue == "Select") {
+            errorDialog("Select Right Education !!!");
+            return false;
+        }
+
+        if (fullnameValue.isEmpty()) {
+            errorDialog("Student FullName Required !!!");
+            return false;
+        }
+        if (emailValue.isEmpty()) {
+            errorDialog("Student Email Required !!!");
+            return false;
+        }
+
+        if (addressValue.isEmpty()) {
+            errorDialog("Student Email Required !!!");
+            return false;
+        }
+
+        fullnameValue = fullname.getText();
+        emailValue = email.getText();
+        addressValue = address.getText();
+
+        if (male.isSelected() || female.isSelected()) {
+            genderValue = male.isSelected() ? "Male" : "Female";
+        } else {
+            errorDialog("Select Gender !!!");
+            return false;
+        }
+
+        comboValue = comboBox.getSelectedItem().toString();
+        if (comboValue.isEmpty() || comboValue == "Select") {
+            errorDialog("Select Right Education !!!");
+            return false;
+        }
+
+        if (fullnameValue.isEmpty()) {
+            errorDialog("Student FullName Required !!!");
+            return false;
+        }
+        if (emailValue.isEmpty()) {
+            errorDialog("Student Email Required !!!");
+            return false;
+        }
+
+        if (addressValue.isEmpty()) {
+            errorDialog("Student Email Required !!!");
+            return false;
+        }
         return true;
     }
 
@@ -185,7 +251,30 @@ public class Ragister extends JFrame implements ActionListener {
     }
 
     private void insertData() {
-        System.out.println("Insert function call ");
+
+        try {
+            String insert = "INSERT INTO ragister(fullname,age,gender,course,email,address,phonenumber) VALUES(?,?,?,?,?,?,?);";
+            PreparedStatement stmt = conn.prepareStatement(insert);
+
+            stmt.setString(1, fullnameValue);
+            stmt.setString(3, genderValue);
+            stmt.setString(4, comboValue);
+            stmt.setString(5, emailValue);
+            stmt.setString(6, addressValue);
+
+            stmt.setInt(2, ageValue);
+            stmt.setInt(7, phoneValue);
+            
+            if (stmt.executeUpdate() > 0) {
+                confirmDialog("Data successfully inserted");
+            } else {
+                errorDialog("DataNot inserted ");
+            }
+
+        } catch (Exception ex) {
+            errorDialog(ex.getMessage());
+        }
+
     }
 
     private void deletetData() {
@@ -202,6 +291,15 @@ public class Ragister extends JFrame implements ActionListener {
 
     private void clearData() {
         System.out.println("Clear function call ");
+
+        id.setText("");
+        fullname.setText("");
+        age.setText("");
+
+        comboBox.setSelectedIndex(0);
+        email.setText("");
+        phone.setText("");
+        address.setText("");
     }
 
     private Connection getConnection() {
